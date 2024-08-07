@@ -1,0 +1,289 @@
+@import '../../global/variables.scss';
+
+/**
+* Exposed css variables
+*
+* @prop --time-picker-color: The color of the time picker default is `#8f95b2`
+* @prop --time-picker-dropdown-box-shadow: The box shadow of the time picker dropdown default is `0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12)`
+* @prop --time-picker-font-family: The font family of the time picker default is `Work Sans`
+* @prop --time-picker-transition-duration: The transition duration of the time picker default is `0.3s`
+* @prop --time-picker-bg-color: The background color of the time dropdown default is `#ffffff`
+* @prop --time-picker-active-bg: The background color of the active time default is `#e47453`
+* @prop --time-picker-active-color: The text color of the active time default is `#ffffff`
+* @prop --time-picker-disabled-color: The text color of the disabled time default is `#8f95b2`
+* @prop --time-picker-focus-color: The focus color of the time picker default is `#e47453`
+* @prop --time-picker-panel-opacity: The opacity of the time picker panel default is `1`
+* @prop --time-picker-footer-padding: The padding of the time picker footer default is `0.5rem 0.75rem`
+* @prop --time-picker-footer-now-button-padding: The padding of the time picker footer now button default is `0.5rem 0.625rem`
+* @prop --time-picker-footer-ok-button-padding: The padding of the time picker footer ok button default is `0.35rem 0.625rem`
+* @prop --time-picker-footer-ok-button-br: The border radius of the time picker footer ok button default is `0.4125rem`
+* @prop --time-picker-panel-display: The display of the time picker panel default is `flex`
+*/
+
+:host {
+  display: block;
+  font-family: var(--time-picker-font-family, $base-font-family);
+  position: relative;
+  font-weight: 500;
+  color: var(--time-picker-color, $neutral-400);
+  button {
+    font-weight: 500;
+  }
+}
+
+:host(:focus-visible) {
+  @include focus;
+  border-radius: $base-border-radius;
+}
+
+* {
+  transition: all var(--time-picker-transition-duration, 0.3s) ease-out;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+:host(.size-small) {
+  font-size: $size-1;
+  width: 6.25rem;
+  button:is(.hour, .minute, .second, .meridian) {
+    font-size: 0.875rem;
+  }
+}
+:host(.size-small.seconds.meridian) {
+  width: 7rem;
+}
+
+:host(.size-medium) {
+  font-size: $size-2;
+  width: 9.25rem;
+  button:is(.hour, .minute, .second, .meridian) {
+    font-size: 0.875rem;
+  }
+}
+:host(.size-medium.seconds.meridian) {
+  width: 10rem;
+}
+
+:host(.size-large) {
+  font-size: $size-4;
+  width: 14rem;
+  button:is(.hour, .minute, .second, .meridian) {
+    font-size: 1rem;
+  }
+}
+:host(.size-large.seconds.meridian) {
+  width: 15rem;
+}
+
+.span {
+  @include center;
+  display: var(--time-picker-panel-display, flex);
+  cursor: pointer;
+  border-radius: $base-border-radius;
+  border: 1px solid var(--time-picker-color, $neutral-400);
+  color: var(--time-picker-color, $neutral-400);
+  opacity: var(--time-picker-panel-opacity, 1);
+
+  & > div {
+    @include center;
+    justify-content: space-between;
+    min-width: 90%;
+    p {
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  &.size-medium {
+    padding: $base-padding calc($base-padding * 2);
+    font-size: $size-2;
+  }
+
+  &.size-small {
+    padding: calc($base-padding / 2) $base-padding;
+    font-size: $size-1;
+  }
+
+  &.size-large {
+    padding: calc($base-padding * 2) calc($base-padding * 3);
+    font-size: $size-4;
+    gap: $size-1;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px rgba(5, 145, 255, 0.1);
+    border-color: var(--time-picker-focus-color, $orange-300);
+  }
+  &:hover {
+    border-color: var(--time-picker-focus-color, $orange-300);
+  }
+}
+
+main {
+  display: grid;
+  opacity: 0;
+  grid-template-rows: 0fr;
+  transition: all var(--time-picker-transition-duration, 0.3s) ease;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+
+  &.open {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+section {
+  height: 12.5rem;
+  background: var(--time-picker-bg-color, $light);
+  display: flex;
+  justify-content: space-evenly;
+  vertical-align: top;
+  border-radius: 0.5rem;
+  box-shadow: var(--time-picker-dropdown-box-shadow, 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12));
+  padding-bottom: 0.4375rem;
+
+  summary {
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+      width: 0.3125rem;
+      height: 0.3125rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f1f100;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #888888;
+      border-radius: 0.3125rem;
+      display: none;
+    }
+    &:hover {
+      &::-webkit-scrollbar-thumb {
+        display: block;
+      }
+    }
+  }
+}
+
+button.minute,
+button.hour,
+button.second,
+button.meridian {
+  @include center;
+  padding: 0.3125rem 0;
+  border-radius: 0.3125rem;
+  color: var(--time-picker-color, $neutral-600);
+  background: none;
+  border: none;
+  width: 100%;
+  height: 100%;
+  font-family: var(--time-picker-font-family, $base-font-family);
+  cursor: pointer;
+
+  &.active {
+    background: var(--time-picker-active-bg, $orange-400);
+    color: var(--time-picker-active-color, $light);
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    color: var(--time-picker-disabled-color, $neutral-400);
+  }
+
+  &:focus-visible {
+    @include focus;
+    width: 80%;
+    margin-left: 10%;
+    &:first-of-type {
+      margin-top: 0.25rem;
+    }
+  }
+}
+
+footer {
+  @include center;
+  background: var(--time-picker-bg-color, $light);
+  border-radius: 0 0 0.5rem 0.5rem;
+  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12);
+  justify-content: space-between;
+  margin-top: -0.4375rem;
+  border-top: 1px solid $neutral-100;
+  padding: var(--time-picker-footer-padding, 0.5rem 0.75rem);
+  &.size-small {
+    padding: var(--time-picker-footer-padding, 0.25rem 0.5rem);
+    button {
+      padding: var(--time-picker-footer-now-button-padding, 0.25rem 0.3125rem);
+      border-radius: 0.123rem;
+      font-size: var(--time-picker-footer-now-button-font-size, $size-1);
+    }
+  }
+  &.size-medium {
+    padding: var(--time-picker-footer-padding, 0.5rem 0.75rem);
+    button {
+      padding: var(--time-picker-footer-now-button-padding, 0.5rem 0.625rem);
+      border-radius: 0.25rem;
+      font-size: var(--time-picker-footer-now-button-font-size, $size-2);
+    }
+  }
+  &.size-large {
+    padding: var(--time-picker-footer-padding, 0.75rem 1rem);
+    button {
+      padding: var(--time-picker-footer-now-button-padding, 0.75rem 0.9375rem);
+      border-radius: 0.375rem;
+      font-size: var(--time-picker-footer-now-button-font-size, $size-4);
+    }
+  }
+
+  button {
+    @include center;
+    margin: 0;
+    padding: 0;
+    color: var(--time-picker-active-bg, $orange-500);
+    font-family: var(--time-picker-font-family, $base-font-family);
+    background: none;
+    border: none;
+    cursor: pointer;
+    &:focus-visible {
+      @include focus;
+    }
+  }
+
+  button:last-of-type {
+    background: var(--time-picker-active-bg, $orange-500);
+    color: var(--time-picker-active-color, $light);
+    border-radius: var(--time-picker-footer-ok-button-br, 0.4125rem);
+    padding: var(--time-picker-footer-ok-button-padding, 0.35rem 0.625rem);
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.required {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  p {
+    margin: 0.2rem;
+    font-size: 0.8rem;
+    background: $red-200;
+    padding: 0.1rem 0.2rem;
+    border-radius: 0.25rem;
+    color: $red-500;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`amalitech-alert adds alerts correctly 1`] = `
+<amalitech-alert name="global">
+  <mock:shadow-root>
+    <div class="amalitech-alert position-bottom-right">
+      <div class="alert">
+        <amalitech-alert-content id="1" state="open">
+          <div slot="title">
+            Test Title
+          </div>
+          <div slot="subtitle">
+            Test Subtitle
+          </div>
+        </amalitech-alert-content>
+      </div>
+    </div>
+  </mock:shadow-root>
+</amalitech-alert>
+`;
+
+exports[`amalitech-alert renders alerts correctly 1`] = `
+<amalitech-alert name="global">
+  <mock:shadow-root>
+    <div class="amalitech-alert position-bottom-right"></div>
+  </mock:shadow-root>
+</amalitech-alert>
+`;

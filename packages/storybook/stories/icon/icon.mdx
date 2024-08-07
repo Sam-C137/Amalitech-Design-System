@@ -1,0 +1,99 @@
+import { Meta, Canvas } from '@storybook/addon-docs';
+import { IconGallery, IconItem, ArgTypes } from '@storybook/blocks';
+import Icons from './linear-icons.json';
+import * as IconStories from "../components/amalitech-icon/icon.stories.tsx"
+
+<Meta of={IconStories} />
+
+# Icons
+<hr />
+
+<div style={{
+    marginTop: '30px',
+}}></div>
+
+#### Props
+<ArgTypes of={IconStories} />
+
+## How to use `amalitech-icon` Components
+
+<div style={{
+    marginTop: '30px',
+}}></div>
+
+### `linear`
+
+```html
+<amalitech-icon-alarm></amalitech-icon-alarm>
+```
+
+### `bold`
+
+```html
+<amalitech-icon-alarm-bold></amalitech-icon-alarm-bold>
+```
+
+### `two-tone`
+
+```html
+<amalitech-icon-alarm-two-tone></amalitech-icon-alarm-two-tone>
+```
+
+### `bulk-two-tone`
+    
+```html
+<amalitech-icon-alarm-bulk-two-tone></amalitech-icon-alarm-bulk-two-tone>
+```
+
+## Exposed CSS Variables
+
+```css
+amlitech-icon-alarm {
+  --alarm-icon-color: #000;
+  --alarm-icon-width: 24px;
+  --alarm-icon-height: 24px;
+}
+```
+
+## Icon List
+
+<div style={{ marginTop: '20px' }}></div>
+
+<div style={{ marginTop: 16, display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', placeItems: 'center', gap: 16, marginTop: 32 }}>
+  {Icons.map(Icon => {
+    let markup = () => ({
+      __html: `${Icon.icon}`,
+    });
+    return (
+      <div
+        style={{
+          width: '170px',
+          height: '100px',
+          marginTop: '20px',
+        }}
+        key={Icon.label}
+      >
+        <h4
+          style={{
+            textAlign: 'left',
+          }}
+        >
+          {Icon.label}
+        </h4>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderRadius: '8px',
+            border: '1px solid #cbd5e1',
+            width: '100%',
+            height: 'calc(100% - 22px)',
+          }}
+        >
+          <span dangerouslySetInnerHTML={markup()}></span>
+        </div>
+      </div>
+    );
+  })}
+</div>

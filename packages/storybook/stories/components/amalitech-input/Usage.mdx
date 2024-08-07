@@ -1,0 +1,157 @@
+import * as InputStories from './amalitech-input.stories.tsx';
+import { Meta, Title, Description, Story, Canvas } from '@storybook/blocks';
+
+<Meta of={InputStories} />
+
+# How to use `amalitech-input`
+
+The AmalitechInput component is used to render an input field with additional styling. It is a wrapper for the HTML input element and provides a consistent look and feel across the application.
+You could use it like this:
+
+## Default
+
+<Canvas of={InputStories.Normal} />
+
+```html
+<amalitech-input></amalitech-input>
+```
+
+## Required With Input Validation
+
+<Canvas of={InputStories.WithInputValidation} />
+
+```html
+<amalitech-input pattern="[A-Za-z]{3}" label="Label" required placeholder="placeholder"><amalitech-input>
+```
+
+## With Icon
+
+<Canvas of={InputStories.WithIcon} />
+
+```html
+<amalitech-input placeholder="placeholder">
+  <svg slot="iconLeft" width="21" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="gray" preserveAspectRatio="xMinYMin" class="jam jam-search">
+    <path d="M8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12m6.32-1.094 3.58 3.58a1 1 0 1 1-1.415 1.413l-3.58-3.58a8 8 0 1 1 1.414-1.414z" />
+  </svg>
+<amalitech-input>
+```
+
+## Disabled
+
+<Canvas of={InputStories.Disabled} />
+
+```html
+<amalitech-input disabled placeholder="placeholder"><amalitech-input>
+```
+
+## ReadOnly
+
+<Canvas of={InputStories.ReadOnly} />
+
+```html
+<amalitech-input readonly placeholder="placeholder"><amalitech-input>
+```
+
+## With Float Label
+
+<Canvas of={InputStories.WithFloatLabel} />
+
+```html
+<amalitech-input float-label placeholder="placeholder"><amalitech-input>
+```
+
+## With id and name attribute
+
+Typically input elements may have an id or name associated with a label element you can add these attributes to the `amalitech-input` element like this:
+
+```html
+<form>
+    <label for="required">
+        <amalitech-input id="required" name="required" value="required"><amalitech-input>
+    </label>
+</form>
+```
+
+## Listening for events
+
+You can listen for a `valueChanged` event on the `amalitech-input` element
+
+```html
+<body>
+  <amalitech-input></amalitech-input>
+</body>
+<script>
+  const input = document.querySelector('amalitech-input');
+  /**
+   * @returns {
+   *        value: 'on',
+   *        checked: true // or false
+   *    }
+   */
+  input.addEventListener('valueChanged', e => {
+    console.log(e.detail);
+  });
+</script>
+```
+
+## Styling with CSS
+
+Custom styling can be applied with exposed CSS variables
+
+```html
+<head>
+  amalitech-input { 
+    --inputComponentWidth: 20px;
+      --inputPadding: 20px;
+      --inputBgColor: gray;
+      --inputWidth: 1rem;
+      --inputBorder: 1.2rem solid #000;
+      --inputTextColor: #000;
+      --inputHoverBorderColor: red;
+      --inputFocusBorderColor: red;
+      --inputErrorBorder: red;
+      --inputPlaceholderTextColor: red;
+      --inputTransition: 0.2s;
+      --inputFilledBg: red;
+      --inputFilledFocusBg: red;
+      --inputFilledHoverBg: red;
+      --inputIconColor: red;
+      --inputHelperTextSize: 2rem;
+      --inputHelperTextColor: red;
+      --inputLabelFontSize: 1rem;
+      --inputLabelFontWeight: 600;
+      --inputLabelColor: red;
+  } 
+</head>
+<body>
+  <amalitech-input></amalitech-input>
+</body>
+```
+
+## All CSS Variables
+
+```css
+    amalitech-input {
+        --inputComponentWidth: 20px;
+        --inputPadding: 20px;
+        --inputBgColor: gray;
+        --inputWidth: 1rem;
+        --inputBorder: 1.2rem solid #000;
+        --inputTextColor: #000;
+        --inputHoverBorderColor: red;
+        --inputFocusBorderColor: red;
+        --inputErrorBorder: red;
+        --inputPlaceholderTextColor: red;
+        --inputTransition: 0.2s;
+        --inputFilledBg: red;
+        --inputFilledFocusBg: red;
+        --inputFilledHoverBg: red;
+        --inputIconColor: red;
+        --inputHelperTextSize: 2rem;
+        --inputHelperTextColor: red;
+        --inputLabelFontSize: 1rem;
+        --inputLabelFontWeight: 600;
+        --inputLabelColor: red;
+        --input-BorderRadius: 0.3rem;
+    }
+```

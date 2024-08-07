@@ -1,0 +1,169 @@
+import * as AlertStories from "./amalitech-alert.stories.tsx";
+import { Meta, Title, Description, Story, Canvas } from "@storybook/blocks";
+
+<Meta of={AlertStories} />
+
+# How to use `amalitech-alert`
+
+The alert component is allows you to show alert messages to users
+
+You could use it like this:
+
+## Default
+
+<Canvas of={AlertStories.Normal} />
+
+```html
+<amalitech-alert>
+    <amalitech-alert-content>
+        <div slot="title">...</div>
+        <div slot="subtitle">...</div>
+    </amalitech-alert-content>
+</amalitech-alert>
+```
+
+## Showing the alert component
+
+To trigger the alert component, you need to trigger a custom event on the window with 
+with a detail which contians the title, subtitle and state of the alert, and a `target` 
+which matches the `name` attribute value, set to the alert component.
+
+```html
+<body>
+    <amalitech-alert name="demo-notification-manager">
+        <amalitech-alert-content>
+            <div slot="title">...</div>
+            <div slot="subtitle">...</div>
+        </amalitech-alert-content>
+    </amalitech-alert>
+
+    <amalitech-button>Alert Me</amalitech-button>
+
+    <script>
+        const alert = document.querySelector('amalitech-alert');
+        const button = document.querySelector('amalitech-button');
+
+        button.addEventListener('click', () => {
+            window.dispatchEvent(
+                new CustomEvent('alert:alert-notification', {
+                detail: {
+                    target: 'demo-notification-manager',
+                    title: 'Welcome',
+                    state: 'info',
+                    subtitle: 'This is Amalitech Design System',
+                },
+                }),
+            );
+        });
+    </script>
+</body>
+```
+
+
+## States
+
+This component has four main state: success, info, warning and error. Specify the state
+by setting it to the `state` attribute.
+
+### Success state
+
+```html
+<amalitech-alert>
+    <amalitech-alert-content state="success">
+        <div slot="title">...</div>
+        <div slot="subtitle">...</div>
+    </amalitech-alert-content>
+</amalitech-alert>
+```
+
+### Info state
+
+```html
+<amalitech-alert>
+    <amalitech-alert-content state="info">
+        <div slot="title">...</div>
+        <div slot="subtitle">...</div>
+    </amalitech-alert-content>
+</amalitech-alert>
+```
+
+### Warning state
+
+```html
+<amalitech-alert>
+    <amalitech-alert-content state="warning">
+        <div slot="title">...</div>
+        <div slot="subtitle">...</div>
+    </amalitech-alert-content>
+</amalitech-alert>
+```
+
+### Error state
+
+```html
+<amalitech-alert>
+    <amalitech-alert-content state="error">
+        <div slot="title">...</div>
+        <div slot="subtitle">...</div>
+    </amalitech-alert-content>
+</amalitech-alert>
+```
+
+## Position
+
+Changes the `position` of the alert component
+
+```html
+<amalitech-alert position="top-right">
+    <amalitech-alert-content>
+        <div slot="title">...</div>
+        <div slot="subtitle">...</div>
+    </amalitech-alert-content>
+</amalitech-alert>
+```
+
+
+## All CSS Variables
+
+```css
+amalitech-alert {
+    --z-index-notification-manager: 100;
+    --spacing-04: 0.75rem;
+}
+
+amalitech-alert-content {
+    --support-error: #da1e28;
+    --support-success: #198038;
+    --support-warning: #f1c21b;
+    --support-info: #0043ce;
+    --support-error-inverse: #fa4d56;
+    --support-success-inverse: #42be65;
+    --support-warning-inverse: #f1c21b;
+    --support-info-inverse: #4589ff;
+    --color-info-10: #edf5ff;
+    --color-info-20: #d0e2ff;
+    --color-info: #0f62fe;
+    --color-info-70: #0043ce;
+    --color-success-10: #defbe6;
+    --color-success-20: #a7f0ba;
+    --color-success: #198038;
+    --color-success-70: #0e6027;
+    --color-warning-10: #fcf4d6;
+    --color-warning-20: #fddc69;
+    --color-warning: #8e6a00;
+    --color-warning-70: #684e00;
+    --color-error-10: #fff1f1;
+    --color-error-20: #ffd7d9;
+    --color-error: #da1e28;
+    --color-error-70: #a2191f;
+    --spacing-05: 1rem;
+    --spacing-04: 0.75rem;
+    --spacing-03: 0.5rem;
+    --font-weight-bold: 700;
+    --button-padding: .5rem;
+    --text-primary: #dd5928;
+    --background-inverse: #393939;
+    --text-inverse: #fff;
+    --color-neutral-100: #161616;
+}
+```

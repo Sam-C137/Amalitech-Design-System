@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Table</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <table id="dynamicTable">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>CSS Properties</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script>
+      var tableData = [
+        { className: 'w-0', property: 'width: 0px;' },
+        { className: 'w-full', property: 'width: 100%;' },
+        { className: 'w-fit', property: 'width: fit-content;' },
+        { className: 'w-min', property: 'width: min-content;' },
+        { className: 'w-max', property: 'width: max-content;' },
+        { className: 'w-screen', property: 'width: 100vw;' },
+        { className: 'w-auto', property: 'width: auto;' },
+        { className: 'w-px', property: 'width: 1px;' },
+        { className: 'w-0.5', property: 'width: 2px;' },
+        { className: 'w-1', property: 'width: 4px;' },
+        { className: 'w-1.5', property: 'width: 6px;' },
+        { className: 'w-2', property: 'width: 8px;' },
+        { className: 'w-2.5', property: 'width: 10px;' },
+        { className: 'w-3', property: 'width: 12px;' },
+        { className: 'w-3.5', property: 'width: 14px;' },
+        { className: 'w-4', property: 'width: 16px;' },
+        { className: 'w-4.5', property: 'width: 18px;' },
+        { className: 'w-5', property: 'width: 20px;' },
+        { className: 'w-5.5', property: 'width: 22px;' },
+        { className: 'w-6', property: 'width: 24px;' },
+        { className: 'w-6.5', property: 'width: 26px;' },
+        { className: 'w-7', property: 'width: 28px;' },
+        { className: 'w-7.5', property: 'width: 30px;' },
+        { className: 'w-8', property: 'width: 32px;' },
+        { className: 'w-8.5', property: 'width: 34px;' },
+        { className: 'w-9', property: 'width: 36px;' },
+        { className: 'w-9.5', property: 'width: 38px;' },
+        { className: 'w-10', property: 'width: 40px;' },
+        { className: 'w-11', property: 'width: 44px;' },
+        { className: 'w-12', property: 'width: 48px;' },
+        { className: 'w-12', property: 'width: 56px;' },
+        { className: 'w-14', property: 'width: 64px;' },
+        { className: 'w-16', property: 'width: 80px;' },
+        { className: 'w-20', property: 'width: 96px;' },
+        { className: 'w-24', property: 'width: 112px;' },
+        { className: 'w-28', property: 'width: 128px;' },
+        { className: 'w-32', property: 'width: 144px;' },
+        { className: 'w-36', property: 'width: 160px;' },
+        { className: 'w-40', property: 'width: 176px;' },
+        { className: 'w-44', property: 'width: 192px;' },
+        { className: 'w-48', property: 'width: 208px;' },
+        { className: 'w-52', property: 'width: 224px;' },
+        { className: 'w-60', property: 'width: 240px;' },
+        { className: 'w-64', property: 'width: 256px;' },
+        { className: 'w-72', property: 'width: 288px;' },
+        { className: 'w-80', property: 'width: 320px;' },
+        { className: 'w-96', property: 'width: 384px;' },
+        { className: 'w-1-2', property: 'width: 50%;' },
+        { className: 'w-1-3', property: 'width: 33.333333%;' },
+        { className: 'w-2-3', property: 'width: 66.666667%;' },
+        { className: 'w-1-4', property: 'width: 25%;' },
+        { className: 'w-2-4', property: 'width: 50%;' },
+        { className: 'w-3-4', property: 'width: 75%;' },
+        { className: 'w-1-5', property: 'width: 20%;' },
+        { className: 'w-2-5', property: 'width: 40%;' },
+        { className: 'w-3-5', property: 'width: 60%;' },
+        { className: 'w-4-5', property: 'width: 80%;' },
+        { className: 'w-1-6', property: 'width: 16.666667%;' },
+        { className: 'w-2-6', property: 'width: 33.333333%;' },
+        { className: 'w-3-6', property: 'width: 50%;' },
+        { className: 'w-4-6', property: 'width: 66.666667%;' },
+        { className: 'w-5-6', property: 'width: 83.333333%;' },
+        { className: 'w-1-12', property: 'width: 8.333333%;' },
+        { className: 'w-2-12', property: 'width: 16.666667%;' },
+        { className: 'w-3-12', property: 'width: 25%;' },
+        { className: 'w-4-12', property: 'width: 33.333333%;' },
+        { className: 'w-5-12', property: 'width: 41.666667%;' },
+        { className: 'w-6-12', property: 'width: 50%;' },
+        { className: 'w-7-12', property: 'width: 58.333333%;' },
+        { className: 'w-8-12', property: 'width: 66.666667%;' },
+        { className: 'w-9-12', property: 'width: 75%;' },
+        { className: 'w-10-12', property: 'width: 83.333333%;' },
+        { className: 'w-11-12', property: 'width: 91.666667%;' },
+      ];
+
+      function generateTableRows(data) {
+        var tbody = document.querySelector('#dynamicTable tbody');
+        tbody.innerHTML = '';
+        data.forEach(function (row) {
+          var tr = document.createElement('tr');
+          var tdClass = document.createElement('td');
+          tdClass.style.color = '#dd5928';
+          tdClass.textContent = row.className;
+          var tdProperty = document.createElement('td');
+          tdProperty.style.color = row.propertyColor || '#334155';
+          tdProperty.textContent = row.property;
+          tr.appendChild(tdClass);
+          tr.appendChild(tdProperty);
+          tbody.appendChild(tr);
+        });
+      }
+
+      generateTableRows(tableData);
+    </script>
+  </body>
+</html>

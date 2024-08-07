@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Table</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <table id="dynamicTable">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>CSS Properties</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script>
+      var tableData = [
+        { className: 'p-0', property: 'padding: 0px;' },
+        { className: 'p-1', property: 'padding: 8px;' },
+        { className: 'p-2', property: 'padding: 16px;' },
+        { className: 'p-3', property: 'padding: 32px;' },
+        { className: 'p-4', property: 'padding: 48px;' },
+        { className: 'p-5', property: 'padding: 64px;' },
+        { className: 'p-6', property: 'padding: 80px;' },
+
+        { className: 'pb-0', property: 'padding-bottom: 0px;' },
+        { className: 'pb-1', property: 'padding-bottom: 8px;' },
+        { className: 'pb-2', property: 'padding-bottom: 16px;' },
+        { className: 'pb-3', property: 'padding-bottom: 32x;' },
+        { className: 'pb-4', property: 'padding-bottom: 48px;' },
+        { className: 'pb-5', property: 'padding-bottom: 64px;' },
+        { className: 'pb-6', property: 'padding-bottom: 80px;' },
+
+        { className: 'pt-0', property: 'padding-top: 0px;' },
+        { className: 'pt-1', property: 'padding-top: 8px;' },
+        { className: 'pt-2', property: 'padding-top: 16px;' },
+        { className: 'pt-3', property: 'padding-top: 32px;' },
+        { className: 'pt-4', property: 'padding-top: 48px;' },
+        { className: 'pt-5', property: 'padding-top: 64px;' },
+        { className: 'pt-6', property: 'padding-top: 80px;' },
+
+        { className: 'pl-0', property: 'padding-left: 0px;' },
+        { className: 'pl-1', property: 'padding-left: 8px;' },
+        { className: 'pl-2', property: 'padding-left: 16px;' },
+        { className: 'pl-3', property: 'padding-left: 32px;' },
+        { className: 'pl-4', property: 'padding-left: 48px;' },
+        { className: 'pl-5', property: 'padding-left: 64px;' },
+        { className: 'pl-6', property: 'padding-left: 80px;' },
+
+        { className: 'pr-0', property: 'padding-right: 0px;' },
+        { className: 'pr-1', property: 'padding-right: 8px;' },
+        { className: 'pr-2', property: 'padding-right: 16px;' },
+        { className: 'pr-3', property: 'padding-right: 32px;' },
+        { className: 'pr-4', property: 'padding-right: 48px;' },
+        { className: 'pr-5', property: 'padding-right: 64px;' },
+        { className: 'pr-6', property: 'padding-right: 80px;' },
+      ];
+
+      function generateTableRows(data) {
+        var tbody = document.querySelector('#dynamicTable tbody');
+        tbody.innerHTML = '';
+        data.forEach(function (row) {
+          var tr = document.createElement('tr');
+          var tdClass = document.createElement('td');
+          tdClass.style.color = '#dd5928';
+          tdClass.textContent = row.className;
+          var tdProperty = document.createElement('td');
+          tdProperty.style.color = row.propertyColor || '#334155';
+          tdProperty.textContent = row.property;
+          tr.appendChild(tdClass);
+          tr.appendChild(tdProperty);
+          tbody.appendChild(tr);
+        });
+      }
+
+      generateTableRows(tableData);
+    </script>
+  </body>
+</html>

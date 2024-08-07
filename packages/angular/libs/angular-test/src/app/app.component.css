@@ -1,0 +1,15 @@
+.black-box {
+  width: 50px;
+  height: 50px;
+  background-color: hsl(from var(--red-600) h s l / 0.4);
+  border-left: 5px solid var(--red-600);
+  color: hsl(from var(--red-600) h s l / 1.4);
+}
+
+.blue-box {
+  width: 50px;
+  height: 50px;
+  background-color: hsl(from var(--secondary-600) h s l / 0.4);
+  border-left: 5px solid var(--secondary-600);
+  color: hsl(from var(--secondary-600) h s l / 1.4);
+}

@@ -1,0 +1,25 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "lerna run build --concurrency=4",
+    "build-storybook": "lerna run build-storybook",
+    "new-version": "lerna version --conventional-commits",
+    "publish-ads": "lerna publish from-package"
+  },
+  "dependencies": {
+    "@stencil/angular-output-target": "^0.8.4",
+    "@stencil/core": "^4.10.0",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "lerna": "^8.0.2"
+  },
+  "optionalDependencies": {
+    "@nx/nx-linux-x64-gnu": "*"
+  }
+}

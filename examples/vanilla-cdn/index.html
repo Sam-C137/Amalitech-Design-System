@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>HTML + CDN Template</title>
+        <link rel="stylesheet" href="styles.css">
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@amalitech-design-system/utilities/dist/main.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@amalitech-design-system/core/dist/amalitech-design-system/amalitech-design-system.css"
+        />
+        
+        <script
+            type="module"
+            src="https://cdn.jsdelivr.net/npm/@amalitech-design-system/core/dist/amalitech-design-system/amalitech-design-system.esm.js"
+        ></script>
+        <script
+            nomodule
+            src="https://cdn.jsdelivr.net/npm/@amalitech-design-system/core/dist/amalitech-design-system/amalitech-design-system.js"
+        ></script>
+    </head>
+    <body>
+        <main class="min-h-screen display-flex align-center justify-center">
+            <div
+                class="display-flex flex-column align-center justify-center"
+            >
+                <div class="mb-3">
+                    <amalitech-breadcrumb separator="arrow">
+                        <amalitech-breadcrumb-item>
+                            Home
+                        </amalitech-breadcrumb-item>
+                        <amalitech-breadcrumb-item active href="/">
+                            Landing Page
+                        </amalitech-breadcrumb-item>
+                    </amalitech-breadcrumb>
+                </div>
+
+                <div class="display-flex flex-row justify-space-between">
+                    <div
+                        class="border border-neutral-100 bg-white rounded-md p-2"
+                    >
+                        <p class="text-secondary">
+                            Getting started with vanilla js + cdn and ads
+                        </p>
+                    </div>
+                    <img src="./assets/logo.svg" alt="logo" />
+                </div>
+
+                <div class="mt-5">
+                    <p
+                        class="text-2xl text-center text-secondary mb-3 font-semibold"
+                    >
+                        Amalitech Design System Vanilla JS + CDN Template
+                    </p>
+                    <div class="display-flex justify-center">
+                        <amalitech-button
+                            variant="secondary"
+                            icon-position="right"
+                            size="medium"
+                            disabled="false"
+                            type="button"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                            >
+                                <g clip-path="url(#clip0_1_2569)">
+                                    <path
+                                        d="M14.4297 5.92969L20.4997 11.9997L14.4297 18.0697"
+                                        stroke="#696F8C"
+                                        stroke-width="1.5"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                    <path
+                                        d="M3.5 12H20.33"
+                                        stroke="#696F8C"
+                                        stroke-width="1.5"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_1_2569">
+                                        <rect
+                                            width="24"
+                                            height="24"
+                                            fill="white"
+                                        />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            Learn More
+                        </amalitech-button>
+                    </div>
+                </div>
+
+                <div class="mt-5 gap-1">
+                    <p class="text-sm">Rate your experience:</p>
+                    <amalitech-star-rating animated></amalitech-star-rating>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

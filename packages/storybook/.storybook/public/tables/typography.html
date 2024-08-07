@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Table</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <table id="dynamicTable">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>CSS Property</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <table id="fontWeightTable" style="margin-top: 30px">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>CSS Property</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script>
+      var tableData = [
+        { className: 'text-sm', property: 'font-size: 0.75rem;' },
+        { className: 'text-md', property: 'font-size: 1rem;' },
+        { className: 'text-lg', property: 'font-size: 1.5rem;' },
+        { className: 'text-xl', property: 'font-size: 2rem;' },
+        { className: 'text-2xl', property: 'font-size: 3rem;' },
+      ];
+
+      var fontWeightData = [
+        { className: 'font-thin', property: 'font-weight: 100;' },
+        { className: 'font-extralight', property: 'font-weight: 200;' },
+        { className: 'font-light', property: 'font-weight: 300;' },
+        { className: 'font-normal', property: 'font-weight: 400;' },
+        { className: 'font-medium', property: 'font-weight: 500;' },
+        { className: 'font-semibold', property: 'font-weight: 600;' },
+        { className: 'font-bold', property: 'font-weight: 700;' },
+        { className: 'font-extrabold', property: 'font-weight: 800;' },
+        { className: 'font-black', property: 'font-weight: 900;' },
+      ];
+
+      function generateTableRows(data, querySelector = '#dynamicTable') {
+        var tbody = document.querySelector(`${querySelector} tbody`);
+        tbody.innerHTML = '';
+        data.forEach(function (row) {
+          var tr = document.createElement('tr');
+          var tdClass = document.createElement('td');
+          tdClass.style.color = '#dd5928';
+          tdClass.textContent = row.className;
+          var tdProperty = document.createElement('td');
+          tdProperty.style.color = row.propertyColor || '#334155';
+          tdProperty.textContent = row.property;
+          tr.appendChild(tdClass);
+          tr.appendChild(tdProperty);
+          tbody.appendChild(tr);
+        });
+      }
+
+      generateTableRows(tableData);
+      generateTableRows(fontWeightData, '#fontWeightTable');
+    </script>
+  </body>
+</html>

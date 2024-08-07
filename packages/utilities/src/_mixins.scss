@@ -1,0 +1,112 @@
+// Truncate
+@mixin truncate {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Hyphenate
+@mixin hyphenate {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+// word-break
+@mixin break-word {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+// normal-wrap
+@mixin normal-wrap {
+  overflow-wrap: normal;
+  word-wrap: normal;
+  word-break: normal;
+}
+
+@mixin scrollbar(
+  $size: 10px,
+  $thumb: var(--slds-g-color-neutral-base-95, #{$color-background-scrollbar}),
+  $track: var(--slds-g-color-neutral-base-80, #{$color-background-scrollbar-track})
+) {
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+
+    &:window-inactive {
+      opacity: 0;
+    }
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $thumb;
+    border-radius: $border-radius-large;
+    box-shadow: $track 0 0 0 $border-width-thin inset;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $track;
+  }
+}
+
+/// Enable momentum scrolling in Mobile Safari (iOS)
+/// Side effect: hides scrollbars for this browser
+@mixin enable-ios-momentum-scrolling {
+  -webkit-overflow-scrolling: touch;
+}
+
+/**
+ * Breakpoints
+ */
+$breakpoints: (
+  "xs": 0px,
+  "sm": 480px,
+  "md": 720px,
+  "lg": 960px,
+  "xl": 1280px,
+  "xlg": 1440px,
+);
+
+@mixin xs {
+  @media (min-width: map-get($breakpoints, "xs")) {
+    @content;
+  }
+}
+@mixin sm {
+  @media (min-width: map-get($breakpoints, "sm")) {
+    @content;
+  }
+}
+@mixin md {
+  @media (min-width: map-get($breakpoints, "md")) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (min-width: map-get($breakpoints, "lg")) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (min-width: map-get($breakpoints, "xl")) {
+    @content;
+  }
+}
+@mixin xlg {
+  @media (min-width: map-get($breakpoints, "xlg")) {
+    @content;
+  }
+}
+@mixin breakpoint-max($bp: 0) {
+  @media (max-width: $bp) {
+    @content;
+  }
+}
+@mixin breakpoint-min($bp: 0) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}

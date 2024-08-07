@@ -1,0 +1,28 @@
+<main class="main">
+  <amalitech-alert rounded>Hello</amalitech-alert>
+  <amalitech-switch></amalitech-switch>
+
+  <amalitech-select (amalitechChange)="onChange($event)" label="option">
+    <amalitech-select-option value="1">Option 1</amalitech-select-option>
+    <amalitech-select-option value="1">Option 2</amalitech-select-option>
+    <amalitech-select-option value="1">Option 3</amalitech-select-option>
+    <amalitech-select-option value="1">Option 4</amalitech-select-option>
+  </amalitech-select>
+</main>
+
+<amalitech-date-picker></amalitech-date-picker>
+
+some form here
+
+<form [formGroup]="form">
+  <amalitech-select label="Filter" formControlName="filter">
+    <amalitech-select-option value="published" selected
+      >Published</amalitech-select-option
+    >
+    <amalitech-select-option value="drafts">Drafts</amalitech-select-option>
+    <amalitech-select-option value="deleted">Deleted</amalitech-select-option>
+  </amalitech-select>
+</form>
+
+<div class="black-box">suii</div>
+<div class="blue-box">suii</div>

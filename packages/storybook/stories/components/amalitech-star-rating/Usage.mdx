@@ -1,0 +1,151 @@
+import * as StarStories from './amalitech-star-rating.stories';
+import { Meta, Title, Description, Story, Canvas } from '@storybook/blocks';
+
+<Meta of={StarStories} />
+
+# How to use `amalitech-star-rating`
+
+The star rating commonly used to pick a range of values from a set of options. 
+It is a simple way to gather feedback from users.
+
+You could use it like this:
+
+## Default
+
+<Canvas of={StarStories.Default}/>
+
+```html
+    <amalitech-star-rating></amalitech-star-rating>
+```
+
+## Animated
+
+The animated variant has a smooth transition into the DOM when it first renders.
+
+<Canvas of={StarStories.Animated}/>
+
+```html
+    <amalitech-star-rating animated></amalitech-star-rating>
+```
+
+## Disabled
+
+The disabled variant prevents the user from interacting with the star rating.
+
+<Canvas of={StarStories.Disabled}/>
+
+```html
+    <amalitech-star-rating disabled></amalitech-star-rating>
+```
+
+## With Hover Disabled
+
+When the `hover-disabled` attribute is set, the star rating will not respond to hover events.
+
+<Canvas of={StarStories.HoverDisabled}/>
+
+```html
+    <amalitech-star-rating hover-disabled></amalitech-star-rating>
+```
+
+## Readonly
+
+The readonly variant prevents the user from interacting with the star rating.
+
+<Canvas of={StarStories.ReadOnly}/>
+
+```html
+    <amalitech-star-rating readonly value="4"></amalitech-star-rating>
+```
+
+## With a Custom Number of Stars
+
+You can set the number of stars to be displayed by setting the `count` attribute.
+
+<Canvas of={StarStories.WithCustomCount}/>
+
+```html
+    <amalitech-star-rating count="7"></amalitech-star-rating>
+```
+
+## With value
+
+The component can be initialized with a value by setting the `value` attribute.
+
+<Canvas of={StarStories.WithValue}/>
+
+```html
+    <amalitech-star-rating value="3"></amalitech-star-rating>
+```
+
+## With a Custom Stroke Color
+
+You can set the color of the stroke by setting the `stroke-color` attribute. To change the 
+fill color, use the `--star-rating-active` CSS variable.
+
+<Canvas of={StarStories.WithCustomStrokeColor}/>
+
+```html
+    <amalitech-star-rating stroke-color="#ff0000"></amalitech-star-rating>
+```
+
+## Sizes 
+
+The star rating component comes in  3 main sizes: small medium and large. You can chose a size by
+setting the `size` attribute
+
+### Small
+
+<Canvas of={StarStories.Small}/>
+
+```html
+    <amalitech-star-rating size="small"></amalitech-star-rating>
+```
+
+### Large
+
+<Canvas of={StarStories.Large}/>
+
+```html
+    <amalitech-star-rating size="large"></amalitech-star-rating>
+```
+
+## Listening for events
+
+You can listen for the `amalitechRatingChange` event to get the value of the star rating when it changes.
+
+```javascript
+    const starRating = document.querySelector('amalitech-star-rating');
+    /**
+     * @returns {number} The value of the star rating
+    */
+    starRating.addEventListener('amalitechRatingChange', (event) => {
+        console.log(event.detail);
+    });
+```
+
+## Styling with CSS
+
+Custom styling can be applied with exposed CSS variables
+
+```html
+<head>
+    amalitech-star-rating {
+        --star-rating-active: red;
+    }
+</head>
+<body>
+    <amalitech-star-rating></amalitech-star-rating>
+</body>
+```
+
+## All CSS Variables
+
+```css
+    amalitech-star-rating {
+      --star-rating-active: #dd5928;
+      --star-rating-disabled: #c1c4d6;
+      --star-rating-gap: 0.5rem;
+      --star-rating-transition-duration: 0.3s;
+    }
+```

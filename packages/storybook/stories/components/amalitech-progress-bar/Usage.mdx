@@ -1,0 +1,92 @@
+import * as ProgressBarStories from './amalitech-progress-bar.stories.tsx';
+import { Meta, Canvas } from '@storybook/blocks';
+
+<Meta of={ProgressBarStories} />
+
+# How to use `amalitech-progress-bar`
+
+A progress component is a user interface element that visually represents the progress or completion of a task or process. It is commonly used to provide feedback to users about the status of an ongoing operation.
+
+You could use it like this:
+
+## Default
+
+<Canvas of={ProgressBarStories.Default} />
+
+```html
+<amalitech-progress-bar></amalitech-progress-bar>
+```
+
+## With Helper Text
+
+<Canvas of={ProgressBarStories.WithHelperText} />
+
+```html
+<amalitech-progress-bar helper-text="Optional helper text goes here..."></amalitech-progress-bar>
+```
+
+## Indeterminate
+
+<Canvas of={ProgressBarStories.Indeterminate} />
+
+```html
+<amalitech-progress-bar indeterminate></amalitech-progress-bar>
+```
+
+## Custom Min and Max
+
+<Canvas of={ProgressBarStories.CustomMinAndMax} />
+
+```html
+<amalitech-progress-bar minimum-value=50 value=100 maximum-value=150><amalitech-progress-bar>
+```
+
+## Success
+
+<Canvas of={ProgressBarStories.Success}/>
+
+```html
+<amalitech-progress-bar status="success"></amalitech-progress-bar>
+```
+
+## Error
+
+<Canvas of={ProgressBarStories.Error}/>
+
+```html
+<amalitech-progress-bar status="error"></amalitech-progress-bar>
+```
+
+## Styling with CSS
+
+Custom styling can be applied with exposed CSS variables
+
+```html
+<head>
+    amalitech-progress-bar {
+        --progress-bar-font-size: 0.5rem;
+        --progress-bar-height: 0.75rem;
+        --progress-bar-error-color: #dd5928;
+        --progress-bar-success-color: #dd5928;
+        --progress-track-color: #dd5928;
+        --progress-bar-bg-color: #dd5928;
+    }
+</head>
+<body>
+    <amalitech-progress-bar></amalitech-progress-bar>
+</body>
+```
+
+
+## All CSS Variables
+
+```css
+amalitech-progress-bar {
+    --progress-bar-font-size: 0.5rem;
+    --progress-bar-height: 0.75rem;
+    --progress-bar-error-color: #dd5928;
+    --progress-bar-success-color: #dd5928;
+    --progress-track-color: #dd5928;
+    --progress-bar-bg-color: #dd5928;
+}
+```

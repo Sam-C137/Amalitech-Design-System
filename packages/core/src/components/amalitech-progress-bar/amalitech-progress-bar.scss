@@ -1,0 +1,95 @@
+:host {
+  font-family: "Work Sans", sans-serif;
+  display: block;
+  --progress-bar-height: .25rem;
+  --progress-bar-font-size: 0.75rem;
+
+  .spinner {
+    line-height: 0;
+  }
+}
+
+@keyframes progress-bar-indeterminate {
+  0% {
+    background-position-x: 25%
+  }
+
+  80%, to {
+    background-position-x: -105%
+  }
+}
+
+.progress {
+  .progress-header {
+    display: flex;
+    align-items: center;
+
+    .progress-label {
+      flex: 1;
+    }
+  }
+
+  .progress-track {
+    height: var(--progress-bar-height);
+    width: 100%;
+    background: var(--progress-bar-bg-color, $neutral-100);
+    position: relative;
+    margin: var(--spacing-03, 0.5rem) 0;
+
+    .progress-bar {
+      height: 100%;
+      background: var(--border-interactive, $primary);
+      transition: width .3s ease-in-out;
+    }
+  }
+
+  .progress-helper {
+    font-size: var(--progress-bar-font-size);
+    line-height: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.32px;
+  }
+
+  &.indeterminate {
+    .progress-track {
+      .progress-bar {
+        display: none;
+      }
+
+      &:after {
+        animation-duration: 1.4s;
+        animation-iteration-count: infinite;
+        animation-name: progress-bar-indeterminate;
+        animation-timing-function: linear;
+        background-image: linear-gradient(90deg, var(--progress-track-color, $primary) 12.5%, transparent 12.5%);
+        background-position-x: 0;
+        background-size: 200% 100%;
+        content: "";
+        inset: 0;
+        position: absolute
+      }
+    }
+  }
+
+  &.status-success {
+    .progress-bar {
+      background: var(--progress-bar-success-color, $green-500);
+    }
+  }
+
+  &.status-error {
+    .progress-bar {
+      background: var(--progress-bar-error-color, $red-500);
+    }
+  }
+
+}
+
+:host([size="lg"]) {
+  --progress-bar-height: 0.5rem;
+}
+
+:host([size="sm"]) {
+  --progress-bar-height: 0.15rem;
+}
+

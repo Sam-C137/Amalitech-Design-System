@@ -1,0 +1,39 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "allowSyntheticDefaultImports": true,
+        "allowUnreachableCode": false,
+        "declaration": true,
+        "experimentalDecorators": true,
+        "forceConsistentCasingInFileNames": true,
+        "lib": ["dom", "es2017"],
+        "module": "esnext",
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "noImplicitReturns": false,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "pretty": true,
+        "removeComments": false,
+        "strictPropertyInitialization": false,
+        "target": "ES2017",
+        "baseUrl": ".",
+        "paths": {
+					"@amalitech-design-system/core": [
+						"./packages/core"
+					],
+					"@amalitech-design-system/core/loader": [
+						"./packages/core/loader"
+					],
+					"@amalitech-design-system/angular": [
+						"./packages/angular/dist/ads-angular-wrapper/lib/angular-components-lib"
+					],
+					"@amalitech-design-system/utilities": [
+						"./packages/utilities"
+					],
+					"@amalitech-design-system/design-tokens": [
+						"./packages/design-tokens"
+					]
+        }
+    }
+}

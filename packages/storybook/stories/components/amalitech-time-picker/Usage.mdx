@@ -1,0 +1,157 @@
+import * as TimePickerStories from './amalitech-time-picker.stories.tsx';
+import { Meta, Title, Description, Story, Canvas } from '@storybook/blocks';
+
+<Meta of={TimePickerStories} />
+
+# How to use `amalitech-time-picker`
+
+The time picker component can be used to select a time period, similar to the native html input `type="time"` element
+
+You could use it like this:
+
+## Default
+
+<Canvas of={TimePickerStories.Default} />
+
+```html
+<amalitech-time-picker></amalitech-time-picker>
+```
+
+## Meridian
+
+Adding the meridian attribute allows time to be displayed in 12 hour format
+
+<Canvas of={TimePickerStories.Meridian} />
+
+```html
+<amalitech-time-picker meridian></amalitech-time-picker>
+```
+
+## Seconds
+
+Adding the seconds attributes appends seconds to the time selector
+
+<Canvas of={TimePickerStories.WithSeconds} />
+
+```html
+<amalitech-time-picker seconds></amalitech-time-picker>
+```
+
+## Label
+
+You can add a custom label to the time picker by specifying the label attribute. By default the label is `Pick a time`
+
+<Canvas of={TimePickerStories.WithCustomLabel}/>
+
+```html
+<amalitech-time-picker label="What time is it"></amalitech-time-picker>
+```
+
+## Value
+
+You can specify the value of the current time by passing in a time value in the format: `00:00`, `00:00 am` or `00:00am`
+
+<Canvas of={TimePickerStories.WithCustomValue}/>
+
+```html
+<amalitech-time-picker meridian value="12:00"></amalitech-time-picker>
+```
+
+## Max and Min
+
+You can specify the maximum and minimum time that can be selected by passing in a time value in the format: `00:00`, `00:00 am` or `00:00am`
+
+<Canvas of={TimePickerStories.MaxAndMin}/>
+
+```html
+<amalitech-time-picker meridian min="06:30pm" max="09:30pm"></amalitech-time-picker>
+```
+## Required
+
+The component can be made required by adding the `required` attribute to the time picker element. This will add a required indicator.
+
+<Canvas of={TimePickerStories.Required}/>
+
+```html
+<amalitech-time-picker required></amalitech-time-picker>
+```
+
+## Sizes
+
+### Small
+
+<Canvas of={TimePickerStories.Small}/>
+
+```html
+<amalitech-time-picker size="small"></amalitech-time-picker>
+```
+
+### Large
+
+<Canvas of={TimePickerStories.Large} />
+
+```html
+<amalitech-time-picker size="large"></amalitech-time-picker>
+```
+
+## Listening for events
+
+You can listen for a `amalitechTimeChange` event on the `amalitech-time-picker` element
+
+```html
+<body>
+  <amalitech-time-picker meridian></amalitech-time-picker>
+</body>
+<script>
+  const timePicker = document.querySelector('amalitech-time-picker');
+  /**
+   * @returns {
+   *        hour: '01',
+   *        meridian: 'AM',
+   *        minute: '00',
+   *        time: '01:00 AM'
+   *    }
+   */
+  timePicker.addEventListener('amalitechTimeChange', e => {
+    console.log(e.detail);
+  });
+</script>
+```
+
+## Styling with CSS
+
+Custom styling can be applied with exposed CSS variables
+
+```html
+<head>
+    amalitech-time-picker {
+        --time-picker-bg-color: red;
+        --time-picker-active-bg: #000;
+        --time-picker-disabled-color: #eee;
+    }
+</head>
+<body>
+    <amalitech-time-picker></amalitech-time-picker>
+</body>
+```
+
+## All CSS Variables
+
+```css
+    amalitech-time-picker {
+        /* Fonts */
+        --time-picker-font-family: 'Work Sans', sans-serif;
+
+        /* Colors */
+        --time-picker-bg-color: #fff;
+        --time-picker-color: var(--amalitech-color-neutral-300);
+        --time-picker-dropdown-box-shadow:0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12);
+        --time-picker-active-bg: #e47453;
+        --time-picker-active-color: #fff;
+        --time-picker-disabled-color: #8f95b2;
+        --time-picker-focus-color: #e47453;
+
+        /* Durations */
+        --time-picker-transition-duration: 0.3s;
+    }
+```

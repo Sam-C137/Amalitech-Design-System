@@ -1,0 +1,133 @@
+import * as PaginationStories from './amalitech-pagination.stories';
+import { Meta, Title, Description, Story, Canvas } from '@storybook/blocks';
+
+<Meta of={PaginationStories} />
+
+# How to use `amalitech-pagination`
+
+The pagination component is a simple pagination component that allows you to paginate through a list of items.
+
+You could use it like this:
+
+## Default
+
+<Canvas of={PaginationStories.Standard}/>
+
+```html
+<amalitech-pagination></amalitech-pagination>
+```
+
+## With custom size
+
+The pagination component comes in 3 main sizes `small`, `medium` and `large`. You can use the `size` attribute to set the size of the component.
+
+### `small`
+
+<Canvas of={PaginationStories.Small}/>
+
+```html
+<amalitech-pagination size="small"></amalitech-pagination>
+```
+
+### `medium`
+
+<Canvas of={PaginationStories.Standard}/>
+
+```html
+<amalitech-pagination size="medium"></amalitech-pagination>
+```
+
+### `large`
+
+<Canvas of={PaginationStories.Large}/>
+
+```html
+<amalitech-pagination size="large"></amalitech-pagination>
+```
+
+## Total Count
+
+In order to correctly estimate the number of pages, you need to provide the total count of items in the 
+list and the limit of items per page. You can do this by setting the `total-items` and `limit-number` attributes.
+Total items defaults to 100 and limit number defaults to 10 if nothing is passed.
+
+<Canvas of={PaginationStories.WithTotalItems}/>
+
+```html
+<amalitech-pagination total-items="100" limit-number="10"></amalitech-pagination>
+```
+
+## Page number
+
+You can also set the page number to start from. This is useful when you are paginating through a list 
+of items and you want to start from a specific page. You can do this by setting the `page-number` 
+attribute. By default, the page number starts from 1.
+
+<Canvas of={PaginationStories.WithPageNumber}/>
+
+```html
+<amalitech-pagination page-number="3"></amalitech-pagination>
+```
+
+## Sibbling count
+
+The sibbling count attribute allows you to set the number of sibbling pages to show. 
+This allows you to show a specific number of pages before and after the current page. 
+You can do this by setting the `siblings` attribute. By default, the sibbling count is set to 2.
+
+<Canvas of={PaginationStories.Withsiblings}/>
+
+```html
+<amalitech-pagination siblings="3"></amalitech-pagination>
+```
+
+## Listening for events
+
+You can listen for a `amalitechPageChange` event on the `amalitech-pagination` element
+
+```html
+<body>
+  <amalitech-pagination></amalitech-pagination>
+</body>
+<script>
+  const element = document.querySelector('amalitech-pagination');
+  /**
+   * @returns {number} - The page number
+   */
+  element.addEventListener('amalitechPageChange', e => {
+    console.log(e.detail);
+  });
+</script>
+```
+
+## Styling with CSS
+
+Custom styling can be applied with exposed CSS variables
+
+```html
+<head>
+    amalitech-pagination {
+        --pagination-active-color: violet;
+        --pagination-item-color: #000;
+        --pagination-gap: 1.5rem;
+    }
+</head>
+<body>
+    <amalitech-pagination></amalitech-pagination>
+</body>
+```
+
+
+## All CSS Variables
+
+```css
+    amalitech-pagination {
+        --pagination-font-size: 1rem; 
+        --pagination-active-bg: $orange-100; 
+        --pagination-item-color: $neutral-400; 
+        --pagination-active-color: $orange-500; 
+        --pagination-gap: 0.375rem; 
+        --pagination-item-padding: 0.5rem 1rem; 
+        --pagination-item-border-radius: 0.375rem; 
+    }
+```

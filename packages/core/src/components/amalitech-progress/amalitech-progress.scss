@@ -1,0 +1,189 @@
+:host,
+.amalitech-progress {
+  font-family: 'Work Sans';
+  --amalitech-progress-height: 0.5rem;
+  --amalitech-progress-steps-dot-width: 0.5rem;
+  --amalitech-progress-valuemin: 0;
+  --amalitech-progress-valuemax: 100;
+  --amalitech-progress-valuenow: 0;
+  --amalitech-progress-transition-duration: 0.2s;
+  --amalitech-progress-width: 17.5rem;
+  --amalitech-progress-steps-col: #c7c7d1;
+
+  --amalitech-progress-calc-valuenow: calc(
+    var(--amalitech-progress-valuenow) - var(--amalitech-progress-valuemin)
+  );
+  --amalitech-progress-calc-valuemax: calc(
+    var(--amalitech-progress-valuemax) - var(--amalitech-progress-valuemin)
+  );
+  --amalitech-progress-calc-relative-progress: calc(
+    var(--amalitech-progress-calc-valuenow) / var(--amalitech-progress-calc-valuemax)
+  );
+  --amalitech-progress-has-overflow: clamp(
+    0,
+    calc((var(--amalitech-progress-calc-relative-progress) - 1) * 99999999999),
+    1
+  );
+
+  border-radius: 250rem;
+  box-shadow: inset 0 0 0 calc((1 - var(--amalitech-progress-has-overflow)) * 99rem)
+      var(--amalitech-progress-bg-col, $amalitech-progress-bg-col),
+    inset 0 0 0 calc(var(--amalitech-progress-has-overflow) * 99rem)
+      var(--amalitech-col-wht-alpha-high, $amalitech-col-wht-alpha-high),
+    inset 0 0 0 calc(var(--amalitech-progress-has-overflow) * 99rem)
+      var(--amalitech-progress-bg-col-overflow, $amalitech-progress-bg-col-overflow);
+  display: block;
+  height: var(--amalitech-progress-height);
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  width: var(--amalitech-progress-width);
+
+  .amalitech-progress-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--amalitech-dark, $dark);
+    font-family: 600;
+    font-size: 0.52rem;
+    z-index: 1000;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+
+  &::before {
+    background-color: var(--amalitech-progress-bar-col, $primary);
+    opacity: calc(1 - var(--amalitech-progress-has-overflow));
+    right: 100%;
+    transform: translateX(
+      min(100%, calc(var(--amalitech-progress-calc-relative-progress) * 100%))
+    );
+    transition: transform var(--amalitech-progress-transition-duration) ease,
+      opacity var(--amalitech-progress-transition-duration) linear;
+  }
+
+  &::after {
+    background-color: var(--amalitech-progress-bar-col-overflow, $amalitech-progress-bar-col-overflow);
+    opacity: calc(var(--amalitech-progress-has-overflow));
+    transform: translateX(
+      max(-100%, calc((var(--amalitech-progress-calc-relative-progress) - 1) * -100%))
+    );
+    transition: transform var(--amalitech-progress-transition-duration) ease;
+    left: 100%;
+  }
+}
+
+:host(.amalitech-progress--steps),
+.amalitech-progress--steps {
+  --amalitech-progress-step-gradient: var(--amalitech-progress-steps-col) 0%,
+    var(--amalitech-progress-steps-col) calc(var(--amalitech-progress-steps-dot-width) / 2),
+    transparent calc(var(--amalitech-progress-steps-dot-width) / 2);
+  background-image: radial-gradient(
+      circle at left,
+      var(--amalitech-progress-step-gradient)
+    ),
+    radial-gradient(circle at right, var(--amalitech-progress-step-gradient));
+  background-blend-mode: multiply;
+  background-size: calc(
+        (100% - var(--amalitech-progress-steps-dot-width) - 0.063rem) /
+        var(--amalitech-progress-calc-valuemax)
+    )
+    100%;
+  background-repeat: repeat-x;
+  background-position: calc(var(--amalitech-progress-steps-dot-width) / 2) center;
+  box-shadow: inset 0 0 0 calc(var(--amalitech-progress-has-overflow) * 99rem)
+      var(--amalitech-col-wht-alpha-lowest, $amalitech-col-wht-alpha-lowest),
+    inset 0 498rem calc(var(--amalitech-progress-has-overflow) * 500rem) -500rem var(--amalitech-progress-bg-col-overflow, $amalitech-progress-bg-col-overflow);
+
+  &::before,
+  &::after {
+    border-radius: 250rem;
+  }
+
+  &::before {
+    transform: translateX(
+      min(
+        100%,
+        calc(
+          var(--amalitech-progress-calc-relative-progress) *
+            (100% - var(--amalitech-progress-steps-dot-width)) +
+            var(--amalitech-progress-steps-dot-width)
+        )
+      )
+    );
+  }
+
+  &::after {
+    transform: translateX(
+      max(
+        -100%,
+        calc(
+          (
+              (var(--amalitech-progress-calc-relative-progress) - 1) *
+                (100% - var(--amalitech-progress-steps-dot-width)) +
+                var(--amalitech-progress-steps-dot-width) + 0.063rem
+            ) * -1
+        )
+      )
+    );
+  }
+}
+
+:host(.amalitech-progress.amalitech-progress--indeterminate),
+.amalitech-progress.amalitech-progress--indeterminate {
+  &::before {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes amalitech-progress-animation-pending {
+  from {
+    background-position-x: calc(-1.5rem + 0.063rem);
+  }
+  to {
+    background-position-x: 0;
+  }
+}
+:host(.amalitech-progress.amalitech-progress--pending),
+.amalitech-progress.amalitech-progress--pending {
+  &::before,
+  &::after {
+    background-size: 200% 100%;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation-name: amalitech-progress-animation-pending;
+    }
+  }
+
+  &::before {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      var(--amalitech-progress-pending-gap-col, $amalitech-progress-pending-gap-col),
+      var(--amalitech-progress-pending-gap-col, $amalitech-progress-pending-gap-col) 0.5rem,
+      var(--amalitech-progress-bar-col, $amalitech-progress-bar-col) 0.5rem,
+      var(--amalitech-progress-bar-col, $amalitech-progress-bar-col) 1rem
+    );
+  }
+
+  &::after {
+    background-image: repeating-linear-gradient(
+      45deg,
+      var(--amalitech-progress-pending-gap-col-overflow, $amalitech-progress-pending-gap-col-overflow),
+      var(--amalitech-progress-pending-gap-col-overflow, $amalitech-progress-pending-gap-col-overflow) 0.5rem,
+      var(--amalitech-progress-bar-col-overflow, $amalitech-progress-bar-col-overflow) 0.5rem,
+      var(--amalitech-progress-bar-col-overflow, $amalitech-progress-bar-col-overflow) 1rem
+    );
+    animation-direction: reverse;
+  }
+}

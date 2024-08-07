@@ -1,0 +1,131 @@
+import * as CheckboxStories from './amalitech-checkbox.stories.tsx';
+import { Meta, Title, Description, Story, Canvas } from '@storybook/blocks';
+
+<Meta of={CheckboxStories} />
+
+# How to use `amalitech-checkbox`
+
+The checkbox component is a wrapper for the HTML checkbox input with additional styling.
+
+You could use it like this:
+
+## Default
+
+<Canvas of={CheckboxStories.Normal} />
+
+```html
+<amalitech-checkbox></amalitech-checkbox>
+```
+
+## Default with Label
+
+<Canvas of={CheckboxStories.NormalWithLabel} />
+
+```html
+<amalitech-checkbox label="Yes"></amalitech-checkbox>
+```
+
+## Disabled
+
+<Canvas of={CheckboxStories.Disabled} />
+
+```html
+<amalitech-checkbox disabled><amalitech-checkbox>
+```
+
+## Checked
+
+<Canvas of={CheckboxStories.Selected} />
+
+```html
+<amalitech-checkbox checked><amalitech-checkbox>
+```
+
+## ReadOnly
+
+<Canvas of={CheckboxStories.ReadOnly} />
+
+```html
+<amalitech-checkbox readonly><amalitech-checkbox>
+```
+
+## With id and name attribute
+
+Typically input elements may have an id or name associated with a label element you can add these attributes to the `amalitech-checkbox` element like this:
+
+```html
+<form>
+    <label for="required">
+        <amalitech-checkbox id="required" name="required" value="required"><amalitech-checkbox>
+    </label>
+</form>
+```
+
+## Listening for events
+
+You can listen for a `valueChange` event on the `amalitech-checkbox` element
+
+```html
+<body>
+  <amalitech-checkbox id="termsCheckbox" value="terms"></amalitech-checkbox>
+</body>
+<script>
+  const check = document.getElementById('termsCheckbox');
+  /**
+   * @returns {
+   *        value: 'terms',
+   *        checked: true // or false
+   *    }
+   */
+  check.addEventListener('valueChange', (event) => {
+    console.log(event.detail.value);
+  });
+</script>
+```
+
+## Styling with CSS
+
+Custom styling can be applied with exposed CSS variables
+
+```html
+<head>
+  amalitech-checkbox { 
+    --checkboxWidth: 20px;
+    --checkboxHeight: 20px;
+    --checkboxBorder: 1rem solid black;
+    --checkboxIconFontSize: 1rem;
+    --checkboxActiveBorderColor: #000;
+    --checkboxActiveBg: #000;
+    --checkboxIconActiveColor: red;
+    --checkboxActiveHoverBg: red;
+    --checkboxIconActiveHoverColor: red;
+    --checkboxActiveHoverBorderColor: red;
+    --checkboxGap: 10px;
+    --checkboxFontSize: 1rem;
+  } 
+</head>
+<body>
+  <amalitech-checkbox></amalitech-checkbox>
+</body>
+```
+
+## All CSS Variables
+
+```css
+    amalitech-checkbox {
+        --checkboxWidth: 20px;
+        --checkboxHeight: 20px;
+        --checkboxBorder: 1rem solid black;
+        --checkboxIconFontSize: 1rem;
+        --checkboxActiveBorderColor: #000;
+        --checkboxActiveBg: #000;
+        --checkboxIconActiveColor: red;
+        --checkboxActiveHoverBg: red;
+        --checkboxIconActiveHoverColor: red;
+        --checkboxActiveHoverBorderColor: red;
+        --checkboxFontSize: 1rem;
+        --checkboxHoverBorderColor: red;
+        --checkboxBgColor: white;
+        --checkboxLabelColor: black;
+    }
+```

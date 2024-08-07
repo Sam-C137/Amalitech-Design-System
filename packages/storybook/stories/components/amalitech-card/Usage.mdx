@@ -1,0 +1,122 @@
+import * as CardStories from './amalitech-card.stories.tsx';
+import { Meta, Title, Description, Story, Canvas } from '@storybook/blocks';
+
+<Meta of={CardStories} />
+
+# How to use `amalitech-card`
+
+The card component is a simple container for grouping and organizing content. It is a flexible and powerful component for displaying content in a compact way.
+
+You could use it like this:
+
+## Default
+
+<Canvas of={CardStories.Basic} />
+
+```html
+<amalitech-card>
+    <div slot="header">This is the header</div>
+    <div slot="title" style="margin-left: 20px; margin-top: 10px">Title</div>
+    <div slot="body">
+      <div style="margin: 20px 0 0 0">Street Fighter</div>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium animi aut, beatae dolorum fuga ipsum iusto nemo, nostrum placeat quo reiciendis reprehenderit sed
+        similique soluta tenetur ut veniam veritatis, vitae?
+      </div>
+    </div>
+    <div slot="image">
+      <img src="https://th.bing.com/th/id/OIP.ITJm4XqvDqr2scT1DvvbswAAAA?rs=1&pid=ImgDetMain" alt="" />
+    </div>
+</amalitech-card>
+```
+
+## With Hover Animation
+
+Add the `with-hover-animation` attribute to the `amalitech-card` element to enable hover animation
+
+<Canvas of={CardStories.WithHoverAnimation} />
+
+```html
+<amalitech-card with-hover-animation>
+    <div slot="header">This is the header</div>
+    <div slot="title" style="margin-left: 20px; margin-top: 10px">Title</div>
+    <div slot="body">
+      <div style="margin: 20px 0 0 0">Street Fighter</div>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium animi aut, beatae dolorum fuga ipsum iusto nemo, nostrum placeat quo reiciendis reprehenderit sed
+        similique soluta tenetur ut veniam veritatis, vitae?
+      </div>
+    </div>
+    <div slot="image">
+      <img src="https://th.bing.com/th/id/OIP.ITJm4XqvDqr2scT1DvvbswAAAA?rs=1&pid=ImgDetMain" alt="" />
+    </div>
+</amalitech-card>
+```
+
+## With href and target
+
+The card element can behave like an anchor element by adding the `href` and `target` attributes
+
+<Canvas of={CardStories.WithHref} />
+
+```html
+<amalitech-card href="https://www.amalitech.com" target="_blank">
+    <div slot="header">This is the header</div>
+    <div slot="title" style="margin-left: 20px; margin-top: 10px">Title</div>
+    <div slot="body">
+      <div style="margin: 20px 0 0 0">Street Fighter</div>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium animi aut, beatae dolorum fuga ipsum iusto nemo, nostrum placeat quo reiciendis reprehenderit sed
+        similique soluta tenetur ut veniam veritatis, vitae?
+      </div>
+    </div>
+    <div slot="image">
+      <img src="https://th.bing.com/th/id/OIP.ITJm4XqvDqr2scT1DvvbswAAAA?rs=1&pid=ImgDetMain" alt="" />
+    </div>
+</amalitech-card>
+```
+
+## Styling with CSS
+
+Custom styling can be applied with exposed CSS variables
+
+```html
+<head>
+  amalitech-card { 
+    --backgroundColor: #f6f6f8; 
+    --textColor: #fff; 
+    --card-background-color: #fff; 
+    --card-text-color: #d3d3d3; 
+  }
+</head>
+<body>
+  <div slot="header">This is the header</div>
+    <div slot="title" style="margin-left: 20px; margin-top: 10px">Title</div>
+    <div slot="body">
+      <div style="margin: 20px 0 0 0">Street Fighter</div>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium animi aut, beatae dolorum fuga ipsum iusto nemo, nostrum placeat quo reiciendis reprehenderit sed
+        similique soluta tenetur ut veniam veritatis, vitae?
+      </div>
+    </div>
+    <div slot="image">
+      <img src="https://th.bing.com/th/id/OIP.ITJm4XqvDqr2scT1DvvbswAAAA?rs=1&pid=ImgDetMain" alt="" />
+    </div>
+</body>
+```
+
+## All CSS Variables
+
+```css
+amalitech-card {
+  --backgroundColor: #f6f6f8; 
+  --textColor: #fff; 
+  --card-background-color: #fff; 
+  --card-text-color: #d3d3d3; 
+  --card-shadow: `0px 8px 32px 0px hsla(0, 0%, 0%, 0.1), 0px 4px 8px 0px hsla(0, 0%, 0%, 0.1)`;
+  --card-shadow-hover: `0px 8px 32px 0px hsla(0, 0%, 0%, 0.2), 0px 4px 8px 0px hsla(0, 0%, 0%, 0.2)`;
+  --card-radius: 0.5rem;
+  --card-body-padding-vertical: 1.25rem;
+ --card-body-padding-horizontal: 1.25rem;
+}
+```

@@ -1,0 +1,402 @@
+@import '../../../src/global/variables.scss';
+
+/**
+* Exposed CSS variables
+* @prop --date-picker-transition-duration: The transition duration for the date picker default is `0.3s`
+* @prop --date-picker-panel-display: The display for the date picker panel default is `block`
+* @prop --date-picker-panel-border-radius: The border radius for the date picker panel default is `0.313rem`
+* @prop --date-picker-panel-border-color: The border color for the date picker panel default is `#8f95b2`
+* @prop --date-picker-panel-text-color: The text color for the date picker panel default is `#8f95b2`
+* @prop --date-picker-panel-padding: The padding for the date picker panel default is `0.313rem`
+* @prop --date-picker-panel-font-size: The font size for the date picker panel default is `1 rem`
+* @prop --date-picker-panel-gap: The gap for the date picker panel default is `0.625rem`
+* @prop --date-picker-active-color: The active color for the date picker default is `#dd5928`
+* @prop --date-picker-calendar-border-color: The border color for the date picker calendar default is `#d8dae5`
+* @prop --date-picker-calendar-border-radius: The border radius for the date picker calendar default is `0.5rem`
+* @prop --date-picker-calendar-padding: The padding for the date picker calendar default is `0.625rem`
+* @prop --date-picker-calendar-header-gap: The gap for the date picker calendar header default is `0.5rem`
+* @prop --date-picker-calendar-header-font-size: The font size for the date picker calendar header default is `1.5rem`
+* @prop --date-picker-calendar-header-font-weight: The font weight for the date picker calendar header default is `600`
+* @prop --date-picker-calendar-bg: The background color of the date picker calendar default is `#fff`
+* @prop --date-picker-dropdown-background: The background for the date picker dropdown default is `#fff`
+* @prop --date-picker-dropdown-border-color: The border color for the date picker dropdown default is `#d8dae5`
+* @prop --date-picker-dropdown-padding: The padding for the date picker dropdown default is `0.625rem`
+* @prop --date-picker-dropdown-font-size: The font size for the date picker dropdown default is `1rem`
+* @prop --date-picker-dropdown-font-weight: The font weight for the date picker dropdown default is `500`
+* @prop --date-picker-dropdown-gap: The gap for the date picker dropdown default is `0.625rem`
+* @prop --date-picker-days-margin-bottom: The margin bottom for the date picker days default is `0.625rem`
+* @prop --date-picker-days-font-size: The font size for the date picker days default is `1rem`
+* @prop --date-picker-days-font-weight: The font weight for the date picker days default is `600`
+* @prop --date-picker-disabled-color: The disabled color for the date picker default is `#c1c4d6`
+* @prop --date-picker-header-buttons-gap: The gap for the date picker header buttons default is `0.5rem`
+* @prop --date-picker-date-border-radius: The border radius for the date picker date default is `0.625rem`
+* @prop --date-picker-date-padding: The padding for the date picker date default is `0.313rem`
+* @prop --date-picker-date-font-size: The font size for the date picker individual date button default is `1rem`
+* @prop --date-picker-date-background-color: The background color for the date picker individual date button default is `#fff`
+* @prop --date-picker-date-border-thickness: The border thickness the date picker individual date button default is `0.35rem`
+* @prop --date-picker-date-hover-background-color: The hover background color for the date picker individual date button default is `#f5f5f5`
+* @prop --date-picker-date-not-current-month-background-color: The background color for the date picker individual date button that is not in the current month default is `#f5f5f5`
+* @prop --date-picker-date-not-current-month-text-color: The text color for the date picker individual date button that is not in the current month default is `#c1c4d6`
+* @prop --date-picker-active-text-color: The text color for the date picker individual date button that is active default is `#fff`
+* @prop --date-picker-today-font-size: The font size for the date picker today button default is `1rem`
+* @prop --date-picker-today-font-weight: The font weight for the date picker today button default is `600`
+* @prop --date-picker-today-background-color: The background color for the date picker today button default is `#fff`
+* @prop --date-picker-footer-button-padding: The padding for the date picker footer button default is `0.5rem`
+* @prop --date-picker-footer-button-border-radius: The border radius for the date picker footer button default is `0.35rem`
+* @prop --date-picker-footer-button-font-size: The font size for the date picker footer button default is `0.85rem`
+* @prop --date-picker-footer-button-font-weight: The font weight for the date picker footer button default is `500`
+* @prop --date-picker-panel-bg: The background color for the date picker panel default is `#fff`
+* @prop --date-picker-calendar-footer-margin-top: The margin top for the date picker calendar footer default is `1.25rem`
+* @prop --date-picker-confirm-text-color: The text color for the date picker confirm button default is `#fff`
+* @prop --date-picker-panel-opacity: The opacity for the date picker panel default is `1`
+* @prop --date-picker-date-border-color: The border color for the date picker individual date button default is `#d8dae5`
+* @prop --date-picker-font-family: The font family for the date picker default is `'Work Sans', 'sans-serif'`
+*/
+
+:host {
+  display: block;
+  font-family: var(--date-picker-font-family, $base-font-family);
+  -webkit-user-select: none;
+  user-select: none;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+  font-weight: 500;
+}
+
+:host(:focus-visible) {
+  @include focus;
+  border-radius: $base-border-radius;
+}
+
+@mixin grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.1875rem;
+  align-items: center;
+  justify-items: center;
+}
+
+@mixin center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+*,
+*::before,
+*::after {
+  transition: all var(--date-picker-transition-duration, 0.3s) ease;
+}
+
+h1,
+p {
+  padding: 0;
+  margin: 0;
+  &:focus-visible {
+    @include focus;
+    border-radius: $base-border-radius;
+  }
+}
+
+button:focus-visible {
+  @include focus;
+  border-radius: $base-border-radius;
+}
+
+section#panel {
+  @include center;
+  display: var(--date-picker-panel-display, flex);
+  cursor: pointer;
+  border-radius: var(--date-picker-panel-border-radius, $base-border-radius);
+  border: 0.0625rem solid var(--date-picker-panel-border-color, $neutral-400);
+  color: var(--date-picker-panel-text-color, $neutral-400);
+  padding: var(--date-picker-panel-padding, $base-padding) calc(var(--date-picker-panel-padding, $base-padding) * 2);
+  font-size: var(--date-picker-panel-font-size, $size-2);
+  min-width: 55%;
+  max-width: 17.5rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  background: var(--date-picker-panel-bg, $light);
+  opacity: var(--date-picker-panel-opacity, 1);
+
+  div {
+    @include center;
+    width: 100%;
+    justify-content: space-between;
+    gap: var(--date-picker-panel-gap, 0.625rem);
+    &.icon-right {
+      flex-direction: row;
+    }
+    &.icon-left {
+      flex-direction: row-reverse;
+    }
+    span {
+      @include center;
+    }
+    p {
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  &:hover {
+    border: 0.0625rem solid var(--date-picker-active-color, $orange-500);
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    &:hover {
+      border: 0.0625rem solid var(--date-picker-panel-border-color, $neutral-400);
+    }
+  }
+}
+
+section.calendar {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: var(--date-picker-calendar-padding, 0.625rem);
+  border: 0.0625rem solid var(--date-picker-calendar-border-color, $neutral-200);
+  border-radius: var(--date-picker-calendar-border-radius, 0.5rem);
+  display: grid;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 2;
+  background-color: var(--date-picker-calendar-bg, $light);
+
+  &.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  header:first-of-type {
+    @include center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    padding: 0 0.125rem;
+
+    div.texts {
+      @include center;
+      gap: var(--date-picker-calendar-header-gap, 0.5rem);
+      h1 {
+        cursor: pointer;
+        font-size: var(--date-picker-calendar-header-font-size, $size-3);
+        font-weight: var(--date-picker-calendar-header-font-weight, 600);
+        @include center;
+        gap: 0.125rem;
+        span {
+          @include center;
+        }
+      }
+
+      span.wrapper {
+        position: relative;
+
+        span svg path {
+          fill: var(--date-picker-active-color, $orange-500);
+        }
+
+        div.dropdown {
+          display: grid;
+          opacity: 0;
+          grid-template-rows: 0fr;
+          pointer-events: none;
+          position: absolute;
+          background-color: var(--date-picker-dropdown-background, $light);
+          box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12);
+          border-radius: 0.5rem;
+          border: $base-border-thickness solid var(--date-picker-dropdown-border-color, $neutral-200);
+          max-height: 16.875rem;
+          overflow-y: scroll;
+          padding: var(--date-picker-dropdown-padding, 0.625rem);
+
+          summary {
+            @include center;
+            flex-direction: column;
+            align-items: flex-start;
+            font-size: var(--date-picker-dropdown-font-size, $size-2);
+            font-weight: var(--date-picker-dropdown-font-weight, 500);
+            gap: var(--date-picker-dropdown-gap, 0.625rem);
+
+            p {
+              cursor: pointer;
+              &:hover {
+                color: var(--date-picker-active-color, $orange-500);
+              }
+              &.active {
+                color: var(--date-picker-active-color, $orange-500);
+              }
+            }
+          }
+          &.years {
+            padding: var(--date-picker-dropdown-padding, 0.75rem);
+          }
+
+          &.open {
+            grid-template-rows: 1fr;
+            opacity: 1;
+            pointer-events: all;
+          }
+          /** Scrollbar */
+          &::-webkit-scrollbar {
+            width: 0.5rem;
+            height: 0.5rem;
+          }
+
+          &::-webkit-scrollbar-track {
+            background: #f1f1f100;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background: #888888;
+            border-radius: 0.25rem;
+            display: block;
+          }
+        }
+      }
+    }
+
+    div.buttons {
+      @include center;
+      gap: var(--date-picker-header-buttons-gap, 0.5rem);
+      button {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+
+        svg path {
+          fill: var(--date-picker-active-color, $orange-500);
+        }
+
+        &:disabled {
+          svg path {
+            fill: var(--date-picker-disabled-color, $neutral-300);
+          }
+        }
+      }
+    }
+  }
+
+  header:last-of-type {
+    width: 100%;
+    @include grid;
+    margin-bottom: var(--date-picker-days-margin-bottom, 0.625rem);
+
+    span {
+      padding: calc($base-padding / 2);
+      min-width: 1.125rem;
+      font-size: var(--date-picker-days-font-size, $size-2);
+      font-weight: var(--date-picker-days-font-weight, 600);
+      border: 0.0625rem solid transparent;
+      @include center;
+    }
+  }
+
+  main {
+    width: 100%;
+    @include grid;
+
+    button.date {
+      border-radius: var(--date-picker-date-border-radius, 0.4rem);
+      border: var(--date-picker-date-border-thickness, $base-border-thickness) solid var(--date-picker-date-border-color, $neutral-200);
+      padding: var(--date-picker-date-padding, calc($base-padding / 2));
+      min-width: 2rem;
+      font-size: var(--date-picker-date-font-size, $size-2);
+      background-color: var(--date-picker-date-background-color, $light);
+      font-family: var(--date-picker-font-family, $base-font-family);
+
+      cursor: pointer;
+      @include center;
+      &:hover {
+        background-color: var(--date-picker-date-hover-background-color, $lightest);
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        color: var(--date-picker-disabled-color, $neutral-300);
+        &:hover {
+          background-color: var(--date-picker-date-background-color, $light);
+        }
+      }
+
+      &.not-current-month {
+        background-color: var(--date-picker-date-not-current-month-background-color, $light-600);
+        color: var(--date-picker-date-not-current-month-text-color, $neutral-300);
+        &:disabled {
+          &:hover {
+            background-color: var(--date-picker-date-not-current-month-background-color, $light-600);
+          }
+        }
+      }
+
+      &.today {
+        border: $base-border-thickness solid var(--date-picker-active-color, $orange-500);
+      }
+
+      &.selected.today {
+        background-color: var(--date-picker-active-color, $orange-500);
+        color: $light;
+        border: $base-border-thickness solid $light-700;
+      }
+
+      &.selected {
+        background-color: var(--date-picker-active-color, $orange-500);
+        color: var(--date-picker-active-text-color, $light);
+      }
+    }
+  }
+
+  footer {
+    @include center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: var(--date-picker-calendar-footer-margin-top, 1.25rem);
+
+    > button {
+      font-size: var(--date-picker-today-font-size, $size-2);
+      font-weight: var(--date-picker-today-font-weight, 600);
+      color: var(--date-picker-active-color, $orange-500);
+      cursor: pointer;
+      background-color: var(--date-picker-today-background-color, $light);
+      font-family: var(--date-picker-font-family, $base-font-family);
+      border: none;
+      &:disabled {
+        cursor: not-allowed;
+        color: var(--date-picker-disabled-color, $neutral-300);
+      }
+    }
+
+    div {
+      button {
+        padding: calc(var(--date-picker-footer-button-padding, $base-padding) * 3 / 4) var(--date-picker-footer-button-padding, $base-padding);
+        border-radius: var(--date-picker-footer-button-border-radius, 0.35rem);
+        cursor: pointer;
+        font-size: var(--date-picker-footer-button-font-size, 0.85rem);
+        font-weight: var(--date-picker-footer-button-font-weight, 500);
+        font-family: var(--date-picker-font-family, $base-font-family);
+
+        &:first-of-type {
+          border: 0.0625rem solid $neutral-200;
+          background-color: $light;
+          &:hover {
+            background-color: $lightest;
+          }
+        }
+        &:last-of-type {
+          border: 0.0625rem solid var(--date-picker-active-color, $orange-500);
+          background-color: var(--date-picker-active-color, $orange-500);
+          color: var(--date-picker-confirm-text-color, $light);
+          margin-left: 0.3125rem;
+        }
+      }
+    }
+  }
+}

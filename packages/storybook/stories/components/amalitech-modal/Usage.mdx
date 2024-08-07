@@ -1,0 +1,167 @@
+import * as ModalStories from './amalitech-modal.stories.tsx';
+import { Meta, Title, Description, Story, Canvas } from '@storybook/blocks';
+
+<Meta of={ModalStories} />
+
+# How to use `amalitech-modal`
+
+The Modal component is a custom element used to display content in a layer above the app. It comes with default text for cancel and confirm buttons but can be customized with various props and parts.
+
+You could use it like this:
+
+## Basic Modal
+
+By default, you may want to pass some text into the header slot followed by other text going into the default slot and this serves as the modal content. This default configuration also comes with text `cancel` and `confirm` as the modal actions.
+
+<Canvas of={ModalStories.BasicModal} />
+
+```html
+<amalitech-modal>
+  <span slot="header">Confirm or exit</span>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+</amalitech-modal>
+```
+
+## Confirmation Only Variant
+
+This variant of the modal exposes only one button for the user to interact with, mainly to confirm some process.
+
+<Canvas of={ModalStories.ConfirmationModal} />
+
+```html
+<amalitech-modal confirmation> 
+    Some agreement you might want to confirm 
+</amalitech-modal>
+```
+
+## Scrollable Variant
+
+This variant of the modal has a scrollable text area, designed to be used with more content.
+
+<Canvas of={ModalStories.ScrollableModal} />
+
+```html
+<amalitech-modal scrollable>
+  <span slot="header">A very long agreement</span>
+  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis est illo in ipsum dicta libero, cumque, voluptate nisi alias officia sed iste quia voluptatibus quasi esse,
+  perspiciatis impedit velit! Explicabo aliquid earum doloremque hic doloribus minus optio dolore, quisquam esse, reiciendis, excepturi praesentium. Sapiente soluta culpa
+  consectetur quos sit fugit illum officiis iusto optio. Illo id corporis nostrum aut cum dicta nemo sed. Dolor temporibus accusantium sunt beatae doloribus pariatur, iure,
+  provident eligendi officiis explicabo quam, saepe qui consequuntur quaerat sequi praesentium ipsam aut. Molestiae repellat quam voluptatibus dolor tempore adipisci dolore optio
+  culpa ut eius necessitatibus voluptatum maxime architecto, quo quas dignissimos porro consequatur? Praesentium
+</amalitech-modal>
+```
+
+## Attributes
+
+The `amalitech-modal` has various attributes for changing the modal's appearance.
+
+### `close-button-type`
+
+The type of button used for closing the modal. Options are `arms`, `x`, `x-rounded`, `rounded` and `square`. Default is `arms`.
+
+<Canvas of={ModalStories.CustomCloseButton} />
+
+```html
+<amalitech-modal close-button-type="x-rounded">
+  <span slot="header">Confirm or exit</span>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+</amalitech-modal>
+```
+
+## `confirm-text` and `cancel-text`
+
+The default text for confirmation and cancel actions are `confirm` and `cancel`. These can be changed by passing the `confirm-text` and `cancel-text` attributes with desired values.
+
+<Canvas of={ModalStories.CustomButtonTexts} />
+
+```html
+<amalitech-modal confirm-text="agree" cancel-text="go back">
+  <span slot="header">Confirm or exit</span>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+</amalitech-modal>
+```
+
+## Opening The Modal
+
+The `amalitech-modal` like any other modal is invisible by default. You can open the modal by attaching an `visible` attribute or using the `openModal()` method on the modal. Simarlarly you can programmatically close the modal by detaching the `visible` attribute or calling the `closeModal()` method.
+
+```html
+<body>
+  <amalitech-modal>
+    <span slot="header">Confirm or exit</span>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+  </amalitech-modal>
+</body>
+<script>
+  const modal = document.querySelector('amalitech-modal');
+  modal.openModal();
+  modal.closeModal();
+  modal.setAttribute("visible", '');
+</script>
+```
+
+## Listening for events
+
+The `amalitech-modal` component emits the `amalitechConfirm` event when the confirm button is clicked and the `amalitechCancel` event when the cancel button or close button is clicked.
+
+```html
+<body>
+  <amalitech-modal>
+    <span slot="header">Confirm or exit</span>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+  </amalitech-modal>
+</body>
+<script>
+  const modal = document.querySelector('amalitech-modal');
+
+  modal.addEventListener('amalitechConfirm', e => {
+    // do something
+    console.log(e);
+  });
+
+  multiple.addEventListener('amalitechCancel', e => {
+    // do something
+    console.log(e);
+  });
+</script>
+```
+
+## Styling with CSS
+
+Custom styling can be applied with exposed CSS variables
+
+```html
+<head> 
+    amalitech-modal {
+        --modal-background: #fff;
+        --modal-width: 500px;
+        --confirm-button-background: #eee;
+        --cancel-button-color: #1e1e1e;
+    }
+</head>
+<body>
+  <amalitech-modal>
+    <span slot="header">Confirm or exit</span>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+  </amalitech-modal>
+</body>
+```
+
+## All CSS Variables
+
+```css
+    amalitech-modal {
+        /* Colors */
+        --modal-background: #fff;
+        --confirm-button-background: #dd5928;
+        --confirm-button-color: #fff;
+        --cancel-button-background: #fff;
+        --cancel-button-color: #dd5928;
+
+        /* Sizes */
+        --modal-width: 500px;
+        --modal-top-before: 10vh;
+        --modal-top-after: 15vh;
+        --modal-header-font-size: 1.5rem;
+    }
+```

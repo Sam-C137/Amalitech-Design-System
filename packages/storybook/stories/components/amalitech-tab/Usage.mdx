@@ -1,0 +1,57 @@
+import * as TabStories from './amalitech-tab.stories.tsx';
+import { Meta, Title, Description, Story, Canvas } from '@storybook/blocks';
+
+<Meta of={TabStories} />
+
+# How to use `amalitech-tab`
+
+The `amalitech-tab` component is used to create tabbed interfaces where only one tab can be active at a time.
+
+You could use it like this:
+
+## Default
+
+<Canvas of={TabStories.Basic} />
+
+```html
+<amalitech-tab>
+  <amalitech-tab-panel tab-name="Tab Item #1">
+    <p>This is the first tab's content</p>
+  </amalitech-tab-panel>
+  <amalitech-tab-panel tab-name="Tab Item #2">
+    <p>This is the second tab's content</p>
+  </amalitech-tab-panel>
+  <amalitech-tab-panel tab-name="Tab Item #3" disabled>
+    <p>This is the third tab's content</p>
+  </amalitech-tab-panel>
+</amalitech-tab>
+```
+
+## Styling with CSS
+
+Custom styling can be applied with exposed CSS variables
+
+```html
+<head>
+  amalitech-tab { 
+    --tabviewNavBg: orange; 
+    --tabviewNavBorder: 1rem solid #000; 
+    --tabviewNavBorderWidth: 1rem; 
+    --tabviewHeaderSpacing: 0; 
+  }
+</head>
+<body>
+  <amalitech-tab></amalitech-tab>
+</body>
+```
+
+## All CSS Variables
+
+```css
+amalitech-tab {
+  --tabviewNavBg: orange;
+  --tabviewNavBorder: 1rem solid #000;
+  --tabviewNavBorderWidth: 1rem;
+  --tabviewHeaderSpacing: 0;
+}
+```

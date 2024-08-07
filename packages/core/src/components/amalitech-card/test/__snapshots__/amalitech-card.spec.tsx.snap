@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`amalitech-card renders a card without href 1`] = `
+<amalitech-card tabindex="-1">
+  <mock:shadow-root>
+    <div class="is-card">
+      <slot name="header"></slot>
+      <slot name="title"></slot>
+      <slot name="body"></slot>
+      <slot name="image"></slot>
+      <slot></slot>
+    </div>
+  </mock:shadow-root>
+</amalitech-card>
+`;
+
+exports[`amalitech-card renders a clickable card with href 1`] = `
+<amalitech-card href="https://example.com" tabindex="0">
+  <mock:shadow-root>
+    <a class="is-card" href="https://example.com">
+      <slot name="header"></slot>
+      <slot name="title"></slot>
+      <slot name="body"></slot>
+      <slot name="image"></slot>
+      <slot></slot>
+    </a>
+  </mock:shadow-root>
+</amalitech-card>
+`;
+
+exports[`amalitech-card renders a disabled card 1`] = `
+<amalitech-card class="is-disabled" disabled="" tabindex="-1">
+  <mock:shadow-root>
+    <div class="is-card">
+      <slot name="header"></slot>
+      <slot name="title"></slot>
+      <slot name="body"></slot>
+      <slot name="image"></slot>
+      <slot></slot>
+    </div>
+  </mock:shadow-root>
+</amalitech-card>
+`;
+
+exports[`amalitech-card renders card with header slot 1`] = `
+<amalitech-card tabindex="-1">
+  <mock:shadow-root>
+    <div class="is-card">
+      <slot name="header"></slot>
+      <slot name="title"></slot>
+      <slot name="body"></slot>
+      <slot name="image"></slot>
+      <slot></slot>
+    </div>
+  </mock:shadow-root>
+  <div slot="header">
+    Header Content
+  </div>
+</amalitech-card>
+`;

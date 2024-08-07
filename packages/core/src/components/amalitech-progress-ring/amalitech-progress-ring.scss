@@ -1,0 +1,43 @@
+@import '../../global/variables.scss';
+
+/**
+* Exposed CSS variables
+* @prop --progress-ring-text-color: Color of the progress ring text default is `#101840`
+* @prop --progress-text-size: Font size of the progress ring text default is `1.25rem`
+* @prop --progress-ring-text-weight: Font weight of the progress ring text default is `500`
+* @prop --progress-ring-transition-duration: Duration of the progress ring transition default is `0.35s`
+* @prop --progress-ring-indeterminate-duration: Duration of the indeterminate progress ring animation default is `2s`
+* @prop --progress-ring-indeterminate-timing-function: Timing function of the indeterminate progress ring animation default is `cubic-bezier(0.5, 0, 0.5, 1)`
+*/
+
+:host {
+  display: block;
+  font-family: $base-font-family;
+}
+
+text {
+  fill: var(--progress-ring-text-color, $neutral-700);
+  font-size: var(--progress-text-size, $size-3);
+  font-weight: var(--progress-ring-text-weight, 500);
+}
+
+circle.progress {
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke-dashoffset var(--progress-ring-transition-duration, 0.35s);
+}
+
+circle.indeterminate {
+  animation: rotation var(--progress-ring-indeterminate-duration, 2s) var(--progress-ring-indeterminate-timing-function, cubic-bezier(0.5, 0, 0.5, 1)) infinite;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

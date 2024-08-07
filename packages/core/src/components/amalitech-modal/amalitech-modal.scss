@@ -1,0 +1,186 @@
+@import '../../global/variables.scss';
+
+/**
+* Exposed CSS variables
+*
+* @prop --modal-background: The background color of the modal
+*
+* @prop --modal-top-before: The top position of the modal before it is visible
+* @prop --modal-top-after: The top position of the modal after it is visible
+*
+* @prop --modal-width: The width of the modal
+*
+* @prop --modal-header-font-size: The font size of the modal header
+* @prop --modal-header-color: The text color of the modal header
+*
+* @prop --confirm-button-background: The background color of the confirm button
+* @prop --confirm-button-color: The text color of the confirm button
+*
+* @prop --cancel-button-background: The background color of the cancel button
+* @prop --cancel-button-color: The text color of the cancel button
+*/
+
+:host {
+  font-family: $base-font-family;
+  display: block;
+}
+
+.modal {
+  background: var(--modal-background, $light);
+  box-shadow: 0px 12px 40px 0px rgba(16, 24, 64, 0.24);
+  padding: calc($base-padding * 2);
+  border-radius: calc($base-border-radius + 3px);
+  z-index: 100;
+  position: fixed;
+  top: var(--modal-top-before, 10vh);
+  left: calc((100% - var(--modal-width, 40%)) / 2);
+  width: var(--modal-width, 40%);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease-out;
+
+  @include md {
+    width: 80% !important;
+    left: 5% !important;
+    border-radius: $base-border-radius * 2 !important;
+  }
+
+  @include lg {
+    width: 60%;
+    left: 18%;
+    border-radius: $base-border-radius * 2;
+  }
+
+  &.is-visible {
+    top: var(--modal-top-after, 30vh);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &.scrollable.is-visible {
+    top: var(--modal-top-after, 15vh);
+    max-height: 65vh;
+
+    @include md {
+      top: 20vh;
+      max-height: 60vh;
+    }
+
+    @include lg {
+      top: 20vh;
+      max-height: 45vh;
+    }
+
+    @include xlg {
+      max-height: 50vh;
+    }
+  }
+
+  &.confirmation-variant .buttons-container {
+    justify-content: center;
+  }
+}
+
+.scrollable {
+  .details {
+    max-height: calc(65vh - 150px);
+    overflow-y: scroll;
+    width: 100%;
+    word-wrap: break-word;
+
+    @include md {
+      max-height: 40vh;
+    }
+
+    @include lg {
+      max-height: calc(45vh - 150px);
+    }
+
+    @include xlg {
+      max-height: calc(50vh - 150px);
+    }
+  }
+}
+
+.backdrop {
+  position: absolute;
+  z-index: 90;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.45);
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+
+  &.is-visible {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+::slotted([slot='header']) {
+  font-size: var(--modal-header-font-size, $size-3);
+  color: var(--modal-header-color, $neutral-700);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5rem;
+  padding: 0;
+  margin: 0 !important;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: calc($base-margin * 2);
+  padding-bottom: calc($base-padding * 2);
+  border-bottom: $base-border-thickness solid $neutral-500;
+
+  &.lacks-header {
+    justify-content: flex-end;
+  }
+
+  span {
+    cursor: pointer;
+    &:focus-visible {
+      @include focus;
+      border-radius: $base-border-radius;
+    }
+  }
+}
+
+button {
+  margin-top: calc($base-margin * 2);
+  padding: $base-padding calc($base-padding * 2);
+  border-radius: $base-border-radius;
+  border: none;
+  background: transparent;
+  font-size: $size-2;
+  &:focus-visible {
+    @include focus;
+    border-radius: $base-border-radius;
+  }
+
+  &,
+  header span {
+    cursor: pointer;
+  }
+}
+
+.confirm-button {
+  background: var(--confirm-button-background, $orange-500);
+  color: var(--confirm-button-color, $light);
+}
+
+.cancel-button {
+  background: var(--cancel-button-background, $light);
+  color: var(--cancel-button-color, $neutral-500);
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  border-top: $base-border-thickness solid $neutral-500;
+}

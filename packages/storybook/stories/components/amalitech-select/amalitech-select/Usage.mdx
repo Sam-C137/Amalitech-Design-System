@@ -1,0 +1,242 @@
+import * as SelectStories from './amalitech-select.stories.tsx';
+import { Meta, Title, Description, Story, Canvas } from '@storybook/blocks';
+
+<Meta of={SelectStories} />
+
+# How to use `amalitech-select`
+
+The Select component is a custom element designed to be used with child `amalitech-select-option` elements.
+
+You could use it like this:
+
+## Default
+
+By default, the select element is configured for single select. The `label` attribute is used to set the label of the select element.
+
+<Canvas of={SelectStories.Standard} />
+
+```html
+<amalitech-select label="Select one item">
+  <amalitech-select-option value="apple">Item 1</amalitech-select-option>
+  <amalitech-select-option value="orange">Item 2</amalitech-select-option>
+  <amalitech-select-option value="banana">Item 3</amalitech-select-option>
+</amalitech-select>
+```
+
+## Multiple
+
+Add a multiple attribute to the select element to enable multi-select
+
+<Canvas of={SelectStories.Multiple} />
+
+```html
+<amalitech-select label="Select multiple items" multiple>
+  <amalitech-select-option value="apple">Item 1</amalitech-select-option>
+  <amalitech-select-option value="orange">Item 2</amalitech-select-option>
+  <amalitech-select-option value="banana">Item 3</amalitech-select-option>
+</amalitech-select>
+```
+
+## Disabled
+
+The entire select component can be disabled or only a particular option by attaching the disabled attribute
+
+### Disabled Select
+
+<Canvas of={SelectStories.Disabled} />
+
+```html
+<amalitech-select label="Entire select disabled" disabled>
+  <amalitech-select-option value="apple">Item 1</amalitech-select-option>
+  <amalitech-select-option value="orange">Item 2</amalitech-select-option>
+  <amalitech-select-option value="banana">Item 3</amalitech-select-option>
+</amalitech-select>
+```
+
+### Disabled Option
+
+<Canvas of={SelectStories.DisabledItems} />
+
+```html
+<amalitech-select label="Some items disabled">
+  <amalitech-select-option value="apple">Item 1</amalitech-select-option>
+  <amalitech-select-option value="orange" disabled>Item 2</amalitech-select-option>
+  <amalitech-select-option value="banana">Item 3</amalitech-select-option>
+</amalitech-select>
+```
+
+## Selected
+
+The selected attribute can be used to pre-select an option
+
+<Canvas of={SelectStories.DefaultSelected} />
+
+```html
+<amalitech-select label="An item selected by default">
+  <amalitech-select-option value="apple">Item 1</amalitech-select-option>
+  <amalitech-select-option value="orange">Item 2</amalitech-select-option>
+  <amalitech-select-option value="banana" selected>Item 3</amalitech-select-option>
+</amalitech-select>
+```
+
+## Scrollable
+
+Select options can be a lot, and the `scrollable` attribute allows you to make the dropdown scrollable. The height
+of the dropdown when scrollable can be set with the `--select-dropdown-height` CSS variable.
+
+<Canvas of={SelectStories.Scrollable} />
+
+```html
+<amalitech-select scrollable style="--select-dropdown-height: 10rem" class="not-test" label="Select multiple" multiple>
+  <amalitech-select-option value="a19">a19</amalitech-select-option>
+  <amalitech-select-option value="c12">c12</amalitech-select-option>
+  <amalitech-select-option value="b11">b11</amalitech-select-option>
+  <amalitech-select-option value="c99">c99</amalitech-select-option>
+  <amalitech-select-option value="x18">x18</amalitech-select-option>
+  <amalitech-select-option value="t15">t15</amalitech-select-option>
+  <amalitech-select-option value="a14">a14</amalitech-select-option>
+  <amalitech-select-option value="b13">b13</amalitech-select-option>
+  <amalitech-select-option value="c10">c10</amalitech-select-option>
+</amalitech-select>
+```
+
+## Required
+
+The select component can be made required by adding the `required` attribute to the select element. This will add a required indicator.
+
+<Canvas of={SelectStories.Required} />
+
+```html
+<amalitech-select label="Select one item" required>
+  <amalitech-select-option value="apple">Item 1</amalitech-select-option>
+  <amalitech-select-option value="orange">Item 2</amalitech-select-option>
+  <amalitech-select-option value="banana">Item 3</amalitech-select-option>
+</amalitech-select>
+```
+
+## Custom Icons
+
+You can add custom icons to the select options by adding the `slected-style` attribute to the `amalitech-select-option` element.
+
+### `checkRounded`
+
+<Canvas of={SelectStories.CustomSelectIcon1Multiple} />
+
+```html
+<amalitech-select label="Custom select icon 1" selected-style="checkRounded">
+  <amalitech-select-option value="apple">Item 1</amalitech-select-option>
+  <amalitech-select-option value="orange">Item 2</amalitech-select-option>
+  <amalitech-select-option value="banana">Item 3</amalitech-select-option>
+</amalitech-select>
+```
+
+### `dot`
+
+<Canvas of={SelectStories.CustomSelectIcon2Multiple} />
+
+```html
+<amalitech-select label="Custom select icon 2" selected-style="dot">
+  <amalitech-select-option value="apple">Item 1</amalitech-select-option>
+  <amalitech-select-option value="orange">Item 2</amalitech-select-option>
+  <amalitech-select-option value="banana">Item 3</amalitech-select-option>
+</amalitech-select>
+```
+
+## Listening for events
+
+The `amalitech-select` component mainly emits an `amalitechChange` event whenever a selection is made or changed. For single select, the event detail has an object with `value` and `textContent`. For multiple select, the event detail has an object with `values` and `textContents`.
+
+```html
+<body>
+  <amalitech-select id="single" label="Select one item">
+    <amalitech-select-option value="apple">Item 1</amalitech-select-option>
+    <amalitech-select-option value="orange">Item 2</amalitech-select-option>
+    <amalitech-select-option value="banana">Item 3</amalitech-select-option>
+  </amalitech-select>
+
+  <amalitech-select id="multiple" label="Select multiple items" multiple>
+    <amalitech-select-option value="apple">Item 1</amalitech-select-option>
+    <amalitech-select-option value="orange">Item 2</amalitech-select-option>
+    <amalitech-select-option value="banana">Item 3</amalitech-select-option>
+  </amalitech-select>
+</body>
+<script>
+  const single = document.querySelector('#single');
+  const multiple = document.querySelector('#multiple');
+
+  /**
+   *  @returns {object} {value: string, textContent: string}
+   */
+  single.addEventListener('amalitechChange', e => {
+    console.log(e.detail);
+  });
+
+  /**
+   * @returns {object} {values: string[], textContents: string[]}
+   */
+  multiple.addEventListener('amalitechChange', e => {
+    console.log(e.detail);
+  });
+</script>
+```
+
+## Styling with CSS
+
+Custom styling can be applied with exposed CSS variables
+
+```html
+<head>
+  amalitech-select { 
+    --select-width: 10rem; 
+    --select-label-bg: #ffffff; 
+    --select-dropdown-bg: #ffffff; 
+    --select-label-radius: 5px; 
+    --select-dropdown-radius: 5px; 
+  } 
+  
+  amalitech-select-option { 
+    --select-option-font-size: 0.875rem;
+    --select-option-padding: 0.5rem 0.75rem;
+    --select-option-radius: 0.35rem;
+    --select-option-weight: 500;
+  }
+</head>
+<body>
+  <amalitech-select label="Select one item">
+    <amalitech-select-option value="apple">Item 1</amalitech-select-option>
+    <amalitech-select-option value="orange">Item 2</amalitech-select-option>
+    <amalitech-select-option value="banana">Item 3</amalitech-select-option>
+  </amalitech-select>
+</body>
+```
+
+## All CSS Variables
+
+```css
+    amalitech-select {
+      --select-width: 174px;
+      --select-label-bg: --amalitech-color-light;
+      --select-label-padding: 0.5rem 0.75rem;
+      --select-label-font-size: 0.875rem;
+      --select-label-weight: 500;
+      --select-label-border-width: 1px;
+      --select-label-border-color: --amalitech-color-neutral-500;
+      --select-label-gap: 1rem;
+      --select-label-radius: 0.35rem;
+      --select-dropdown-bg: --amalitech-color-light;
+      --select-dropdown-padding: 0.35rem;
+      --select-dropdown-radius: 0.35rem;
+      --select-dropdown-height: 10rem;
+      --select-dropdown-border-color: --amalitech-color-neutral-500;
+      --select-dropdown-border-width: 1px;
+      --select-label-color: black;
+      --select-font-family: 'Work Sans';
+    }
+
+    amalitech-select-option { 
+      --select-option-font-size: 0.875rem;
+      --select-option-padding: 0.5rem 0.75rem;
+      --select-option-radius: 0.35rem;
+      --select-option-weight: 500;
+    }
+```

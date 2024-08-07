@@ -1,0 +1,133 @@
+//theme colors
+$primary: var(--amalitech-color-primary) !default;
+$secondary: var(--amalitech-color-secondary) !default;
+$warning: var(--amalitech-color-yellow-500) !default;
+$error: var(--amalitech-color-red-500) !default;
+$info: var(--amalitech-color-neutral-500) !default;
+$success: var(--amalitech-color-green-500) !default;
+$blue: var(--amalitech-color-blue-500) !default;
+$purple: var(--amalitech-color-purple-500) !default;
+$teal: var(--amalitech-color-teal-500) !default;
+$pink: var(--amalitech-color-pink-500) !default;
+$violet: var(--amalitech-color-violet-500) !default;
+$dark: var(--amalitech-color-dark) !default;
+$light: var(--amalitech-color-light) !default;
+
+// color palette
+$colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "error": $error,
+  "warning": $warning,
+  "info": $info,
+  "dark": $dark,
+  "black": $dark,
+  "light": $light,
+  "white": $dark,
+  "orange": $primary,
+  "orange-100": var(--amalitech-color-orange-100),
+  "orange-200": var(--amalitech-color-orange-200),
+  "orange-300": var(--amalitech-color-orange-300),
+  "orange-400": var(--amalitech-color-orange-400),
+  "orange-500": var(--amalitech-color-orange-500),
+  "orange-600": var(--amalitech-color-orange-600),
+  "orange-700": var(--amalitech-color-orange-700),
+  "neutral": $info,
+  "neutral-100": var(--amalitech-color-neutral-100),
+  "neutral-200": var(--amalitech-color-neutral-200),
+  "neutral-300": var(--amalitech-color-neutral-300),
+  "neutral-400": var(--amalitech-color-neutral-400),
+  "neutral-500": var(--amalitech-color-neutral-500),
+  "neutral-600": var(--amalitech-color-neutral-600),
+  "neutral-700": var(--amalitech-color-neutral-700),
+  "gray": $info,
+  "gray-100": #f9fafb,
+  "gray-200": #f3f4f6,
+  "gray-300": #e5e7eb,
+  "gray-400": #d1d5db,
+  "gray-500": #9ca3af,
+  "gray-600": #6b7280,
+  "gray-700": #4b5563,
+  "green": $success,
+  "green-100": var(--amalitech-color-green-100),
+  "green-200": var(--amalitech-color-green-200),
+  "green-300": var(--amalitech-color-green-300),
+  "green-400": var(--amalitech-color-green-400),
+  "green-500": var(--amalitech-color-green-500),
+  "green-600": var(--amalitech-color-green-600),
+  "green-700": var(--amalitech-color-green-700),
+  "yellow": $warning,
+  "yellow-100": var(--amalitech-color-yellow-100),
+  "yellow-200": var(--amalitech-color-yellow-200),
+  "yellow-300": var(--amalitech-color-yellow-300),
+  "yellow-400": var(--amalitech-color-yellow-400),
+  "yellow-500": var(--amalitech-color-yellow-500),
+  "yellow-600": var(--amalitech-color-yellow-600),
+  "yellow-700": var(--amalitech-color-yellow-700),
+  "red": $error,
+  "red-100": var(--amalitech-color-red-100),
+  "red-200": var(--amalitech-color-red-200),
+  "red-300": var(--amalitech-color-red-300),
+  "red-400": var(--amalitech-color-red-400),
+  "red-500": var(--amalitech-color-red-500),
+  "red-600": var(--amalitech-color-red-600),
+  "red-700": var(--amalitech-color-red-700),
+  "blue": $blue,
+  "blue-100": var(--amalitech-color-blue-100),
+  "blue-200": var(--amalitech-color-blue-200),
+  "blue-300": var(--amalitech-color-blue-300),
+  "blue-400": var(--amalitech-color-blue-400),
+  "blue-500": var(--amalitech-color-blue-500),
+  "blue-600": var(--amalitech-color-blue-600),
+  "blue-700": var(--amalitech-color-blue-700),
+  "violet": $violet,
+  "violet-100": var(--amalitech-color-violet-100),
+  "violet-200": var(--amalitech-color-violet-200),
+  "violet-300": var(--amalitech-color-violet-300),
+  "violet-400": var(--amalitech-color-violet-400),
+  "violet-500": var(--amalitech-color-violet-500),
+  "violet-600": var(--amalitech-color-violet-600),
+  "violet-700": var(--amalitech-color-violet-700),
+  "teal": $teal,
+  "teal-100": var(--amalitech-color-teal-100),
+  "teal-200": var(--amalitech-color-teal-200),
+  "teal-300": var(--amalitech-color-teal-300),
+  "teal-400": var(--amalitech-color-teal-400),
+  "teal-500": var(--amalitech-color-teal-500),
+  "teal-600": var(--amalitech-color-teal-600),
+  "teal-700": var(--amalitech-color-teal-700),
+  "pink": $pink,
+  "pink-100": var(--amalitech-color-pink-100),
+  "pink-200": var(--amalitech-color-pink-200),
+  "pink-300": var(--amalitech-color-pink-300),
+  "pink-400": var(--amalitech-color-pink-400),
+  "pink-500": var(--amalitech-color-pink-500),
+  "pink-600": var(--amalitech-color-pink-600),
+  "pink-700": var(--amalitech-color-pink-700),
+  "purple": $purple,
+  "purple-100": var(--amalitech-color-violet-100),
+  "purple-200": var(--amalitech-color-violet-200),
+  "purple-300": var(--amalitech-color-violet-300),
+  "purple-400": var(--amalitech-color-violet-400),
+  "purple-500": var(--amalitech-color-violet-500),
+  "purple-600": var(--amalitech-color-violet-600),
+  "purple-700": var(--amalitech-color-violet-700),
+);
+
+//spacing
+$base-padding: 0.5rem !default;
+$base-margin: 0.5rem !default;
+
+//borders
+$base-border-thickness: 0.063rem !default;
+$base-border-radius: 0.25rem !default;
+
+// box-shadow
+$base-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1) !default;
+
+// font sizes
+$base-font-size: 1rem !default;
+$font-size-sm: $base-font-size * 0.75 !default;
+$font-size-lg: $base-font-size * 1.5 !default;
+$font-size-xl: $base-font-size * 2 !default;
+$font-size-xxl: $base-font-size * 3 !default;

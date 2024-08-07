@@ -1,0 +1,156 @@
+@import '../../global/variables.scss';
+
+$green-primary: #2e8a3a !default;
+$green-secondary: #f0fdf4 !default;
+$yellow-primary: #d1a634 !default;
+$yellow-secondary: #fffbea !default;
+$size-3: 1.15rem;
+
+/**
+* Exposed CSS variables
+*
+*                       
+* @prop --validation-msg-size: Font size of the validation message, default is `1.15rem`
+* @prop --validation-detail-color: Color of the validation detail, default is `#FDF4F4`
+* @prop --validation-detail-size: Font size of the validation detail, default is `1rem`
+* @prop --validation-padding: Padding of the validation, default is `1.5rem`
+* @prop --validation-radius: Border radius of the validation, default is `0.5rem`
+* @prop --validation-border-size: Border size of the validation, default is `1px`
+*
+*                       
+* @prop --validation-error-bg: Background color of the validation error variant, default is `#FDF4F4`
+* @prop --validation-error-border-color: Border color of the validation error variant, default is `#FDF4F4`
+* @prop --validation-error-msg-color: Text color of the validation error variant, default is `#FDF4F4`
+* @prop --validation-error-icon-color: Icon color of the validation error variant, default is `#FDF4F4`
+*
+*                       
+* @prop --validation-success-bg: Background color of the validation success variant, default is `#FDF4F4`
+* @prop --validation-success-border-color: Border color of the validation success variant, default is `#FDF4F4`
+* @prop --validation-success-msg-color: Text color of the validation success variant, default is `#FDF4F4`
+* @prop --validation-success-icon-color: Icon color of the validation success variant, default is `#FDF4F4`
+*
+*                      
+* @prop --validation-warning-bg: Background color of the validation warning variant, default is `#FDF4F4`
+* @prop --validation-warning-border-color: Border color of the validation warning variant, default is `#FDF4F4`
+* @prop --validation-warning-msg-color: Text color of the validation warning variant, default is `#FDF4F4`
+* @prop --validation-warning-icon-color: Icon color of the validation warning variant, default is `#FDF4F4`
+*/
+
+:host {
+  display: block;
+  font-family: var(--font-family, $base-font-family);
+}
+
+:host(.closed) {
+  display: none;
+}
+
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+button {
+  display: flex;
+  align-self: flex-start;
+  padding-top: calc($base-padding / 2);
+  background: none;
+  border: none;
+  cursor: pointer;
+  &:focus-visible {
+    @include focus;
+    border-radius: 0.125rem;
+  }
+}
+
+main {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  padding: var(--validation-padding, calc($base-padding * 1.5));
+  border-radius: var(--validation-radius, 0.5rem);
+
+  &.error {
+    background-color: var(--validation-error-bg, $red-100);
+    border: var(--validation-border-size, 1px) solid var(--validation-error-border-color, $red-500);
+
+    & ::slotted([slot='message']) {
+      color: var(--validation-error-msg-color, $red-600);
+    }
+
+    & svg > path {
+      fill: var(--validation-error-icon-color, $red-500);
+    }
+  }
+
+  &.success {
+    background-color: var(--validation-success-bg, $green-secondary);
+    border: var(--validation-border-size, 1px) solid var(--validation-success-border-color, $green-primary);
+
+    & ::slotted([slot='message']) {
+      color: var(--validation-success-msg-color, $green-primary);
+    }
+
+    & svg > path {
+      fill: var(--validation-success-icon-color, $green-primary);
+    }
+  }
+
+  &.warning {
+    background-color: var(--validation-warning-bg, $yellow-secondary);
+    border: var(--validation-border-size, 1px) solid var(--validation-warning-border-color, $yellow-primary);
+
+    & ::slotted([slot='message']) {
+      color: var(--validation-warning-msg-color, $yellow-primary);
+    }
+
+    & svg > path {
+      fill: var(--validation-warning-icon-color, $yellow-primary);
+    }
+  }
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+::slotted([slot='message']),
+::slotted([slot='detail']) {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+::slotted([slot='message']) {
+  font-weight: bold;
+  font-size: var(--validation-msg-size, $size-3);
+}
+
+::slotted([slot='detail']) {
+  color: var(--validation-detail-color, $neutral-600);
+  font-size: var(--validation-detail-size, $size-2);
+}
+
+.feedback-opacity {
+  &.display-closed {
+    opacity: 0;
+    pointer-events: none;
+  }
+  &.display-open {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.feedback-toast {
+  &.display-closed {
+    transform: translateX(100vw);
+    pointer-events: none;
+  }
+  &.display-open {
+    transform: translateX(0);
+    pointer-events: all;
+  }
+}

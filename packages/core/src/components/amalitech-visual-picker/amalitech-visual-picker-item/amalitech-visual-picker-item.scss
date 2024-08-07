@@ -1,0 +1,101 @@
+/**
+ * Exposed CSS variables
+ *
+ * @prop --visual-picker-item-padding: The padding of the visual picker item default is `1.25rem`
+ * @prop --visual-picker-item-radius: The border radius of the visual picker item default is `0.35rem`
+ * @prop --visual-picker-item-border-width: The border width of the visual picker item default is `0.125rem`
+ * @prop --visual-picker-item-border-color: The border color of the visual picker item default is `amalitech-color-neutral-300`
+ * @prop --visual-picker-bg: The background color of the visual picker item default is `amalitech-color-light` 
+ * @prop --visual-picker-transition-duration: The transition duration of the visual picker item default is `0.3s`
+ * @prop --visual-picker-transition-timing: The transition timing of the visual picker item default is `ease`
+ * @prop --visual-picker-active-border-width: The border width of the visual picker item when active default is `0.125rem`
+ * @prop --visual-picker-active-box-shadow: The box shadow of the visual picker item when active default is `0 4px 4px 0 rgba(0, 0, 0, 0.16)`
+ * @prop --visual-picker-active-color: The color of the visual picker item when active default is `amalitech-color-primary`
+ * @prop --visual-picker-checked-icon: The icon of the visual picker item when checked default is a checkmark svg
+ * @prop --visual-picker-label-color: The color of the visual picker item label default is `amalitech-color-neutral-700`
+ * @prop --visual-picker-font-size: The font size of the visual picker item label default is `1rem`
+ * @prop --visual-picker-font-weight: The font weight of the visual picker item label default is `500`
+ * @prop --visual-picker-font-family: The font family of the visual picker item label default is `amalitech-base-font-family`
+ */
+
+:host {
+  @include center;
+  flex-direction: column;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+button {
+  @include center;
+  padding: var(--visual-picker-item-padding, 1.25rem);
+  border-radius: var(--visual-picker-item-radius, 0.35rem);
+  border: var(--visual-picker-item-border-width, 0.125rem) solid var(--visual-picker-item-border-color, $neutral-300);
+  cursor: pointer;
+  transition: all var(--visual-picker-transition-duration, 0.3s) var(--visual-picker-transition-timing, ease);
+  position: relative;
+  background: var(--visual-picker-bg, $light);
+
+  &:focus-visible {
+    outline: none;
+    border: var(--visual-picker-active-border-width, 0.125rem) solid var(--visual-picker-active-border-color, $primary);
+    box-shadow: var(--visual-picker-active-box-shadow, 0 4px 4px 0 rgba(0, 0, 0, 0.16));
+  }
+}
+
+:host(:hover:not([disabled])) {
+  button {
+    border: var(--visual-picker-active-border-width, 0.125rem) solid var(--visual-picker-active-color, $primary);
+    box-shadow: var(--visual-picker-active-box-shadow, 0 4px 4px 0 rgba(0, 0, 0, 0.16));
+  }
+}
+
+:host([selected]) {
+  button {
+    border: var(--visual-picker-active-border-width, 0.125rem) solid var(--visual-picker-active-color, $primary);
+  }
+}
+
+button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+button:not(.uncoverable)::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--visual-picker-active-color, $primary);
+  background-image: var(
+    --visual-picker-checked-icon,
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>')
+  );
+  background-size: 1.5rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity var(--visual-picker-transition-duration, 0.3s) var(--visual-picker-transition-timing, ease);
+}
+
+:host([selected]) {
+  button::after {
+    opacity: 1;
+  }
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  color: var(--visual-picker-label-color, $neutral-700);
+  font-size: var(--visual-picker-font-size, 1rem);
+  font-weight: var(--visual-picker-font-weight, 500);
+  margin-top: 0.3rem;
+}
+
+::slotted(*) {
+  font-family: var(--visual-picker-font-family, $base-font-family);
+  font-weight: var(--visual-picker-font-weight, 500);
+}

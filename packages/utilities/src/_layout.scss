@@ -1,0 +1,205 @@
+@use "sass:math";
+
+/**
+* Flex
+*/
+$content-layout-values: flex-start, flex-end, center, space-between,
+  space-around, space-evenly;
+$items-layout-values: stretch, start, center, end, baseline;
+$flex-direction-values: row, row-reverse, column, column-reverse;
+$place-items-values: start, end, center, stretch, auto;
+
+// wrap
+$flex-wrap: wrap, no-wrap, wrap-reverse;
+$flex-values: 0, 1, initial, auto, none;
+$flex-grow-values: 0, 1;
+$flex-shrink-values: 0, 1;
+
+// flex classes
+@each $val in $flex-values {
+  .flex-#{$val} {
+    flex: $val;
+  }
+}
+
+// justify content classes
+@each $val in $content-layout-values {
+  .justify-#{$val} {
+    justify-content: $val;
+  }
+  .align-#{$val} {
+    align-content: $val;
+  }
+}
+
+// align items classes
+@each $val in $items-layout-values {
+  .justify-items-#{$val} {
+    justify-items: $val;
+  }
+  .align-items-#{$val} {
+    align-items: $val;
+  }
+}
+
+// align self classes
+@each $val in $items-layout-values {
+  .justify-self-#{$val} {
+    justify-self: $val;
+  }
+  .align-self-#{$val} {
+    align-self: $val;
+  }
+}
+
+// flex direction classes
+@each $val in $flex-direction-values {
+  .flex-#{$val} {
+    flex-direction: $val;
+  }
+}
+
+@each $val in $flex-wrap {
+  .flex-#{$val} {
+    flex-wrap: $val;
+  }
+}
+
+@each $val in $flex-grow-values {
+  .grow-#{$val} {
+    flex-grow: $val;
+  }
+}
+
+@each $val in $flex-shrink-values {
+  .shrink-#{$val} {
+    flex-shrink: $val;
+  }
+}
+
+@each $val in $place-items-values {
+  .place-items-#{$val} {
+    place-items: $val;
+  }
+}
+
+// gaps
+
+$gaps: (
+  "0": 0rem,
+  "1": 0.0625rem,
+  "2": 0.125rem,
+  "3": 0.25rem,
+  "4": 0.5rem,
+  "5": 1rem,
+  "6": 1.5rem,
+  "7": 2rem,
+  "8": 2.5rem,
+  "9": 3rem,
+  "10": 4rem,
+  "11": 5rem,
+  "12": 6rem,
+);
+
+@each $key, $val in $gaps {
+  .gap-#{$key} {
+    gap: $val;
+  }
+}
+
+/**
+* Grid
+*/
+$grid-columns: 12;
+$grid-gaps: (
+  "0": 0,
+  "1": 10px,
+  "2": 20px,
+  "3": 30px,
+);
+
+//  base layout classes
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2px;
+  box-sizing: border-box;
+}
+.row {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.flex.col {
+  flex-direction: column;
+}
+
+// grid gaps
+@each $key, $val in $grid-gaps {
+  .grid-gap-#{$key} > * {
+    margin: $val;
+  }
+}
+
+// col classes
+@include xs {
+  @for $i from 1 through $grid-columns {
+    .col-#{$i}-xs {
+      box-sizing: border-box;
+      flex-grow: 0;
+      width: math.div($i * 100%, $grid-columns);
+    }
+  }
+}
+@include sm {
+  @for $i from 1 through $grid-columns {
+    .col-#{$i}-sm {
+      box-sizing: border-box;
+      flex-grow: 0;
+      width: math.div($i * 100%, $grid-columns);
+    }
+  }
+}
+@include md {
+  @for $i from 1 through $grid-columns {
+    .col-#{$i}-md {
+      box-sizing: border-box;
+      flex-grow: 0;
+      width: math.div($i * 100%, $grid-columns);
+    }
+  }
+}
+@include lg {
+  @for $i from 1 through $grid-columns {
+    .col-#{$i}-lg {
+      box-sizing: border-box;
+      flex-grow: 0;
+      width: math.div($i * 100%, $grid-columns);
+    }
+  }
+}
+@include xl {
+  @for $i from 1 through $grid-columns {
+    .col-#{$i}-xl {
+      box-sizing: border-box;
+      flex-grow: 0;
+      width: math.div($i * 100%, $grid-columns);
+    }
+  }
+}
+
+$z-index-values: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50, 60, 70, 80,
+  90, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000;
+
+@each $val in $z-index-values {
+  .z-#{$val} {
+    z-index: $val;
+  }
+}
+
+@each $val in $z-index-values {
+  .-z-#{$val} {
+    z-index: -$val;
+  }
+}

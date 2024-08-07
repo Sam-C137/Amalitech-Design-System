@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>amalitech-modal Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+    rel="stylesheet" />
+  <script type="module" src="/build/amalitech-design-system.esm.js"></script>
+  <script nomodule src="/build/build/amalitech-design-system.js"></script>
+  <link rel="stylesheet" href="/build/amalitech-design-system.css" />
+  <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <style>
+    h1 {
+      text-align: center;
+    }
+
+    * {
+      margin-bottom: 20px;
+    }
+
+    amalitech-modal::part(confirm-button) {
+      background: crimson;
+    }
+
+    /* :root{
+        --confirm-button-background: #000;
+      } */
+  </style>
+</head>
+
+<body>
+  <h1 class="amalitech-h-900">This is ADS</h1>
+  <amalitech-modal class="m1">
+    <span slot="header">Confirm or exit</span>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+  </amalitech-modal>
+  <amalitech-modal class="m2" scrollable close-button-type="x-rounded">
+    <span slot="header">A very long agreement</span>
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis est illo in ipsum dicta libero, cumque, voluptate
+    nisi alias officia sed iste quia voluptatibus quasi esse,
+    perspiciatis impedit velit! Explicabo aliquid earum doloremque hic doloribus minus optio dolore, quisquam esse,
+    reiciendis, excepturi praesentium. Sapiente soluta culpa
+    consectetur quos sit fugit illum officiis iusto optio. Illo id corporis nostrum aut cum dicta nemo sed. Dolor
+    temporibus accusantium sunt beatae doloribus pariatur, iure,
+    provident eligendi officiis explicabo quam, saepe qui consequuntur quaerat sequi praesentium ipsam aut. Molestiae
+    repellat quam voluptatibus dolor tempore adipisci dolore
+    optio culpa ut eius necessitatibus voluptatum maxime architecto, quo quas dignissimos porro consequatur? Praesentium
+    sit laboriosam similique. Necessitatibus in rem dolorem
+    quae rerum est inventore saepe molestias. Veniam quasi odio eaque, quo animi hic. Non cumque incidunt dolorum
+    voluptatem perferendis perspiciatis tenetur sint esse libero
+    porro laboriosam animi sed maiores aut, consectetur tempora culpa labore molestiae fugit rem dolor quidem fuga unde
+    commodi? Eius, repellat commodi quas possimus sequi libero
+    laborum quam nesciunt eum natus labore perspiciatis qui tempore nobis magni recusandae earum soluta necessitatibus
+    modi cum culpa itaque consectetur quod cumque. Quam ex aut
+    rerum eum tempora magni quia, commodi expedita esse id possimus ipsam. Neque, culpa.
+  </amalitech-modal>
+  <amalitech-modal id="m3" confirmation confirm-text="agree"> Some agreement you might want to confirm
+  </amalitech-modal>
+  <button id="n-modal-btn">Click to open modal</button>
+  <button id="l-modal-btn">Click to open longer modal</button>
+  <button id="c-modal-btn">Click to open confirmation modal</button>
+</body>
+<script>
+  const modal1 = document.querySelector('.m1');
+  modal1.addEventListener('amalitechConfirm', event => {
+    console.log('amalitechConfirmed', event);
+  });
+  const modal2 = document.querySelector('.m2');
+  modal2.addEventListener('amalitechCancel', event => {
+    console.log('amalitechCancelled', event);
+  });
+  const modal3 = document.querySelector('#m3');
+  modal3.addEventListener('amalitechConfirm', event => {
+    console.log('amalitechConfirmed', event);
+  });
+  const nModalButton = document.querySelector('#n-modal-btn');
+  nModalButton.addEventListener('click', () => {
+    // modal1.openModal();
+    modal1.setAttribute('visible', '');
+  });
+
+  const lModalButton = document.querySelector('#l-modal-btn');
+  lModalButton.addEventListener('click', () => {
+    // modal2.openModal();
+    modal2.setAttribute('visible', '');
+  });
+
+  const cModalButton = document.querySelector('#c-modal-btn');
+  cModalButton.addEventListener('click', () => {
+    // modal3.openModal();
+    modal3.setAttribute('visible', '');
+  });
+</script>
+
+</html>

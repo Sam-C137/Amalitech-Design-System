@@ -1,0 +1,150 @@
+:host {
+  display: block;
+  font-family: 'Work Sans';
+
+  .amalitech-tab-nav-container {
+    position: relative;
+  }
+
+  .amalitech-tab-scrollable .amalitech-tab-nav-container {
+    overflow: hidden;
+  }
+
+  .amalitech-tab-nav-content {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    overscroll-behavior: contain auto;
+  }
+
+  .amalitech-tab-nav {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    flex: 1 1 auto;
+  }
+
+  .amalitech-tab-nav-link {
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+    overflow: hidden;
+  }
+
+  .amalitech-tab-ink-bar {
+    display: none;
+    z-index: 1;
+  }
+
+  .amalitech-tab-nav-link:focus {
+    z-index: 1;
+  }
+
+  .amalitech-tab-title {
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .amalitech-tab-nav-btn {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .amalitech-tab-nav-prev {
+    left: 0;
+  }
+
+  .amalitech-tab-nav-next {
+    right: 0;
+  }
+
+  .amalitech-tab-nav-content::-webkit-scrollbar {
+    display: none;
+  }
+
+  .amalitech-tab-close {
+    z-index: 1;
+  }
+
+  .amalitech-tab {
+
+    .amalitech-tab-nav {
+      background: var(--tabviewNavBg, $light);
+      border: var(--tabviewNavBorder, 0.063rem solid $neutral-200);
+      border-width: var(--tabviewNavBorderWidth, 0 0 0.125rem 0);
+
+      li {
+        margin-right: var(--tabviewHeaderSpacing, 0);
+
+        .amalitech-tab-nav-link {
+          border: var(--tabviewHeaderBorder, solid $neutral-500);
+          border-width: var(--tabviewHeaderBorderWidth, 0 0 0.125rem 0);
+          border-color: var(--tabviewHeaderBorderColor, transparent transparent $neutral-200 transparent);
+          background: var(--tabviewHeaderBg, $light);
+          color: var(--tabviewHeaderTextColor, $neutral-400);
+          padding: var(--tabviewHeaderPadding, 1rem);
+          font-weight: var(--tabviewHeaderFontWeight, 600);
+          border-top-right-radius: var(--borderRadius, 0.188rem);
+          border-top-left-radius: var(--borderRadius, 0.188rem);
+          transition: box-shadow var(--transitionDuration, 0.2s);
+          margin: var(--tabviewHeaderMargin, 0 0 -0.125rem 0);
+        }
+
+        &:not(.amalitech-highlight):not(.amalitech-disabled):hover {
+          .amalitech-tab-nav-link {
+            background: var(--tabviewHeaderHoverBg, $light);
+            border-color: var(--tabviewHeaderHoverBorderColor, $neutral-400);
+            color: var(--tabviewHeaderTextHoverColor, $neutral-500);
+          }
+        }
+
+        &.amalitech-highlight {
+          .amalitech-tab-nav-link {
+            background: var(--tabviewHeaderActiveBg, $light);
+            border-color: var(--tabviewHeaderActiveBorderColor, $primary);
+            color: var(--tabviewHeaderTextActiveColor, $neutral-600);
+          }
+        }
+
+        &.amalitech-disabled {
+          .amalitech-tab-nav-link {
+            background: var(--tabviewHeaderDisabledBg, $light);
+            color: var(--tabviewHeaderDisabledTextColor, $neutral-300);
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+
+    .amalitech-tab-left-icon {
+      margin-right: 0.5rem;
+    }
+
+    .amalitech-tab-right-icon {
+      margin-left: 0.5rem;
+    }
+
+    .amalitech-tab-close {
+      margin-left: 0.5rem;
+    }
+
+    .amalitech-tab-panels {
+      background: var(--tabviewContentBg, $light);
+      padding: var(--tabviewContentPadding, 1rem);
+      border: var(--tabviewContentBorder, 0 none);
+      color: var(--tabviewContentTextColor, $secondary);
+      border-bottom-right-radius: var(--borderRadius, 0.188rem);
+      border-bottom-left-radius: var(--borderRadius, 0.188rem);
+    }
+  }
+}

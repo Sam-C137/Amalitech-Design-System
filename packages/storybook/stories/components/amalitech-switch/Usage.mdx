@@ -1,0 +1,130 @@
+import * as SwitchStories from './amalitech-switch.stories';
+import { Meta, Title, Description, Story, Canvas } from '@storybook/blocks';
+
+<Meta of={SwitchStories}/>
+
+# How to use `amalitech-switch`
+
+The switch component is a wrapper for the html radio input with extra styling
+
+You could use it like this:
+
+## Default
+
+<Canvas of={SwitchStories.Standard}/>
+
+```html
+<amalitech-switch></amalitech-switch>
+```
+
+## Sizes 
+
+The switch component comes in  3 main sizes: small medium and large. You can chose a size by
+setting the `size` attribute
+
+### Small
+
+<Canvas of={SwitchStories.Small}/>
+
+```html
+<amalitech-switch size="small"><amalitech-switch>
+```
+
+### Medium
+
+<Canvas of={SwitchStories.Standard}/>
+
+```html
+<amalitech-switch size="medium"></amalitech-switch>
+```
+
+### Large
+
+<Canvas of={SwitchStories.Large}/>
+
+```html
+<amalitech-switch size="large"></amalitech-switch>
+```
+
+## Disabled
+
+You can disable the component by passing the `disabled` attribute
+
+<Canvas of={SwitchStories.Disabled}/>
+
+```html
+<amalitech-switch disabled><amalitech-switch>
+```
+
+## Checked
+
+You can start it off default checked by adding the `checked` attribute
+
+<Canvas of={SwitchStories.Checked}/>
+
+```html
+<amalitech-switch checked><amalitech-switch>
+```
+
+## With id and name attribute
+
+Typically radio elements may have an id or name associated with a label element you can add these attributes to the `amalitech-switch` element like this:
+
+```html
+<form>
+    <label for="required">
+        <amalitech-switch switch-id="required" name="required" value="required"><amalitech-switch>
+    </label>
+</form>
+```
+
+## Listening for events
+
+You can listen for a `amalitechSwitchChange` event on the `amalitech-switch` element
+
+```html
+<body>
+  <amalitech-switch></amalitech-switch>
+</body>
+<script>
+  const switch = document.querySelector('amalitech-switch');
+  /**
+   * @returns {
+   *        name: '',
+   *        value: 'on',
+   *        checked: true // or false
+   *    }
+   */
+  switch.addEventListener('amalitechSwitchChange', e => {
+    console.log(e.detail);
+  });
+</script>
+```
+
+## Styling with CSS
+
+Custom styling can be applied with exposed CSS variables
+
+```html
+<head>
+    amalitech-switch {
+        --amalitech-switch-checked-bg: violet;
+        --amalitech-switch-knob-bg: #000;
+        --amalitech-switch-unchecked-bg: red;
+    }
+</head>
+<body>
+    <amalitech-switch></amalitech-switch>
+</body>
+```
+
+## All CSS Variables
+
+```css
+    amalitech-switch{
+      /* Colors */
+        --amalitech-switch-checked-bg: #dd5928;
+        --amalitech-switch-knob-bg: #fff;
+        --amalitech-switch-unchecked-bg: #d3d3d3;
+    }
+```

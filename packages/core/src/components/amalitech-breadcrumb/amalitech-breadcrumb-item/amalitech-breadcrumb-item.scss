@@ -1,0 +1,43 @@
+$separator-item-color: $neutral-400 !default;
+$hover-separator-item-color: $neutral-600 !default;
+$separator-item-active-color: $neutral-400 !default;
+
+// ***  Main  ***
+
+:host(.item) {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+// Main: anchor
+:host(.item) > a {
+  text-decoration: none;
+  color: $separator-item-active-color;
+  cursor: pointer;
+  
+  &:focus-visible {
+    @include focus;
+    border-radius: 0.125rem;
+  }
+
+  &:hover {
+    color: $hover-separator-item-color;
+  }
+
+  &:not(.is-active) {
+    color: $neutral-400;
+    cursor: pointer;
+  }
+
+  &.is-active {
+    color: $orange-500;
+    cursor: pointer;
+  }
+
+  &.disable-click {
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+}

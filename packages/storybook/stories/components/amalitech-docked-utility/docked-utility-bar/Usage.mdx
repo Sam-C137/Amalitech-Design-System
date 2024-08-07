@@ -1,0 +1,161 @@
+import * as DockedUtilityStories from './amalitech-docked-utility-bar.stories.tsx';
+import { Meta, Title, Description, Story, Canvas } from '@storybook/blocks';
+
+<Meta of={DockedUtilityStories} />
+
+# How to use `amalitech-docked-utility-bar`
+
+The docked utility bar component is placed on the  bottom of the screen's perimeter to 
+provide quick access to common actions and tools.
+
+You could use it like this:
+
+## Default
+
+<Canvas of={DockedUtilityStories.Default} />
+
+```html
+<amalitech-docked-utility-bar>
+    <amalitech-docked-utility-item content="fight-club"> <amalitech-icon-call /> Call </amalitech-docked-utility-item>
+    <amalitech-docked-utility-item content="the-matrix"> <amalitech-icon-clock /> History </amalitech-docked-utility-item>
+    <amalitech-docked-utility-item content="pulp-fiction"> <amalitech-icon-notes> Notes </amalitech-docked-utility-item>
+    <amalitech-docked-utility-item content="inception"> <amalitech-icon-arrow-left /> Online Channel </amalitech-docked-utility-item>
+    <amalitech-docked-utility-item content="blade-runner"> <amalitech-icon-globe /> Extras </amalitech-docked-utility-item>
+</amalitech-docked-utility-bar>
+<amalitech-docked-utility-body name="fight-club">
+    <div slot="logo"><amalitech-icon-call /> Call</div>
+    <div slot="content">
+        Oxygen gets you high. In a catastrophic emergency, we're taking giant, panicked breaths. Suddenly you become euphoric, docile. You accept your fate. It's all right here.
+        Emergency water landing, six hundred miles an hour. Blank faces, calm as Hindu cows
+    </div>
+</amalitech-docked-utility-body>
+<amalitech-docked-utility-body name="the-matrix">
+    <div slot="logo"><amalitech-icon-clock /> History</div>
+    <div slot="content">
+        You have to understand, most of these people are not ready to be unplugged. And many of them are so inured, so hopelessly dependent on the system, that they will fight to
+        protect it. Were you listening to me, Neo? Or were you looking.
+    </div>
+</amalitech-docked-utility-body>
+<amalitech-docked-utility-body name="pulp-fiction">
+    <div slot="logo"><amalitech-icon-notes> Notes</div>
+    <div slot="content">
+        The path of the righteous man is beset on all sides by the inequities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will,
+        shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance
+        and furious anger those who attempt to poison and destroy my brothers. And you will know my name is the Lord when I lay my vengeance upon thee.
+    </div>
+</amalitech-docked-utility-body>
+<amalitech-docked-utility-body name="inception">
+    <div slot="logo"><amalitech-icon-arrow-left /> Online Channel</div>
+    <div slot="content">
+        Dreams feel real while we’re in them. It’s only when we wake up that we realize something was actually strange.
+    </div>
+</amalitech-docked-utility-body>
+<amalitech-docked-utility-body name="blade-runner">
+    <div slot="logo"><amalitech-icon-globe /> Extras</div>
+    <div slot="content">
+        <p>Dreadfully distinct.</p>
+        <p>A blood black nothingness began to spin.</p>
+        <p>Let's move on to system. System.</p>
+        <p>Feel that in your body. The system.</p>
+        <p>What does it feel like to be part of the system. System.</p>
+        <p>What is it like when someone gives you the silent treatment. Dark.</p>
+        <p>Why are these things happening? Against the dark.</p>
+        <p>Do you dream about being interlinked?</p>
+        <p>Have they left a place for you where you can dream? Interlinked.</p>
+        <p>Is that a metaphor? White Fountain.</p>
+        <p>Do you like fire, earth, air or water. A Tall White Fountain.</p>
+        <p>Do you like skipping around in the water? A Tall White Fountain.</p>
+        <p>A blood black nothingness. A system of cells. Within cells interlinked. Within one stem. And dreadfully distinct. Against the dark. A tall white fountain played.</p>
+    </div>
+</amalitech-docked-utility-body>
+```
+
+## The `amalitech-docked-utility-bar` component
+
+The `docked-utility-bar` component is used to create the docked utility bar which holds any number of `docked-utility-item` elements.
+
+```html
+<amalitech-docked-utility-bar>
+    <amalitech-docked-utility-item content="item1"> Item 1 </amalitech-docked-utility-item>
+    <amalitech-docked-utility-item content="item3">  Item 3 </amalitech-docked-utility-item>
+    <amalitech-docked-utility-item content="item2">  Item 2 </amalitech-docked-utility-item>
+</amalitech-docked-utility-bar>
+```
+
+## The `amalitech-docked-utility-item` component
+
+The `docked-utility-item` component is used to create the items in the docked utility bar and has a default
+slot for any type of content. It also has a `content` attribute which is used to link the item to a `docked-utility-body`
+component which shows the expanded content.
+
+```html
+<amalitech-docked-utility-item content="item1"> Item 1 </amalitech-docked-utility-item>
+<amalitech-docked-utility-item content="item3">  Item 3 </amalitech-docked-utility-item>
+<amalitech-docked-utility-item content="item2">  Item 2 </amalitech-docked-utility-item>
+```
+
+## The `amalitech-docked-utility-body` component
+The `docked-utility-body` component is used to create the body of the docked utility bar. It has a slot for the content and a slot for the logo
+and a close icon. It also has a `name` attribute, that is used to link it to a `docked-utility-item` element.
+
+```html
+<amalitech-docked-utility-body name="item1">
+    <div slot="logo">Item 1</div>
+    <div slot="content">
+        <p>Content for item 1</p>
+    </div>
+</amalitech-docked-utility-body>
+<amalitech-docked-utility-body name="item3">
+    <div slot="logo">Item 3</div>
+    <div slot="content">
+        <p>Content for item 3</p>
+    </div>
+</amalitech-docked-utility-body>
+<amalitech-docked-utility-body name="item2">
+    <div slot="logo">Item 2</div>
+    <div slot="content">
+        <p>Content for item 2</p>
+    </div>
+</amalitech-docked-utility-body>
+```
+
+## Styling with CSS
+
+Custom styling can be applied with exposed CSS variables
+
+```html
+<head>
+    amalitech-docked-utility-bar {
+        --docked-utility-bg-color: red;
+    }
+</head>
+<body>
+    <amalitech-docked-utility-bar></amalitech-docked-utility-bar>
+</body>
+```
+
+## All CSS Variables
+
+```css
+    amalitech-docked-utility-bar {
+        /* Bar */
+        --docked-utility-bar-border-top-color: #e0e0e0;
+        --docked-utility-bg-color: #fff;
+
+        /* Item */
+        --docked-utility-item-padding: 10px;
+        --docked-utility-item-border-bottom-width: 1px;
+        --docked-utility-item-active-bg: #f5f5f5;
+        --docked-utility-item-active-border-bottom-color: #e0e0e0;
+        --docked-utility-item-active-border-bottom-width: 2px;
+
+        /* Body */
+        --docked-utility-body-max-width: 300px;
+        --docked-utility-body-width: 100%;
+        --docked-utility-body-border-color: #e0e0e0; 
+        --docked-utility-body-padding: 10px;
+        --docked-utility-body-bg-color: #fff;
+        --docked-utility-header-border-bottom: 1px solid #e0e0e0; 
+        --docked-utility-header-border-bottom-width:  1px;
+    }
+```

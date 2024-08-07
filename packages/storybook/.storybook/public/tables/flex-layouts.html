@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Table</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h3>Flex</h3>
+    <table id="flexTable">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>CSS Property</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h3>Flex wrap</h3>
+    <table id="wrapTable">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>CSS Property</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h3>Flex direction</h3>
+    <table id="directionTable">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>CSS Property</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h3>Flex grow and shrink</h3>
+    <table id="growShrinkTable">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>CSS Property</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h3>Justify and Align content</h3>
+    <table id="justifyAlignTable">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>CSS Property</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h3>Justify and Align items</h3>
+    <table id="justifyAlignItemsTable">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>CSS Property</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h3>Justify and Align self</h3>
+    <table id="justifyAlignSelfTable">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>CSS Property</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h3>Place items</h3>
+    <table id="placeItemsTable">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>CSS Property</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script>
+      var flexWrapData = [
+        { className: "flex-wrap", property: "flex-wrap: wrap;" },
+        { className: "flex-no-wrap", property: "flex-wrap: no-wrap;" },
+        {
+          className: "flex-wrap-reverse",
+          property: "flex-wrap: wrap-reverse;",
+        },
+      ];
+
+      var flexTableData = [
+        { className: "flex-0", property: "flex: 0;" },
+        { className: "flex-1", property: "flex: 1;" },
+        { className: "flex-initial", property: "flex: initial;" },
+        { className: "flex-auto", property: "flex: auto;" },
+        { className: "flex-none", property: "flex: none;" },
+      ];
+
+      var flexDirectionData = [
+        { className: "flex-row", property: "flex-direction: row;" },
+        {
+          className: "flex-row-reverse",
+          property: "flex-direction: row-reverse;",
+        },
+        { className: "flex-column", property: "flex-direction: column;" },
+        {
+          className: "flex-column-reverse",
+          property: "flex-direction: column-reverse;",
+        },
+      ];
+
+      var flexGrowShrinkData = [
+        { className: "flex-grow-0", property: "flex-grow: 0;" },
+        { className: "flex-grow-1", property: "flex-grow: 1;" },
+        { className: "flex-shrink-0", property: "flex-shrink: 0;" },
+        { className: "flex-shrink-1", property: "flex-shrink: 1;" },
+      ];
+
+      var justifyAlignData = [
+        {
+          className: "justify-flex-start",
+          property: "justify-content: flex-start;",
+        },
+        {
+          className: "justify-flex-end",
+          property: "justify-content: flex-end;",
+        },
+        { className: "justify-center", property: "justify-content: center;" },
+        {
+          className: "justify-space-between",
+          property: "justify-content: space-between;",
+        },
+        {
+          className: "justify-space-around",
+          property: "justify-content: space-around;",
+        },
+        {
+          className: "justify-space-evenly",
+          property: "justify-content: space-evenly;",
+        },
+        {
+          className: "align-flex-start",
+          property: "align-content: flex-start;",
+        },
+        { className: "align-flex-end", property: "align-content: flex-end;" },
+        { className: "align-center", property: "align-content: center;" },
+        {
+          className: "align-space-between",
+          property: "align-content: space-between;",
+        },
+        {
+          className: "align-space-around",
+          property: "align-content: space-around;",
+        },
+        {
+          className: "align-space-evenly",
+          property: "align-content: space-evenly;",
+        },
+      ];
+
+      var justifyAlignItemsData = [
+        { className: "align-items-center", property: "align-items: center;" },
+        { className: "align-items-start", property: "align-items: start;" },
+        { className: "align-items-end", property: "align-items: end;" },
+        { className: "align-items-stretch", property: "align-items: stretch;" },
+        {
+          className: "align-items-baseline",
+          property: "align-items: baseline;",
+        },
+        {
+          className: "justify-items-center",
+          property: "justify-items: center;",
+        },
+        { className: "justify-items-start", property: "justify-items: start;" },
+        { className: "justify-items-end", property: "justify-items: end;" },
+        {
+          className: "justify-items-stretch",
+          property: "justify-items: stretch;",
+        },
+        {
+          className: "justify-items-baseline",
+          property: "justify-items: baseline;",
+        },
+      ];
+
+      var justifyAlignSelfData = [
+        { className: "align-self-center", property: "align-self: center;" },
+        { className: "align-self-start", property: "align-self: start;" },
+        { className: "align-self-end", property: "align-self: end;" },
+        { className: "align-self-stretch", property: "align-self: stretch;" },
+        { className: "align-self-baseline", property: "align-self: baseline;" },
+        { className: "justify-self-center", property: "justify-self: center;" },
+        { className: "justify-self-start", property: "justify-self: start;" },
+        { className: "justify-self-end", property: "justify-self: end;" },
+        {
+          className: "justify-self-stretch",
+          property: "justify-self: stretch;",
+        },
+        {
+          className: "justify-self-baseline",
+          property: "justify-self: baseline;",
+        },
+      ];
+
+      var placeITemsData = [
+        { className: "place-items-center", property: "place-items: center;" },
+        { className: "place-items-start", property: "place-items: start;" },
+        { className: "place-items-end", property: "place-items: end;" },
+        { className: "place-items-stretch", property: "place-items: stretch;" },
+        {
+          className: "place-items-baseline",
+          property: "place-items: baseline;",
+        },
+      ];
+
+      function generateTableRows(data, querySelector = "#wrapTable") {
+        var tbody = document.querySelector(`${querySelector} tbody`);
+        tbody.innerHTML = "";
+        data.forEach(function (row) {
+          var tr = document.createElement("tr");
+          var tdClass = document.createElement("td");
+          tdClass.style.color = "#dd5928";
+          tdClass.textContent = row.className;
+          var tdProperty = document.createElement("td");
+          tdProperty.style.color = row.propertyColor || "#334155";
+          tdProperty.textContent = row.property;
+          tr.appendChild(tdClass);
+          tr.appendChild(tdProperty);
+          tbody.appendChild(tr);
+        });
+      }
+
+      generateTableRows(flexWrapData);
+      generateTableRows(flexTableData, "#flexTable");
+      generateTableRows(flexDirectionData, "#directionTable");
+      generateTableRows(flexGrowShrinkData, "#growShrinkTable");
+      generateTableRows(justifyAlignData, "#justifyAlignTable");
+      generateTableRows(justifyAlignItemsData, "#justifyAlignItemsTable");
+      generateTableRows(placeITemsData, "#placeItemsTable");
+      generateTableRows(justifyAlignSelfData, "#justifyAlignSelfTable");
+    </script>
+  </body>
+</html>

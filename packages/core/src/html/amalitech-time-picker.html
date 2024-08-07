@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>amalitech-time-picker Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="/build/amalitech-design-system.esm.js"></script>
+    <script nomodule src="/build/build/amalitech-design-system.js"></script>
+    <link rel="stylesheet" href="/build/amalitech-design-system.css" />
+  </head>
+  <body>
+    <amalitech-time-picker required style="margin-bottom: 20px" label="When, how and why" value="11:55" meridian output-format="date"></amalitech-time-picker>
+    <amalitech-time-picker size="small"></amalitech-time-picker>
+    <button>new method</button>
+  </body>
+  <script>
+    const timePicker = document.querySelector('amalitech-time-picker');
+    timePicker.addEventListener('amalitechTimeChange', e => {
+      console.log(e.detail);
+    });
+    timePicker.addEventListener('amalitechTimeClear', e => {
+      console.log(e.detail);
+    });
+    document.querySelector('button').addEventListener('click', () => {
+      timePicker.open();
+    });
+  </script>
+</html>

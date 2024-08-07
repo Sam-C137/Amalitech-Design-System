@@ -1,0 +1,160 @@
+import * as BreadcrumbStories from './amalitech-breadcrumb.stories.tsx';
+import { Meta, Title, Description, Story, Canvas } from '@storybook/blocks';
+
+<Meta of={BreadcrumbStories} />
+
+# How to use `amalitech-breadcrumb`
+
+The breadcrumb component provides a visual representation of the user's path through the application, allowing them to easily navigate back to previous pages or sections.
+
+You could use it like this:
+
+## Default
+
+<Canvas of={BreadcrumbStories.Arrow} />
+
+```html
+<amalitech-breadcrumb separator="arrow">
+  <amalitech-breadcrumb-item href="https://google.com/" target="_blank">Home</amalitech-breadcrumb-item>
+  <amalitech-breadcrumb-item active href="/">Users</amalitech-breadcrumb-item>
+</amalitech-breadcrumb>
+```
+
+## Separators
+
+The breadcrumb component comes with three main types of separators: arrow, dot and slash.
+You can specify this by setting the `separator` attribute
+
+### Arrow Separator
+
+<Canvas of={BreadcrumbStories.Arrow} />
+
+```html
+<amalitech-breadcrumb separator="arrow">
+  <amalitech-breadcrumb-item href="https://google.com/" target="_blank">Home</amalitech-breadcrumb-item>
+  <amalitech-breadcrumb-item active href="/">Users</amalitech-breadcrumb-item>
+</amalitech-breadcrumb>
+```
+
+### Dot Separator
+
+<Canvas of={BreadcrumbStories.Dot} />
+
+```html
+<amalitech-breadcrumb separator="dot">
+  <amalitech-breadcrumb-item href="https://google.com/" target="_blank">Home</amalitech-breadcrumb-item>
+  <amalitech-breadcrumb-item active href="/">Users</amalitech-breadcrumb-item>
+</amalitech-breadcrumb>
+```
+
+### Slash Separator
+
+<Canvas of={BreadcrumbStories.Slash} />
+
+```html
+<amalitech-breadcrumb separator="slash">
+  <amalitech-breadcrumb-item href="https://google.com/" target="_blank">Home</amalitech-breadcrumb-item>
+  <amalitech-breadcrumb-item active href="/">Users</amalitech-breadcrumb-item>
+</amalitech-breadcrumb>
+```
+
+## Sizes 
+
+The breadcrumb component comes in  3 main sizes: small medium and large. You can chose a size by
+setting the `size` attribute
+
+### Small
+
+<Canvas of={BreadcrumbStories.Small} />
+
+```html
+<amalitech-breadcrumb size="small">
+  <amalitech-breadcrumb-item href="https://google.com/" target="_blank">Home</amalitech-breadcrumb-item>
+  <amalitech-breadcrumb-item active href="/">Users</amalitech-breadcrumb-item>
+</amalitech-breadcrumb>
+```
+
+### Medium
+
+<Canvas of={BreadcrumbStories.Medium} />
+
+```html
+<amalitech-breadcrumb size="medium">
+  <amalitech-breadcrumb-item href="https://google.com/" target="_blank">Home</amalitech-breadcrumb-item>
+  <amalitech-breadcrumb-item active href="/">Users</amalitech-breadcrumb-item>
+</amalitech-breadcrumb>
+```
+
+### Large
+
+<Canvas of={BreadcrumbStories.Large} />
+
+```html
+<amalitech-breadcrumb size="large">
+  <amalitech-breadcrumb-item href="https://google.com/" target="_blank">Home</amalitech-breadcrumb-item>
+  <amalitech-breadcrumb-item active href="/">Users</amalitech-breadcrumb-item>
+</amalitech-breadcrumb>
+```
+
+## Alignment 
+
+The breadcrumb component has an align attribute which specifies which part of the screen it aligns to.
+There are three main values for this: left, right and middle.
+
+### Align Left
+
+<Canvas of={BreadcrumbStories.Left} />
+
+```html
+<amalitech-breadcrumb align="left">
+  <amalitech-breadcrumb-item href="https://google.com/" target="_blank">Home</amalitech-breadcrumb-item>
+  <amalitech-breadcrumb-item active href="/">Users</amalitech-breadcrumb-item>
+</amalitech-breadcrumb>
+```
+
+### Align Right
+
+<Canvas of={BreadcrumbStories.Right} />
+
+```html
+<amalitech-breadcrumb align="right">
+  <amalitech-breadcrumb-item href="https://google.com/" target="_blank">Home</amalitech-breadcrumb-item>
+  <amalitech-breadcrumb-item active href="/">Users</amalitech-breadcrumb-item>
+</amalitech-breadcrumb>
+```
+
+### Center
+
+<Canvas of={BreadcrumbStories.Center} />
+
+```html
+<amalitech-breadcrumb align="middle">
+  <amalitech-breadcrumb-item href="https://google.com/" target="_blank">Home</amalitech-breadcrumb-item>
+  <amalitech-breadcrumb-item active href="/">Users</amalitech-breadcrumb-item>
+</amalitech-breadcrumb>
+```
+
+## Styling with CSS
+
+Custom styling can be applied with exposed CSS variables
+
+```html
+<head>
+  amalitech-breadcrumb { --breadcrumbSize: 2rem; --breadcrumbFont: "Work Sans", sans serif; }
+</head>
+<body>
+  <amalitech-breadcrumb separator="slash" size="small">
+    <amalitech-breadcrumb-item href="https://google.com/" target="_blank">Home</amalitech-breadcrumb-item>
+    <amalitech-breadcrumb-item active href="/">Users</amalitech-breadcrumb-item>
+  </amalitech-breadcrumb>
+</body>
+```
+
+## All CSS Variables
+
+```css
+amalitech-breadcrumb {
+  --breadcrumbSize: 2rem;
+  --breadcrumbFont: 'Work Sans', sans serif;
+}
+```

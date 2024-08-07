@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Table</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <table id="dynamicTable">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>CSS Properties</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script>
+      var tableData = [
+        { className: 'opacity-0', property: 'opacity: 0;' },
+        { className: 'opacity-5', property: 'opacity: 0.05;' },
+        { className: 'opacity-10', property: 'opacity: 0.1;' },
+        { className: 'opacity-15', property: 'opacity: 0.15;' },
+        { className: 'opacity-20', property: 'opacity: 0.2;' },
+        { className: 'opacity-25', property: 'opacity: 0.25;' },
+        { className: 'opacity-30', property: 'opacity: 0.3;' },
+        { className: 'opacity-35', property: 'opacity: 0.35;' },
+        { className: 'opacity-40', property: 'opacity: 0.4;' },
+        { className: 'opacity-45', property: 'opacity: 0.45;' },
+        { className: 'opacity-50', property: 'opacity: 0.5;' },
+        { className: 'opacity-55', property: 'opacity: 0.55;' },
+        { className: 'opacity-60', property: 'opacity: 0.6;' },
+        { className: 'opacity-65', property: 'opacity: 0.65;' },
+        { className: 'opacity-70', property: 'opacity: 0.7;' },
+        { className: 'opacity-75', property: 'opacity: 0.75;' },
+        { className: 'opacity-80', property: 'opacity: 0.8;' },
+        { className: 'opacity-85', property: 'opacity: 0.85;' },
+        { className: 'opacity-90', property: 'opacity: 0.9;' },
+        { className: 'opacity-95', property: 'opacity: 0.95;' },
+        { className: 'opacity-100', property: 'opacity: 1;' },
+      ];
+
+      function generateTableRows(data) {
+        var tbody = document.querySelector('#dynamicTable tbody');
+        tbody.innerHTML = '';
+        data.forEach(function (row) {
+          var tr = document.createElement('tr');
+          var tdClass = document.createElement('td');
+          tdClass.style.color = '#dd5928';
+          tdClass.textContent = row.className;
+          var tdProperty = document.createElement('td');
+          tdProperty.style.color = row.propertyColor || '#334155';
+          tdProperty.textContent = row.property;
+          tr.appendChild(tdClass);
+          tr.appendChild(tdProperty);
+          tbody.appendChild(tr);
+        });
+      }
+
+      generateTableRows(tableData);
+    </script>
+  </body>
+</html>

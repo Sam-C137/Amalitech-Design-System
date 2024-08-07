@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section>
+      <table id="colorTable">
+        <tr>
+          <th>Example</th>
+          <th>Description</th>
+          <th>Token</th>
+        </tr>
+        <!-- Rows will be inserted here by JavaScript -->
+      </table>
+    </section>
+
+    <script>
+      const colors = [
+        { background: '#f5fbf8', description: 'Green/100', cssToken: '--amalitech-color-green-100', hex: '#f5fbf8' },
+        { background: '#eef8f4', description: 'Green/200', cssToken: '--amalitech-color-green-200', hex: '#eef8f4' },
+        { background: '#dcf2ea', description: 'Green/300', cssToken: '--amalitech-color-green-300', hex: '#dcf2ea' },
+        { background: '#a3e6cd', description: 'Green/400', cssToken: '--amalitech-color-green-400', hex: '#a3e6cd' },
+        { background: '#52bd94', description: 'Green/500', cssToken: '--amalitech-color-green-500', hex: '#52bd94' },
+        { background: '#428777', description: 'Green/600', cssToken: '--amalitech-color-green-600', hex: '#428777' },
+        { background: '#317159', description: 'Green/700', cssToken: '--amalitech-color-green-700', hex: '#317159' },
+      ];
+
+      const table = document.getElementById('colorTable');
+
+      colors.forEach(color => {
+        const row = document.createElement('tr');
+
+        const exampleCell = document.createElement('td');
+        const exampleDiv = document.createElement('div');
+        exampleDiv.className = 'swatch';
+        exampleDiv.style.background = color.background;
+        exampleCell.appendChild(exampleDiv);
+
+        const descriptionCell = document.createElement('td');
+        descriptionCell.className = 'description';
+        descriptionCell.textContent = color.description;
+
+        const tokenCell = document.createElement('td');
+        const tokenDiv = document.createElement('div');
+        const cssP = document.createElement('p');
+        cssP.textContent = 'css';
+        const tokenSelectorP = document.createElement('p');
+        tokenSelectorP.className = 'token-selector';
+        tokenSelectorP.textContent = color.cssToken;
+        const hexP = document.createElement('p');
+        hexP.textContent = 'hex';
+        const hexSelectorP = document.createElement('p');
+        hexSelectorP.className = 'hex-selector';
+        hexSelectorP.textContent = color.hex;
+        tokenDiv.appendChild(cssP);
+        tokenDiv.appendChild(tokenSelectorP);
+        tokenDiv.appendChild(hexP);
+        tokenDiv.appendChild(hexSelectorP);
+        tokenCell.appendChild(tokenDiv);
+
+        row.appendChild(exampleCell);
+        row.appendChild(descriptionCell);
+        row.appendChild(tokenCell);
+
+        table.appendChild(row);
+      });
+
+      const swatches = document.querySelectorAll('.swatch');
+      swatches.forEach(swatch => {
+        swatch.addEventListener('click', () => {
+          const color = swatch.style.backgroundColor;
+          navigator.clipboard.writeText(color);
+        });
+      });
+    </script>
+  </body>
+</html>

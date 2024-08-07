@@ -1,0 +1,309 @@
+:root {
+    /* SPACING */
+    --amalitech-spacing-1: 0.0625rem;
+    --amalitech-spacing-2: 0.125rem;
+    --amalitech-spacing-4: 0.25rem;
+    --amalitech-spacing-8: 0.5rem;
+    --amalitech-spacing-12: 0.75rem;
+    --amalitech-spacing-16: 1rem;
+    --amalitech-spacing-24: 1.5rem;
+    --amalitech-spacing-32: 2rem;
+    --amalitech-spacing-40: 2.5rem;
+    --amalitech-spacing-48: 3rem;
+    --amalitech-spacing-64: 4rem;
+    --amalitech-spacing-80: 5rem;
+    /* FONT */
+    --amalitech-font-family-sans: 'Work Sans', sans-serif;
+    --amalitech-font-family-mono: monospace;
+    --amalitech-font-size-10: 0.625rem;
+    --amalitech-font-size-12: 0.75rem;
+    --amalitech-font-size-14: 0.875rem;
+    --amalitech-font-size-16: 1rem;
+    --amalitech-font-size-20: 1.25rem;
+    --amalitech-font-size-24: 1.5rem;
+    --amalitech-font-size-32: 2rem;
+    --amalitech-font-size-40: 2.5rem;
+    --amalitech-font-size-56: 3.5rem;
+    --amalitech-font-weight-thin: 100;
+    --amalitech-font-weight-extralight: 200;
+    --amalitech-font-weight-light: 300;
+    --amalitech-font-weight-regular: 400;
+    --amalitech-font-weight-medium: 500;
+    --amalitech-font-weight-semibold: 600;
+    --amalitech-font-weight-bold: 700;
+    --amalitech-font-weight-extrabold: 800;
+    --amalitech-font-weight-black: 900;
+    --amalitech-font-line-height-114: 114%;
+    --amalitech-font-line-height-120: 120%;
+    --amalitech-font-line-height-125: 125%;
+    --amalitech-font-line-height-133: 133%;
+    --amalitech-font-line-height-150: 150%;
+    --amalitech-font-line-height-160: 160%;
+    /* FONT-VARIANT */
+    --amalitech-font-variant-body-family: 'Work Sans', sans-serif;
+    --amalitech-font-variant-body-size: 1rem;
+    --amalitech-font-variant-body-weight: 500;
+    --amalitech-font-variant-body-line-height: 150%;
+    --amalitech-font-variant-body-letter-spacing: normal;
+    --amalitech-font-variant-body-short-family: 'Work Sans', sans-serif;
+    --amalitech-font-variant-body-short-size: 1rem;
+    --amalitech-font-variant-body-short-weight: 500;
+    --amalitech-font-variant-body-short-line-height: 125%;
+    --amalitech-font-variant-body-short-letter-spacing: normal;
+    --amalitech-font-variant-body-large-family: 'Work Sans', sans-serif;
+    --amalitech-font-variant-body-large-size: 1.25rem;
+    --amalitech-font-variant-body-large-weight: 500;
+    --amalitech-font-variant-body-large-line-height: 160%;
+    --amalitech-font-variant-body-large-letter-spacing: normal;
+    --amalitech-font-variant-smaller-family: 'Work Sans', sans-serif;
+    --amalitech-font-variant-smaller-size: 0.75rem;
+    --amalitech-font-variant-smaller-weight: 500;
+    --amalitech-font-variant-smaller-line-height: 125%;
+    --amalitech-font-variant-smaller-letter-spacing: normal;
+    --amalitech-font-variant-label-family: 'Work Sans', sans-serif;
+    --amalitech-font-variant-label-size: 0.75rem;
+    --amalitech-font-variant-label-weight: 500;
+    --amalitech-font-variant-label-line-height: 120%;
+    --amalitech-font-variant-label-letter-spacing: normal;
+    --amalitech-font-variant-caption-family: 'Work Sans', sans-serif;
+    --amalitech-font-variant-caption-size: 0.75rem;
+    --amalitech-font-variant-caption-weight: 500;
+    --amalitech-font-variant-caption-line-height: 133%;
+    --amalitech-font-variant-caption-letter-spacing: normal;
+    --amalitech-font-variant-heading-6-family: 'Work Sans', sans-serif;
+    --amalitech-font-variant-heading-6-size: 1rem;
+    --amalitech-font-variant-heading-6-weight: 700;
+    --amalitech-font-variant-heading-6-line-height: 150%;
+    --amalitech-font-variant-heading-6-letter-spacing: normal;
+    --amalitech-font-variant-heading-5-family: 'Work Sans', sans-serif;
+    --amalitech-font-variant-heading-5-size: 1.25rem;
+    --amalitech-font-variant-heading-5-weight: 800;
+    --amalitech-font-variant-heading-5-line-height: 125%;
+    --amalitech-font-variant-heading-5-letter-spacing: normal;
+    --amalitech-font-variant-heading-4-family: 'Work Sans', sans-serif;
+    --amalitech-font-variant-heading-4-size: 1.5rem;
+    --amalitech-font-variant-heading-4-weight: 800;
+    --amalitech-font-variant-heading-4-line-height: 133%;
+    --amalitech-font-variant-heading-4-letter-spacing: normal;
+    --amalitech-font-variant-heading-3-family: 'Work Sans', sans-serif;
+    --amalitech-font-variant-heading-3-size: 2rem;
+    --amalitech-font-variant-heading-3-weight: 800;
+    --amalitech-font-variant-heading-3-line-height: 125%;
+    --amalitech-font-variant-heading-3-letter-spacing: normal;
+    --amalitech-font-variant-heading-2-family: 'Work Sans', sans-serif;
+    --amalitech-font-variant-heading-2-size: 2.5rem;
+    --amalitech-font-variant-heading-2-weight: 800;
+    --amalitech-font-variant-heading-2-line-height: 120%;
+    --amalitech-font-variant-heading-2-letter-spacing: normal;
+    --amalitech-font-variant-heading-1-family: 'Work Sans', sans-serif;
+    --amalitech-font-variant-heading-1-size: 3.5rem;
+    --amalitech-font-variant-heading-1-weight: 800;
+    --amalitech-font-variant-heading-1-line-height: 114%;
+    --amalitech-font-variant-heading-1-letter-spacing: normal;
+    /* COLOR */
+    --amalitech-color-primary: hsl(16.19999999999999, 72.7%, 51.2%);
+    --amalitech-color-secondary: hsl(228.39999999999998, 17.9%, 33.9%);
+    --amalitech-color-dark: hsl(0, 0%, 0%);
+    --amalitech-color-light: hsl(0, 0%, 100%);
+    --amalitech-color-orange-100: hsl(15.899999999999977, 73.9%, 91%);
+    --amalitech-color-orange-200: hsl(16.100000000000023, 73.2%, 81%);
+    --amalitech-color-orange-300: hsl(16.100000000000023, 73%, 71%);
+    --amalitech-color-orange-400: hsl(13.699999999999989, 72.9%, 61%);
+    --amalitech-color-orange-500: hsl(16.19999999999999, 72.7%, 51.2%);
+    --amalitech-color-orange-600: hsl(16.19999999999999, 72.4%, 41.2%);
+    --amalitech-color-orange-700: hsl(16.19999999999999, 72.3%, 31.2%);
+    --amalitech-color-neutral-100: hsl(228, 25%, 92.2%);
+    --amalitech-color-neutral-200: hsl(230.79999999999995, 20%, 87.3%);
+    --amalitech-color-neutral-300: hsl(231.39999999999998, 20.4%, 79.8%);
+    --amalitech-color-neutral-400: hsl(229.70000000000005, 18.5%, 62.9%);
+    --amalitech-color-neutral-500: hsl(229.70000000000005, 14.3%, 48%);
+    --amalitech-color-neutral-600: hsl(228.39999999999998, 17.9%, 33.9%);
+    --amalitech-color-neutral-700: hsl(230, 60%, 15.7%);
+    --amalitech-color-green-100: hsl(150, 42.9%, 97.3%);
+    --amalitech-color-green-200: hsl(156, 41.7%, 95.3%);
+    --amalitech-color-green-300: hsl(158.20000000000005, 45.8%, 90.6%);
+    --amalitech-color-green-400: hsl(157.60000000000002, 57.3%, 77.1%);
+    --amalitech-color-green-500: hsl(157, 44.8%, 53.1%);
+    --amalitech-color-green-600: hsl(166.10000000000002, 34.3%, 39.4%);
+    --amalitech-color-green-700: hsl(157.5, 39.5%, 31.8%);
+    --amalitech-color-yellow-100: hsl(38.60000000000002, 100%, 97.3%);
+    --amalitech-color-yellow-200: hsl(38.69999999999999, 100%, 91.2%);
+    --amalitech-color-yellow-300: hsl(38.39999999999998, 100%, 82.5%);
+    --amalitech-color-yellow-400: hsl(39, 100%, 73.7%);
+    --amalitech-color-yellow-500: hsl(38.69999999999999, 100%, 56.3%);
+    --amalitech-color-yellow-600: hsl(39, 77.9%, 33.7%);
+    --amalitech-color-yellow-700: hsl(38.39999999999998, 77.4%, 22.5%);
+    --amalitech-color-red-100: hsl(0, 69.2%, 97.5%);
+    --amalitech-color-red-200: hsl(0, 72.1%, 91.6%);
+    --amalitech-color-red-300: hsl(0, 73.8%, 83.5%);
+    --amalitech-color-red-400: hsl(0, 73.2%, 75.1%);
+    --amalitech-color-red-500: hsl(0, 60.7%, 54.1%);
+    --amalitech-color-red-600: hsl(0, 51.1%, 43.3%);
+    --amalitech-color-red-700: hsl(0, 51.5%, 32.4%);
+    --amalitech-color-blue-100: hsl(225, 100%, 97.6%);
+    --amalitech-color-blue-200: hsl(225, 100%, 96.1%);
+    --amalitech-color-blue-300: hsl(225.39999999999998, 100%, 92%);
+    --amalitech-color-blue-400: hsl(225.29999999999995, 100%, 80.8%);
+    --amalitech-color-blue-500: hsl(225, 100%, 60%);
+    --amalitech-color-blue-600: hsl(224.89999999999998, 66.5%, 48%);
+    --amalitech-color-blue-700: hsl(225.20000000000005, 66.3%, 36.1%);
+    --amalitech-color-violet-100: hsl(250, 60%, 98%);
+    --amalitech-color-violet-200: hsl(248.60000000000002, 63.6%, 93.5%);
+    --amalitech-color-violet-300: hsl(248.60000000000002, 65.6%, 87.5%);
+    --amalitech-color-violet-400: hsl(248.60000000000002, 64.9%, 81%);
+    --amalitech-color-violet-500: hsl(248.60000000000002, 65.2%, 68.4%);
+    --amalitech-color-violet-600: hsl(248.60000000000002, 36.5%, 54.9%);
+    --amalitech-color-violet-700: hsl(248.60000000000002, 30.1%, 41%);
+    --amalitech-color-teal-100: hsl(185.5, 73.3%, 97.1%);
+    --amalitech-color-teal-200: hsl(183.29999999999995, 69.2%, 89.8%);
+    --amalitech-color-teal-300: hsl(184.20000000000005, 68.9%, 79.8%);
+    --amalitech-color-teal-400: hsl(183.39999999999998, 67.9%, 69.4%);
+    --amalitech-color-teal-500: hsl(183.70000000000005, 70.5%, 49.2%);
+    --amalitech-color-teal-600: hsl(188.89999999999998, 81.6%, 34.1%);
+    --amalitech-color-teal-700: hsl(184.20000000000005, 70.3%, 19.8%);
+    --amalitech-color-pink-100: hsl(320, 81.8%, 97.8%);
+    --amalitech-color-pink-200: hsl(316, 78.9%, 92.5%);
+    --amalitech-color-pink-300: hsl(316.70000000000005, 81.3%, 85.3%);
+    --amalitech-color-pink-400: hsl(317.1, 80.5%, 77.8%);
+    --amalitech-color-pink-500: hsl(317, 80.9%, 63.1%);
+    --amalitech-color-pink-600: hsl(317.20000000000005, 48.4%, 50.6%);
+    --amalitech-color-pink-700: hsl(317.1, 47.2%, 37.8%);
+    --amalitech-color-primary-hover: hsl(13.699999999999989, 72.9%, 61%);
+    --amalitech-color-primary-pressed: hsl(16.19999999999999, 72.4%, 41.2%);
+    --amalitech-color-text-standard: hsl(230, 60%, 15.7%);
+    --amalitech-color-text-additional: hsl(229.70000000000005, 14.3%, 48%);
+    --amalitech-color-text-disabled: hsl(231.39999999999998, 20.4%, 79.8%);
+    --amalitech-color-text-link: hsl(16.19999999999999, 72.7%, 51.2%);
+    --amalitech-color-text-link-hover: hsl(13.699999999999989, 72.9%, 61%);
+    --amalitech-color-text-link-active: hsl(16.19999999999999, 72.4%, 41.2%);
+    --amalitech-color-text-link-visited: hsl(16.19999999999999, 72.4%, 41.2%);
+    --amalitech-color-text-info: hsl(228.39999999999998, 17.9%, 33.9%);
+    --amalitech-color-text-warning: hsl(38.69999999999999, 100%, 56.3%);
+    --amalitech-color-text-success: hsl(157, 44.8%, 53.1%);
+    --amalitech-color-text-error: hsl(0, 60.7%, 54.1%);
+    /* SHADOW */
+    --amalitech-shadow-level-0: 0px 2px 8px 0px hsla(0, 0%, 0%, 0.1), 0px 1px 2px 0px hsla(0, 0%, 0%, 0.1);
+    --amalitech-shadow-level-1: 0px 4px 16px 0px hsla(0, 0%, 0%, 0.1), 0px 2px 4px 0px hsla(0, 0%, 0%, 0.1);
+    --amalitech-shadow-level-2: 0px 8px 32px 0px hsla(0, 0%, 0%, 0.1), 0px 4px 8px 0px hsla(0, 0%, 0%, 0.1);
+    --amalitech-shadow-level-3: 0px 12px 48px 0px hsla(0, 0%, 0%, 0.1), 0px 6px 12px 0px hsla(0, 0%, 0%, 0.1);
+    --amalitech-shadow-level-4: 0px 16px 64px 0px hsla(0, 0%, 0%, 0.1), 0px 8px 16px 0px hsla(0, 0%, 0%, 0.1);
+    --amalitech-shadow-level-5: 0px 20px 80px 0px hsla(0, 0%, 0%, 0.1), 0px 10px 20px 0px hsla(0, 0%, 0%, 0.1);
+    --amalitech-shadow-level-1-hover: 0px 6px 24px 0px hsla(0, 0%, 0%, 0.1), 0px 3px 6px 0px hsla(0, 0%, 0%, 0.1);
+    --amalitech-shadow-level-1-active: 0px 2px 8px 0px hsla(0, 0%, 0%, 0.1), 0px 1px 2px 0px hsla(0, 0%, 0%, 0.1);
+    --amalitech-shadow-level-2-hover: 0px 10px 40px 0px hsla(0, 0%, 0%, 0.1), 0px 5px 10px 0px hsla(0, 0%, 0%, 0.1);
+    --amalitech-shadow-level-2-active: 0px 6px 24px 0px hsla(0, 0%, 0%, 0.1), 0px 3px 6px 0px hsla(0, 0%, 0%, 0.1);
+    --amalitech-shadow-level-3-hover: 0px 14px 56px 0px hsla(0, 0%, 0%, 0.1), 0px 7px 14px 0px hsla(0, 0%, 0%, 0.1);
+    --amalitech-shadow-level-3-active: 0px 10px 40px 0px hsla(0, 0%, 0%, 0.1), 0px 5px 10px 0px hsla(0, 0%, 0%, 0.1);
+    --amalitech-shadow-level-4-hover: 0px 18px 72px 0px hsla(0, 0%, 0%, 0.1), 0px 9px 18px 0px hsla(0, 0%, 0%, 0.1);
+    --amalitech-shadow-level-4-active: 0px 14px 56px 0px hsla(0, 0%, 0%, 0.1), 0px 7px 14px 0px hsla(0, 0%, 0%, 0.1);
+    --amalitech-shadow-level-5-hover: 0px 22px 88px 0px hsla(0, 0%, 0%, 0.1), 0px 11px 22px 0px hsla(0, 0%, 0%, 0.1);
+    --amalitech-shadow-level-5-active: 0px 18px 72px 0px hsla(0, 0%, 0%, 0.1), 0px 9px 18px 0px hsla(0, 0%, 0%, 0.1);
+    /* RADIUS */
+    --amalitech-radius-1: 1px;
+    --amalitech-radius-2: 2px;
+    --amalitech-radius-4: 4px;
+    --amalitech-radius-8: 8px;
+    --amalitech-radius-12: 12px;
+    /* OPACITY */
+    --amalitech-opacity-50: 0.5;
+    /* MOTION */
+    --amalitech-motion-duration-immediate: 100ms;
+    --amalitech-motion-duration-fast: 200ms;
+    --amalitech-motion-duration-slower: 600ms;
+    --amalitech-motion-duration-deliberate: 800ms;
+    --amalitech-motion-easing-standard: cubic-bezier(0.42, 0, 0.58, 1);
+    --amalitech-motion-easing-enter: cubic-bezier(0.390, 0.575, 0.565, 1);
+    /* Z-INDEX */
+    --amalitech-z-index-10: 10;
+    --amalitech-z-index-20: 20;
+    --amalitech-z-index-30: 30;
+    --amalitech-z-index-40: 40;
+    --amalitech-z-index-50: 50;
+    --amalitech-z-index-60: 60;
+    --amalitech-z-index-70: 70
+}
+/* FONT VARIANT CLASSES */
+.amalitech-font-variant-body {
+    font-family: var(--amalitech-font-variant-body-family, 'Work Sans', sans-serif);
+    font-size: var(--amalitech-font-variant-body-size, 1rem);
+    font-weight: var(--amalitech-font-variant-body-weight, 500);
+    line-height: var(--amalitech-font-variant-body-line-height, 150%);
+    letter-spacing: var(--amalitech-font-variant-body-letter-spacing, normal)
+}
+.amalitech-font-variant-body-short {
+    font-family: var(--amalitech-font-variant-body-short-family, 'Work Sans', sans-serif);
+    font-size: var(--amalitech-font-variant-body-short-size, 1rem);
+    font-weight: var(--amalitech-font-variant-body-short-weight, 500);
+    line-height: var(--amalitech-font-variant-body-short-line-height, 125%);
+    letter-spacing: var(--amalitech-font-variant-body-short-letter-spacing, normal)
+}
+.amalitech-font-variant-body-large {
+    font-family: var(--amalitech-font-variant-body-large-family, 'Work Sans', sans-serif);
+    font-size: var(--amalitech-font-variant-body-large-size, 1.25rem);
+    font-weight: var(--amalitech-font-variant-body-large-weight, 500);
+    line-height: var(--amalitech-font-variant-body-large-line-height, 160%);
+    letter-spacing: var(--amalitech-font-variant-body-large-letter-spacing, normal)
+}
+.amalitech-font-variant-smaller {
+    font-family: var(--amalitech-font-variant-smaller-family, 'Work Sans', sans-serif);
+    font-size: var(--amalitech-font-variant-smaller-size, 0.75rem);
+    font-weight: var(--amalitech-font-variant-smaller-weight, 500);
+    line-height: var(--amalitech-font-variant-smaller-line-height, 125%);
+    letter-spacing: var(--amalitech-font-variant-smaller-letter-spacing, normal)
+}
+.amalitech-font-variant-label {
+    font-family: var(--amalitech-font-variant-label-family, 'Work Sans', sans-serif);
+    font-size: var(--amalitech-font-variant-label-size, 0.75rem);
+    font-weight: var(--amalitech-font-variant-label-weight, 500);
+    line-height: var(--amalitech-font-variant-label-line-height, 120%);
+    letter-spacing: var(--amalitech-font-variant-label-letter-spacing, normal)
+}
+.amalitech-font-variant-caption {
+    font-family: var(--amalitech-font-variant-caption-family, 'Work Sans', sans-serif);
+    font-size: var(--amalitech-font-variant-caption-size, 0.75rem);
+    font-weight: var(--amalitech-font-variant-caption-weight, 500);
+    line-height: var(--amalitech-font-variant-caption-line-height, 133%);
+    letter-spacing: var(--amalitech-font-variant-caption-letter-spacing, normal)
+}
+.amalitech-font-variant-heading-6 {
+    font-family: var(--amalitech-font-variant-heading-6-family, 'Work Sans', sans-serif);
+    font-size: var(--amalitech-font-variant-heading-6-size, 1rem);
+    font-weight: var(--amalitech-font-variant-heading-6-weight, 700);
+    line-height: var(--amalitech-font-variant-heading-6-line-height, 150%);
+    letter-spacing: var(--amalitech-font-variant-heading-6-letter-spacing, normal)
+}
+.amalitech-font-variant-heading-5 {
+    font-family: var(--amalitech-font-variant-heading-5-family, 'Work Sans', sans-serif);
+    font-size: var(--amalitech-font-variant-heading-5-size, 1.25rem);
+    font-weight: var(--amalitech-font-variant-heading-5-weight, 800);
+    line-height: var(--amalitech-font-variant-heading-5-line-height, 125%);
+    letter-spacing: var(--amalitech-font-variant-heading-5-letter-spacing, normal)
+}
+.amalitech-font-variant-heading-4 {
+    font-family: var(--amalitech-font-variant-heading-4-family, 'Work Sans', sans-serif);
+    font-size: var(--amalitech-font-variant-heading-4-size, 1.5rem);
+    font-weight: var(--amalitech-font-variant-heading-4-weight, 800);
+    line-height: var(--amalitech-font-variant-heading-4-line-height, 133%);
+    letter-spacing: var(--amalitech-font-variant-heading-4-letter-spacing, normal)
+}
+.amalitech-font-variant-heading-3 {
+    font-family: var(--amalitech-font-variant-heading-3-family, 'Work Sans', sans-serif);
+    font-size: var(--amalitech-font-variant-heading-3-size, 2rem);
+    font-weight: var(--amalitech-font-variant-heading-3-weight, 800);
+    line-height: var(--amalitech-font-variant-heading-3-line-height, 125%);
+    letter-spacing: var(--amalitech-font-variant-heading-3-letter-spacing, normal)
+}
+.amalitech-font-variant-heading-2 {
+    font-family: var(--amalitech-font-variant-heading-2-family, 'Work Sans', sans-serif);
+    font-size: var(--amalitech-font-variant-heading-2-size, 2.5rem);
+    font-weight: var(--amalitech-font-variant-heading-2-weight, 800);
+    line-height: var(--amalitech-font-variant-heading-2-line-height, 120%);
+    letter-spacing: var(--amalitech-font-variant-heading-2-letter-spacing, normal)
+}
+.amalitech-font-variant-heading-1 {
+    font-family: var(--amalitech-font-variant-heading-1-family, 'Work Sans', sans-serif);
+    font-size: var(--amalitech-font-variant-heading-1-size, 3.5rem);
+    font-weight: var(--amalitech-font-variant-heading-1-weight, 800);
+    line-height: var(--amalitech-font-variant-heading-1-line-height, 114%);
+    letter-spacing: var(--amalitech-font-variant-heading-1-letter-spacing, normal)
+}

@@ -1,0 +1,220 @@
+import * as DatePickerStories from './amalitech-date-picker.stories.tsx';
+import { Meta, Title, Description, Story, Canvas } from '@storybook/blocks';
+
+<Meta of={DatePickerStories} />
+
+# How to use `amalitech-date-picker`
+
+The date picker component can be used to select a single date or a range of dates similar to the native html input `type="date"` element.
+
+## Default
+
+<Canvas of={DatePickerStories.Default} />
+
+```html
+<amalitech-date-picker></amalitech-date-picker>
+```
+
+## With Value
+
+You can set the initial value of the date picker by setting the `value` attribute.
+Supported values are in the format `YYYY-MM-DD`.
+
+<Canvas of={DatePickerStories.WithValue} />
+
+```html
+<amalitech-date-picker value="2021-06-01"></amalitech-date-picker>
+```
+
+## With Max and Min
+
+You can set the maximum and minimum date that can be selected by setting the `max` and `min` attributes.
+Each of these values are mutually exclusive and can be set independently.
+Supported values are in the format `YYYY-MM-DD`.
+
+<Canvas of={DatePickerStories.WithMinAndMax} />
+
+```html
+<amalitech-date-picker min="2021-06-09" max="2021-07-18"></amalitech-date-picker>
+```
+
+## With First Day of Week
+
+You can set the first day of the week to be either Sunday or Monday by setting the `first-day-of-week` attribute.
+The value can be either `0` for Sunday or `1` for Monday. Passing any other value defaults to Monday.
+
+<Canvas of={DatePickerStories.WithSundayFirstDayOfWeek} />
+
+```html
+<amalitech-date-picker first-day-of-week="0"></amalitech-date-picker>
+```
+
+## With Custom Label
+
+You can set a custom label for the date picker by setting the `label` attribute. However, this is replaced by any date selected
+as soon as the user makes a selection. The default label is `Pick a Date`.
+
+<Canvas of={DatePickerStories.WithCustomLabel} />
+
+```html
+<amalitech-date-picker label="Select a Date"></amalitech-date-picker>
+```
+
+## With Output format
+
+You can set the output format of the date picker by setting the `output-format` attribute. This sets the format of how the date gets displayed in the input field.
+Values can either be `YYYY-MM-DD` or `DD-MM-YYYY` case insensitive.
+
+<Canvas of={DatePickerStories.WithDDMMYYOutputFormat} />
+
+```html
+<amalitech-date-picker output-format="DD-MM-YYYY"></amalitech-date-picker>
+```
+
+## Disabled
+
+You can disable the date picker by setting the `disabled` attribute.
+
+<Canvas of={DatePickerStories.Disabled} />
+
+```html
+<amalitech-date-picker disabled></amalitech-date-picker>
+```
+
+## Listening For Events
+
+### `amalitechDateChange`
+
+This event is emitted when the date picker value changes. The event detail contains the new value of the date picker.
+The event detail is influenced by the `output-type` and `output-format` attributes.
+
+#### `string` Output Type
+
+The string output type is the default output type of the date picker and emits date in the format `YYYY-MM-DD` or `DD-MM-YYYY` depending on what value is set to the `output-format`
+attribute. The default value is `YYYY-MM-DD`.
+
+```html
+<body>
+    <amalitech-date-picker id="1" output-type="string" output-format="dd-mm-yyyy"></amalitech-date-picker>
+    <amalitech-date-picker id="2" output-type="string" output-format="yyyy-mm-dd"></amalitech-date-picker>
+    <script>
+        /**
+        * @returns {string} - 08-02-2024
+        */
+        const firstDatePicker = document.querySelector('#1');
+        firstDatePicker.addEventListener('amalitechDateChange', (event) => {
+            console.log(event.detail);
+        });
+
+        /**
+        * @returns {string} - 2024-02-08
+        */
+        const secondDatePicker = document.querySelector('#2');
+        secondDatePicker.addEventListener('amalitechDateChange', (event) => {
+            console.log(event.detail);
+        });
+    </script>
+</body>
+```
+
+#### `date` Output Type
+
+The `date` output type emits the date as a Javascript `Date` object. This is not affected by the `output-format` attribute,
+however the `output-format` attribute can still be used to format the date displayed in the input field.
+
+```html
+<body>
+    <amalitech-date-picker output-type="date"></amalitech-date-picker>
+    <script>
+        /**
+        * @returns {Date} - Fri Feb 08 2024 00:00:00 GMT+0000 (Coordinated Universal Time)
+        */
+        const firstDatePicker = document.querySelector('amalitech-date-picker');
+        firstDatePicker.addEventListener('amalitechDateChange', (event) => {
+            console.log(event.detail);
+        });
+    </script>
+</body>
+```
+
+## Styling with CSS
+
+Custom styling can be applied with exposed CSS variables
+
+```html
+<head>
+    <style>
+        amalitech-date-picker {
+            --date-picker-active-color: blue;
+            --date-picker-panel-font-size: 1.5rem;
+            --date-picker-transition-duration: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <amalitech-date-picker></amalitech-date-picker>
+</body>
+```
+
+## All CSS Variables
+
+```css
+    amalitech-date-picker {
+        /* Fonts */
+        --date-picker-calendar-header-font-size: 1.5rem;
+        --date-picker-calendar-header-font-weight: 600;
+        --date-picker-date-font-family: 'Work Sans', 'sans-serif';
+        --date-picker-date-font-size: 1rem;
+        --date-picker-days-font-size: 1rem;
+        --date-picker-days-font-weight: 600;
+        --date-picker-dropdown-font-size: 1rem;
+        --date-picker-dropdown-font-weight: 500;
+        --date-picker-footer-button-font-size: 0.85rem;
+        --date-picker-footer-button-font-weight: 500;
+        --date-picker-panel-font-size: 1rem;
+        --date-picker-today-font-size: 1rem;
+        --date-picker-today-font-weight: 600;
+
+        /* Colors */
+        --date-picker-active-color: #007bff;
+        --date-picker-calendar-border-color: #d8dae5;
+        --date-picker-calendar-bg: #fff;
+        --date-picker-date-background-color: #fff;
+        --date-picker-date-hover-background-color: #f5f5f5;
+        --date-picker-date-not-current-month-background-color: #f5f5f5;
+        --date-picker-date-not-current-month-text-color: #c1c4d6;
+        --date-picker-disabled-color: #c1c4d6;
+        --date-picker-dropdown-background: #fff;
+        --date-picker-dropdown-border-color: #d8dae5;
+        --date-picker-panel-border-color: #8f95b2;
+        --date-picker-panel-text-color: #8f95b2;
+        --date-picker-today-background-color: #fff;
+        --date-picker-active-text-color: #fff;
+        --date-picker-panel-bg: #fff;
+        --date-picker-confirm-text-color: #007bff;
+
+        /* Sizes */
+        --date-picker-calendar-border-radius: 0.5rem;
+        --date-picker-calendar-header-gap: 0.5rem;
+        --date-picker-calendar-padding: 0.625rem;
+        --date-picker-date-border-radius: 0.625rem;
+        --date-picker-date-padding: 0.313rem;
+        --date-picker-days-margin-bottom: 0.625rem;
+        --date-picker-dropdown-gap: 0.625rem;
+        --date-picker-dropdown-padding: 0.625rem;
+        --date-picker-footer-button-border-radius: 0.35rem;
+        --date-picker-footer-button-padding: 0.5rem;
+        --date-picker-header-buttons-gap: 0.5rem;
+        --date-picker-panel-border-radius: 0.313rem;
+        --date-picker-panel-gap: 0.625rem;
+        --date-picker-panel-padding: 0.313rem;
+        --date-picker-calendar-footer-margin-top: 0.625rem;
+
+        /* Durations */
+        --date-picker-transition-duration: 0.3s;
+
+        /* Other */
+        --date-picker-panel-display: block;
+        --date-picker-panel-opacity: 1;
+    }
+```

@@ -1,0 +1,27 @@
+body {
+  font-family: 'Work Sans', sans-serif;
+}
+
+table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+th {
+  background: white;
+  padding: 0;
+  color: black;
+  line-height: 2rem;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.253);
+  font-weight: 600;
+  z-index: 10;
+  position: sticky;
+  top: 0;
+  font-size: 1rem;
+}
+td {
+  line-height: 2rem;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.089);
+}

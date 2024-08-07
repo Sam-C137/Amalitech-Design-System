@@ -1,0 +1,92 @@
+/** Exposed CSS variables
+*
+* @prop --map-border-radius: The border radius of the map default is `0.5rem`
+* @prop --map-popup-font-weight: The font weight of the popup default is `600`
+* @prop --map-popup-font-size: The font size of the popup default is `1rem`
+* @prop --map-coordinates-list-border-width: The border width of the coordinates list default is `0.063rem`
+* @prop --map-coordinates-list-border-radius: The border radius of the coordinates list default is `0.4rem`
+* @prop --map-coordinates-list-border-color: The border color of the coordinates list default is `#e6e8f0`
+* @prop --map-coordinates-list-padding-tb: The padding top and bottom of the coordinates list default is `0.2rem`
+* @prop --map-coordinates-list-padding-lr: The padding left and right of the coordinates list default is `1rem`
+* @prop --map-coordinates-list-margin-b: The margin bottom of the coordinates list default is `0.4rem`
+* @prop --map-coordinates-list-hover-bg: The hover background color of the coordinates list default is `#e6e8f0`
+* @prop --map-coordinates-icon-color: The background color of the coordinates icon default is `#dd5928`
+* @prop --map-landmark-text-font-size: The font size of the landmark text default is `1.2rem`
+* @prop --map-coordinates-list-text-primary-size: The font size of the coordinates list primary text default is `1rem`
+* @prop --map-coordinates-list-text-primary-color: The color of the coordinates list primary text default is `#dd5928`
+* @prop --map-coordinates-list-text-secondary-color: The color of the coordinates list secondary text default is `#474d66`
+* @prop --map-coordinates-list-text-secondary-size: The font size of the coordinates list secondary text default is `1rem`
+**/
+
+:host {
+  display: block;
+  font-family: 'Work Sans', sans-serif;
+}
+
+div#map {
+  border-radius: var(--map-border-radius, 0.5rem);
+}
+
+a.leaflet-bar-part.leaflet-bar-part-single {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 512 512'%3E%3Cpath fill='%23dd5928' d='M256 48A208.23 208.23 0 0 0 48 256c0 114.68 93.31 208 208 208a208.23 208.23 0 0 0 208-208c0-114.69-93.31-208-208-208m-8 361V264H103l259-114.11Z'/%3E%3C/svg%3E");
+  object-fit: cover;
+}
+
+div.leaflet-popup-content {
+  margin: 9px 18px;
+  font-weight: var(--map-popup-font-weight, 600);
+  font-size: var(--map-popup-font-size, $size-2);
+}
+
+.coordinates-list {
+  display: flex;
+
+  gap: 1rem;
+  border: 0.063rem solid $neutral-100;
+  border-width: var(--map-coordinates-list-border-width, 0.063rem);
+  border-radius: var(--map-coordinates-list-border-radius, 0.4rem);
+  border-color: var(--map-coordinates-list-border-color, $neutral-100);
+  padding: var(--map-coordinates-list-padding-tb, 0.2rem) var(--map-coordinates-list-padding-lr, 1rem);
+  margin-bottom: var(--map-coordinates-list-margin-b, 0.4rem);
+  &:hover {
+    background-color: var(--map-coordinates-list-hover-bg, $neutral-100);
+  }
+}
+
+.icon {
+  display: flex;
+  margin: 1rem 0rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  padding: 0.4rem;
+  background: var(--map-coordinates-icon-color, $primary);
+}
+
+.landmark-text {
+  font-weight: bold;
+  font-size: var(--map-landmark-text-font-size, 1.2rem);
+  margin-top: var(--map-landmark-text-margin-t, 1.2rem);
+}
+
+.coordinates-list h1 {
+  font-weight: 500;
+  font-size: var(--map-coordinates-list-text-primary-size, 1rem);
+  color: var(--map-coordinates-list-text-primary-color, $primary);
+}
+
+.coordinates-list p {
+  color: var(--map-coordinates-list-text-secondary-color, $secondary);
+  font-size: var(--map-coordinates-list-text-secondary-size, 1rem);
+}
+
+.coordinates-list a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  &:active {
+    text-decoration: none;
+  }
+}

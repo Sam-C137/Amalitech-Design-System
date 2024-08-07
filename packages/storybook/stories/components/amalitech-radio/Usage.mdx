@@ -1,0 +1,88 @@
+import * as RadioStories from './amalitech-radio-button.stories.tsx';
+import { Meta, Title, Description, Story, Canvas } from '@storybook/blocks';
+
+<Meta of={RadioStories}/>
+
+# How to use `amalitech-radio-button`
+
+The radio button component is a wrapper for the HTML radio input with additional styling.
+
+You could use it like this:
+
+## Default
+
+<Canvas of={RadioStories.Normal}/>
+
+```html
+<amalitech-radio-button></amalitech-radio-button>
+```
+
+## Disabled
+
+You can add a `disabled` attribute to disable the radio element
+
+<Canvas of={RadioStories.Disabled}/>
+
+```html
+<amalitech-radio-button disabled><amalitech-radio-button>
+```
+
+## With id and name attribute
+
+Typically radio elements may have an id or name associated with a label element you can add these attributes to the `amalitech-radio-button` element like this:
+
+```html
+<form>
+    <label for="required">
+        <amalitech-radio-button switch-id="required" name="required" value="required"><amalitech-radio-button>
+    </label>
+</form>
+```
+
+## Listening for events
+
+You can listen for a click event on the `amalitech-radio-button` element
+
+```html
+<body>
+  <amalitech-radio-button></amalitech-radio-button>
+</body>
+<script>
+  const radio = document.querySelector('amalitech-radio-button');
+  /**
+   * @returns {
+   *        name: '',
+   *        value: 'on',
+   *        checked: true // or false
+   *    }
+   */
+  radio.addEventListener('click', e => {
+    console.log(e.detail);
+  });
+</script>
+```
+
+## Styling with CSS
+
+Custom styling can be applied with exposed CSS variables
+
+```html
+<head>
+    amalitech-radio-button {
+        --primaryColor: orange;
+        --textColor: black;
+        --focusOutline: 0 none;
+        --focusShadow: 0 0 0 0.2rem #fff;
+        --focusOutlineOffset: 0;
+        --radiobuttonActiveHoverBg: #000;
+        --radiobuttonBorder: 1rem solid red;
+        --radiobuttonHeight: 1rem;
+        --radiobuttonWidth: 1rem;
+        --radiobuttonIconActiveHoverColor: red;
+        --doubleBorderWidth: .15rem;
+    }
+</head>
+<body>
+    <amalitech-radio-button></amalitech-radio-button>
+</body>
+```

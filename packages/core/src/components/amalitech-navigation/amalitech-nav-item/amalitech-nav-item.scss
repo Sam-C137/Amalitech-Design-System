@@ -1,0 +1,49 @@
+@import '../../../global/variables.scss';
+
+/**
+* Exposed CSS variables
+* @prop --nav-item-font-size: The font size of the nav item
+* @prop --nav-item-active-font-size: The font size of the nav item when active
+* @prop --nav-item-active-color: The color of the nav item when active
+* 
+*/
+
+:host {
+  font-size: var(--nav-item-font-size, 1.25rem);
+  border-bottom: $base-border-thickness solid transparent;
+  cursor: pointer;
+  display: inline;
+  color: $neutral-700;
+
+  @include lg {
+    font-size: var(--nav-item-font-size, 1.15rem);
+  }
+}
+
+:host(:focus-visible) {
+  @include focus;
+  border-radius: 0.125rem;
+}
+
+*,
+*::before,
+*::after {
+  transition: all 0.3s ease;
+}
+
+:host(.active) {
+  font-size: var(--nav-item-active-font-size, 1.25rem);
+  border-bottom: calc($base-border-thickness * 2) solid var(--nav-item-active-color, $orange-500);
+  color: var(--nav-item-active-color, $orange-500);
+  cursor: default;
+
+  @include lg {
+    font-size: var(--nav-item-active-font-size, 1.15rem);
+    border-bottom: $base-border-thickness solid transparent;
+  }
+}
+
+:host([disabled]) {
+  cursor: not-allowed;
+  color: $neutral-300;
+}

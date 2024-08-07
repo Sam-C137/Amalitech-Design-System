@@ -1,0 +1,282 @@
+import { Meta, Title, Description, Story, Canvas } from '@storybook/blocks';
+import * as VisualPickerStories from './amalitech-visual-picker.stories.tsx';
+
+<Meta of={VisualPickerStories} />
+
+# How to use `amalitech-visual-picker`
+
+The visual picker allows user to select option using a graphical interface. It supports 
+multi-select and single select options.
+
+You could use it like this:
+
+## Default
+
+<Canvas of={VisualPickerStories.Default}/>
+
+```html
+<amalitech-visual-picker>
+    <amalitech-visual-picker-item label="Fire" value="fire">
+        <icon-fire width="80px" height="80px"></icon-fire>
+    </amalitech-visual-picker-item>
+    <amalitech-visual-picker-item label="Water" value="water">
+        <icon-water width="80px" height="80px"></icon-water>
+    </amalitech-visual-picker-item>
+    <amalitech-visual-picker-item label="Air" value="air">
+      <icon-air width="80px" height="80px"></icon-air>
+    </amalitech-visual-picker-item>
+    <amalitech-visual-picker-item label="Earth" value="earth">
+      <icon-earth width="80px" height="80px"></icon-earth>
+    </amalitech-visual-picker-item>
+</amalitech-visual-picker>
+```
+
+## Alignment
+
+By default the visual picker element is aligned horizontal. You can change the alignment
+by adding the `align` attribute.
+
+<Canvas of={VisualPickerStories.Vertical}/>
+
+```html
+<amalitech-visual-picker align="vertical">
+    <amalitech-visual-picker-item label="Lightning" value="lightning">
+        <icon-lightning width="80px" height="80px"></icon-lightning>
+    </amalitech-visual-picker-item>
+    <amalitech-visual-picker-item label="Snake" value="snake">
+        <icon-snake width="80px" height="80px"></icon-snake>
+    </amalitech-visual-picker-item>
+</amalitech-visual-picker>
+```
+
+## Select Variant 
+
+The component is by default configured for a multi-select. You can switch between single
+and multi-select options by setting the `select-variant` attribute to either `radio` or `checkbox`.
+
+### Checkbox
+
+<Canvas of={VisualPickerStories.Default}/>
+
+```html
+<amalitech-visual-picker select-variant="checkbox">
+    <amalitech-visual-picker-item label="Fire" value="fire">
+        <icon-fire width="80px" height="80px"></icon-fire>
+    </amalitech-visual-picker-item>
+    <amalitech-visual-picker-item label="Water" value="water">
+        <icon-water width="80px" height="80px"></icon-water>
+    </amalitech-visual-picker-item>
+    <amalitech-visual-picker-item label="Air" value="air">
+      <icon-air width="80px" height="80px"></icon-air>
+    </amalitech-visual-picker-item>
+    <amalitech-visual-picker-item label="Earth" value="earth">
+      <icon-earth width="80px" height="80px"></icon-earth>
+    </amalitech-visual-picker-item>
+</amalitech-visual-picker>
+```
+
+### Radio
+
+<Canvas of={VisualPickerStories.Radio}/>
+
+```html
+<amalitech-visual-picker select-variant="radio">
+    <amalitech-visual-picker-item label="Bohemian Rhapsody" value="br">
+        <img width="120px" height="120px" src="./assets/bohemian-rhapsody.jpg" alt="Bohemian Rhapsody" />
+    </amalitech-visual-picker-item>
+    <amalitech-visual-picker-item label="Queen II" value="qii">
+      <img width="120px" height="120px" src="./assets/queen-ii.jpg" alt="Queen II" />
+    </amalitech-visual-picker-item>
+    <amalitech-visual-picker-item label="News Of The World" value="notw">
+      <img width="120px" height="120px" src="./assets/news of the world.jpg" alt="News Of The World" />
+    </amalitech-visual-picker-item>
+    <amalitech-visual-picker-item label="Queen Rock Montreal" value="qrm">
+      <img width="120px" height="120px" src="./assets/queen-rock-montreal.jpg" alt="Queen Rock Montreal" />
+    </amalitech-visual-picker-item>
+</amalitech-visual-picker>
+```
+
+## Uncoverable 
+
+The visual picker component comes as coverable by default, meaning a selection triggers a 
+layer of cover over the selected item. You can disable this behavior by adding the `uncoverable` attribute.
+
+<Canvas of={VisualPickerStories.Uncoverable}/>
+
+```html
+<amalitech-visual-picker uncoverable>
+    <amalitech-visual-picker-item label="Alpha" value="a">
+        <p style="font-size: 2rem; width: 4em;">&alpha;</p>
+    </amalitech-visual-picker-item>
+    <amalitech-visual-picker-item label="Beta" value="b">
+      <p style="font-size: 2rem; width: 4em;">&beta;</p>
+    </amalitech-visual-picker-item>
+    <amalitech-visual-picker-item label="Gamma" value="g">
+      <p style="font-size: 2rem; width: 4em;">&gamma;</p>
+    </amalitech-visual-picker-item>
+    <amalitech-visual-picker-item label="Delta" value="d">
+      <p style="font-size: 2rem; width: 4em;">&delta;</p>
+    </amalitech-visual-picker-item>
+</amalitech-visual-picker>
+```
+
+## Disabling
+
+You can disable the whole visual picker component or only disable a particular option.
+
+### Entire component
+
+<Canvas of={VisualPickerStories.Disabled}/>
+
+```html
+<amalitech-visual-picker disabled>
+    <amalitech-visual-picker-item label="Real Madrid" value="rmfc">
+        <img width="120px" height="120px" src="./assets/real-madrid.jpg" alt="Real Madrid" />
+    </amalitech-visual-picker-item>
+    <amalitech-visual-picker-item label="Barcelona" value="barca">
+      <img width="120px" height="120px" src="./assets/barcelona.jpg" alt="Barcelona" />
+    </amalitech-visual-picker-item>
+    <amalitech-visual-picker-item label="Bayern Munich" value="bayern">
+      <img width="120px" height="120px" src="./assets/bayern.jpg" alt="Bayern Munich" />
+    </amalitech-visual-picker-item>
+    <amalitech-visual-picker-item label="Liverpool" value="lfc">
+      <img width="120px" height="120px" src="./assets/liverpool.jpg" alt="Liverpool" />
+    </amalitech-visual-picker-item>
+</amalitech-visual-picker>
+```
+
+### Single option
+
+<Canvas of={VisualPickerStories.DisabledItem}/>
+
+```html
+<amalitech-visual-picker>
+  <amalitech-visual-picker-item label="Fire" value="fire">
+    <icon-fire width="80px" height="80px"></icon-fire>
+    </amalitech-visual-picker-item>
+    <amalitech-visual-picker-item label="Water" value="water">
+      <icon-water width="80px" height="80px"></icon-water>
+    </amalitech-visual-picker-item disabled label="Wrench" value="wrench">
+      <icon-wrench width="80px" height="80px"></icon-wrench>
+    </amalitech-visual-picker-item>
+    <amalitech-visual-picker-item label="Air" value="air">
+      <icon-air width="80px" height="80px"></icon-air>
+    </amalitech-visual-picker-item>
+    <amalitech-visual-picker-item label="Earth" value="earth">
+      <icon-earth width="80px" height="80px"></icon-earth>
+    </amalitech-visual-picker-item>
+</amalitech-visual-picker>
+```
+
+## Selecting
+
+You can preselect an item by adding the selected attribute.
+
+<Canvas of={VisualPickerStories.SelectedItem}/>
+
+```html
+<amalitech-visual-picker-item label="Fire" value="fire">
+    <icon-fire width="80px" height="80px"></icon-fire>
+</amalitech-visual-picker-item>
+<amalitech-visual-picker-item label="Water" value="water" selected>
+    <icon-water width="80px" height="80px"></icon-water>
+</amalitech-visual-picker-item>
+<amalitech-visual-picker-item label="Air" value="air">
+  <icon-air width="80px" height="80px"></icon-air>
+</amalitech-visual-picker-item>
+<amalitech-visual-picker-item label="Earth" value="earth" selected>
+  <icon-earth width="80px" height="80px"></icon-earth>
+</amalitech-visual-picker-item>
+```
+
+## Listening for events
+
+You can listen for a `pickerChange` event on the `amalitech-visual-picker` element. The event
+detail has a `value` key as a string for radio select and an array of strings for checkbox select.
+It corresponds to the `value` attribute set for the item components.
+
+```html
+<body>
+  <amalitech-visual-picker id="radiopicker" select-variant="radio">
+    <amalitech-visual-picker-item label="Lightning" value="lightning">
+        <icon-lightning width="80px" height="80px"></icon-lightning>
+    </amalitech-visual-picker-item>
+    <amalitech-visual-picker-item label="Snake" value="snake">
+        <icon-snake width="80px" height="80px"></icon-snake>
+    </amalitech-visual-picker-item>
+  </amalitech-visual-picker>
+
+  <amalitech-visual-picker id="checkpicker" select-variant="checkbox">
+    <amalitech-visual-picker-item label="Lightning" value="lightning">
+        <icon-lightning width="80px" height="80px"></icon-lightning>
+    </amalitech-visual-picker-item>
+    <amalitech-visual-picker-item label="Snake" value="snake">
+        <icon-snake width="80px" height="80px"></icon-snake>
+    </amalitech-visual-picker-item>
+  </amalitech-visual-picker>
+</body>
+<script>
+  const radioPicker = document.getElementById('radiopicker');
+  const checkpicker = document.getElementById('checkpicker')
+
+  /**
+   *  @returns {object} { value: string }
+   */
+  radioPicker.addEventListener('pickerChange', event => {
+    console.log(event.detail)
+  });
+
+  /**
+   *  @returns {object} { value: string[] }
+   */
+  checkpicker.addEventListener('pickerChange', event => {
+    console.log(event.detail)
+  });
+</script>
+```
+
+## Customization
+
+Custom styling can be applied with exposed CSS variables including changing the icon
+of the visual picker when checked.
+
+<Canvas of={VisualPickerStories.Customized}/>
+
+```html
+<head>
+  amalitech-visual-picker {
+   --visual-picker-active-color: #53ff5c;
+   --visual-picker-checked-icon: url('https://i.ibb.co/GVLbMHB/check.png');
+  }
+</head>
+<body>
+  <amalitech-visual-picker>
+    <amalitech-visual-picker-item label="Amalitech" value="amalitech">
+        <img width="120px" height="120px" src="./assets/amalitech-logo.jpg" alt="Amalitech" />
+    </amalitech-visual-picker-item>
+</amalitech-visual-picker>
+</body>
+```
+
+## All CSS Variables
+
+```css
+amalitech-visual-picker {
+  --visual-picker-gap: 0.5rem;
+  --visual-picker-item-padding: 1.25rem;
+  --visual-picker-item-radius: 0.35rem;
+  --visual-picker-item-border-width: 0.125rem;
+  --visual-picker-item-border-color: var(--amalitech-color-neutral-300);
+  --visual-picker-bg: var(--amalitech-color-light);
+  --visual-picker-transition-duration: 0.3s;
+  --visual-picker-transition-timing: ease;
+  --visual-picker-active-border-width: 0.125rem;
+  --visual-picker-active-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.16);
+  --visual-picker-active-color: var(--amalitech-color-primary);
+  --visual-picker-checked-icon: url('./assets/checkmark.svg');
+  --visual-picker-label-color: var(--amalitech-color-neutral-700);
+  --visual-picker-font-size: 1rem;
+  --visual-picker-font-weight: 500;
+  --visual-picker-font-family: var(--amalitech-base-font-family);
+}
+```

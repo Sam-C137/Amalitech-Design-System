@@ -1,0 +1,77 @@
+// color palette
+$axis: (
+  "y": (
+    "values": (
+      "0": 0px,
+      "1": $base-margin,
+      "2": $base-margin * 2,
+      "3": $base-margin * 4,
+      "4": $base-margin * 6,
+      "5": $base-margin * 8,
+      "6": $base-margin * 10,
+    ),
+  ),
+  "x": (
+    "values": (
+      "0": 0px,
+      "1": $base-margin,
+      "2": $base-margin * 2,
+      "3": $base-margin * 4,
+      "4": $base-margin * 6,
+      "5": $base-margin * 8,
+      "6": $base-margin * 10,
+    ),
+  ),
+);
+
+//generate margin x and y values
+@each $property, $map in $axis {
+  $values: map-get($map, "values");
+
+  @each $k, $v in $values {
+    .m#{$property}-#{$k} {
+      @if ($property == "y") {
+        margin-top: $v;
+        margin-bottom: $v;
+      }
+      @if ($property == "x") {
+        margin-left: $v;
+        margin-right: $v;
+      }
+    }
+  }
+}
+
+//generate padding y and x values
+@each $property, $map in $axis {
+  $values: map-get($map, "values");
+
+  @each $k, $v in $values {
+    .p#{$property}-#{$k} {
+      @if ($property == "y") {
+        padding-top: $v;
+        padding-bottom: $v;
+      }
+      @if ($property == "x") {
+        padding-left: $v;
+        padding-right: $v;
+      }
+    }
+  }
+}
+
+//generate top and bottom for position absolute
+@for $i from 1 through 100 {
+  .top-#{$i} {
+    top: #{$i}px;
+  }
+  .bottom-#{$i} {
+    bottom: #{$i}px;
+  }
+  .left-#{$i} {
+    left: #{$i}px;
+  }
+  .right-#{$i} {
+    right: #{$i}px;
+  }
+}

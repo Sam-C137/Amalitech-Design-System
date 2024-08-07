@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Table</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      h4:not(:first-of-type) {
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <h4>Cursor</h4>
+    <table id="dynamicTable">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>CSS Properties</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h4>Pointer events</h4>
+    <table id="pointerEventsTable">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>CSS Properties</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h4>Appearance</h4>
+    <table id="appearanceTable">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>CSS Properties</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script>
+      var tableData = [
+        { className: 'cursor-auto', property: 'cursor: auto;' },
+        { className: 'cursor-default', property: 'cursor: default;' },
+        { className: 'cursor-pointer', property: 'cursor: pointer;' },
+        { className: 'cursor-wait', property: 'cursor: wait;' },
+        { className: 'cursor-text', property: 'cursor: text;' },
+        { className: 'cursor-move', property: 'cursor: move;' },
+        { className: 'cursor-not-allowed', property: 'cursor: not-allowed;' },
+        { className: 'cursor-help', property: 'cursor: help;' },
+        { className: 'cursor-crosshair', property: 'cursor: crosshair;' },
+        { className: 'cursor-ns-resize', property: 'cursor: ns-resize;' },
+        { className: 'cursor-ew-resize', property: 'cursor: ew-resize;' },
+        { className: 'cursor-nwse-resize', property: 'cursor: nwse-resize;' },
+        { className: 'cursor-nesw-resize', property: 'cursor: nesw-resize;' },
+        { className: 'cursor-col-resize', property: 'cursor: col-resize;' },
+        { className: 'cursor-row-resize', property: 'cursor: row-resize;' },
+        { className: 'cursor-not-allowed', property: 'cursor: not-allowed;' },
+        { className: 'cursor-zoom-in', property: 'cursor: zoom-in;' },
+        { className: 'cursor-zoom-out', property: 'cursor: zoom-out;' },
+        { className: 'cursor-grab', property: 'cursor: grab;' },
+        { className: 'cursor-grabbing', property: 'cursor: grabbing;' },
+      ];
+
+      var pointerEventsData = [
+        { className: 'pointer-events-none', property: 'pointer-events: none;' },
+        { className: 'pointer-events-auto', property: 'pointer-events: auto;' },
+        { className: 'pointer-events-all', property: 'pointer-events: all;' },
+      ];
+
+      var appearanceData = [
+        { className: 'appearance-none', property: 'appearance: none;' },
+        { className: 'appearance-auto', property: 'appearance: auto;' },
+      ];
+
+      function generateTableRows(data, querySelector = '#dynamicTable') {
+        var tbody = document.querySelector(`${querySelector} tbody`);
+        tbody.innerHTML = '';
+        data.forEach(function (row) {
+          var tr = document.createElement('tr');
+          var tdClass = document.createElement('td');
+          tdClass.style.color = '#dd5928';
+          tdClass.textContent = row.className;
+          var tdProperty = document.createElement('td');
+          tdProperty.style.color = row.propertyColor || '#334155';
+          tdProperty.textContent = row.property;
+          tr.appendChild(tdClass);
+          tr.appendChild(tdProperty);
+          tbody.appendChild(tr);
+        });
+      }
+
+      generateTableRows(tableData);
+      generateTableRows(pointerEventsData, '#pointerEventsTable');
+      generateTableRows(appearanceData, '#appearanceTable');
+    </script>
+  </body>
+</html>

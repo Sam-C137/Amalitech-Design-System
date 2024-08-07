@@ -1,0 +1,100 @@
+@import '../../global/variables.scss';
+
+/**
+* Exposed css variables
+*
+* @prop --backgroundColor: Background color of the card, default is `#f6f6f8`;
+* @prop --textColor: Text color of the card, default is `#474d66`;
+* @prop --card-shadow: Box shadow of the card, default is `0px 8px 32px 0px hsla(0, 0%, 0%, 0.1), 0px 4px 8px 0px hsla(0, 0%, 0%, 0.1)`;
+* @prop --card-shadow-hover: Box shadow of the card on hover, default is `0px 8px 32px 0px hsla(0, 0%, 0%, 0.2), 0px 4px 8px 0px hsla(0, 0%, 0%, 0.2)`;
+* @prop --card-radius: Border radius of the card, default is `0.5rem`;
+* @prop --card-body-padding-vertical: Padding top and bottom of the card body, default is `1.25rem`;
+* @prop --card-body-padding-horizontal: Padding left and right of the card body, default is `1.25rem`;
+*/
+
+$card-radius: 0.5rem !default;
+
+$card-body-padding-vertical: 1.25rem !default;
+$card-body-padding-horizontal: 1.25rem !default;
+
+$card-header-padding-vertical: 1.2rem !default;
+$card-header-padding-horizontal: 1.2rem !default;
+$card-header-shadow: 0 0.125em 0.25em rgba($dark-bg, 0.1) !default;
+$card-header-radius-top: 0.5rem !default;
+$card-header-radius-bottom: 0 !default;
+
+$card-image-radius-top: 0.25rem !default;
+$card-image-radius-bottom: 0.25rem !default;
+
+$card-shadow: 0px 8px 32px 0px hsla(0, 0%, 0%, 0.1), 0px 4px 8px 0px hsla(0, 0%, 0%, 0.1) !default;
+$card-shadow-hover: 0px 8px 32px 0px hsla(0, 0%, 0%, 0.2), 0px 4px 8px 0px hsla(0, 0%, 0%, 0.2) !default;
+
+:host {
+  --card-background-color: var(--backgroundColor, $light-bg);
+  --card-text-color: var(--textColor, $dark-bg);
+  display: block;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--card-shadow, $card-shadow);
+  border-radius: var(--card-radius, $card-radius);
+  transition: all 0.3s;
+}
+
+:host(.with-hover-animation:hover) {
+  transition: all 0.3s;
+  box-shadow: var(--card-shadow-hover, $card-shadow-hover);
+  cursor: pointer;
+}
+
+:host a {
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+:host([tabindex='0']:focus-visible) {
+  @include focus;
+}
+
+:host(.is-disabled) {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.is-card {
+  background-color: var(--card-background-color);
+  color: var(--card-text-color);
+  max-width: 100%;
+  position: relative;
+
+  ::slotted([slot='header']) {
+    border-radius: $card-header-radius-top $card-header-radius-top $card-header-radius-bottom $card-header-radius-bottom;
+    display: flex;
+    align-items: stretch;
+    background-color: transparent;
+    padding: $card-header-padding-vertical $card-header-padding-horizontal;
+  }
+
+  ::slotted([slot='title']) {
+    align-items: center;
+    color: inherit;
+    display: flex;
+    font-size: large;
+    flex-grow: 1;
+    font-weight: bold;
+  }
+
+  ::slotted([slot='body']) {
+    border-radius: $card-radius;
+    display: block;
+    background-color: transparent;
+    padding: var(--card-body-padding-vertical, $card-body-padding-vertical) var(--card-body-padding-horizontal, $card-body-padding-horizontal);
+  }
+
+  ::slotted([slot='image']) {
+    margin: 1rem;
+    border-radius: $card-image-radius-top $card-image-radius-top $card-image-radius-bottom $card-image-radius-bottom;
+  }
+}

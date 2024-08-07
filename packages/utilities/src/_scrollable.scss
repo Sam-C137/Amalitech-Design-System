@@ -1,0 +1,46 @@
+/**
+ * @summary Forces element to scroll horizontally and vertically when content exceeds element's width and height
+ *
+ * @selector .scrollable
+ * @modifier
+ */
+.scrollable {
+  @include enable-ios-momentum-scrolling;
+  overflow: auto;
+}
+
+/**
+ * @summary Forces overflow items to not scroll within element's width and height
+ *
+ * @selector .scrollable-none
+ * @modifier
+ */
+.scrollable-none {
+  overflow: hidden;
+}
+
+/**
+ * @summary Forces element to scroll vertically when content exceeds element's height
+ *
+ * @selector .scrollable-y
+ * @modifier
+ */
+.scrollable-y {
+  @include enable-ios-momentum-scrolling;
+  max-height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+/**
+ * @summary Forces element to scroll horizontally when content exceeds element's width
+ *
+ * @selector .scrollable-x
+ * @modifier
+ */
+.scrollable-x {
+  @include enable-ios-momentum-scrolling;
+  max-width: 100%;
+  overflow: hidden;
+  overflow-x: auto;
+}

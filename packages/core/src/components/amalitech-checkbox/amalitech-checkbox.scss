@@ -1,0 +1,114 @@
+/**
+   * CSS variables for the checkbox component.
+   *
+   * @prop --checkboxWidth: The width of the checkbox.
+   * @prop --checkboxHeight: The height of the checkbox.
+   * @prop --checkboxBorder: The border of the checkbox.
+   * @prop --checkboxIconFontSize: The font size of the checkbox icon.
+   * @prop --checkboxActiveBorderColor: The border color of the checkbox when active.
+   * @prop --checkboxActiveBg: The background color of the checkbox when active.
+   * @prop --checkboxIconActiveColor: The color of the checkbox icon when active.
+   * @prop --checkboxActiveHoverBg: The background color of the checkbox when active and hovered.
+   * @prop --checkboxIconActiveHoverColor: The color of the checkbox icon when active and hovered.
+   * @prop --checkboxActiveHoverBorderColor: The border color of the checkbox when active and hovered.
+   * @prop --checkboxGap: The gap between the checkbox and the label.
+   * @prop --checkboxFontSize: The font size of the checkbox label.
+   * @prop --checkboxBgColor: The background color of the checkbox when unchecked.
+   * @prop --checkboxHoverBorderColor: The border color of the checkbox when hovered.
+   * @prop --checkboxLabelColor: The color of the checkbox label.
+   */
+
+:host {
+  font-family: 'Work Sans';
+
+  .amalitech-checkbox {
+    display: inline-flex;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    vertical-align: bottom;
+    align-items: center;
+
+    .amalitech-hidden-accessible {
+      opacity: 0;
+      display: none;
+    }
+
+    .amalitech-checkbox-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: var(--checkboxBorder, 0.125rem solid $neutral-100);
+      background: var(--checkboxBgColor, $neutral-200);
+      width: var(--checkboxWidth, 1.2rem);
+      height: var(--checkboxHeight, 1.2rem);
+      color: var(--textColor, $secondary);
+      border-radius: var(--borderRadius, 0.188rem);
+      transition: var(--formElementTransition, background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s);
+
+      &.amalitech-highlight {
+        border-color: var(--checkboxActiveBorderColor, $primary);
+        background: var(--checkboxActiveBg, $primary);
+      }
+
+      .amalitech-checkbox-icon {
+        transition-duration: var(--transitionDuration, 0.2s);
+        fill: var(--checkboxIconActiveColor, #fff);
+        font-size: var(--fontSize, 1rem);
+      }
+    }
+
+    &.amalitech-checkbox-disabled {
+      &:hover {
+        cursor: not-allowed;
+      }
+    }
+
+    .amalitech-disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    &:not(.amalitech-checkbox-disabled) {
+      .amalitech-checkbox-box {
+        &:hover {
+          border-color: var(--checkboxHoverBorderColor, $neutral-300);
+        }
+
+        &.amalitech-focus {
+          outline: var(--focusOutline, 0 none);
+          outline-offset: var(--focusOutlineOffset, 0);
+          border-color: var(--checkboxActiveBorderColor, $primary);
+        }
+
+        &.amalitech-highlight {
+          &:hover {
+            border-color: var(--checkboxActiveHoverBorderColor, $primary);
+            background: var(--checkboxActiveHoverBg, $primary);
+            color: var(--checkboxIconActiveHoverColor, $light);
+          }
+        }
+      }
+    }
+  }
+
+  .amalitech-disabled {
+    cursor: not-allowed;
+  }
+
+  .amalitech-checkbox-label {
+    margin-left: var(--checkboxGap, 0.3rem);
+    font-size: var(--checkboxFontSize, 1rem);
+    color: var(--checkboxLabelColor, inherit);
+  }
+}
+
+:host(:focus) {
+  outline: none;
+}
+
+.amalitech-element-flex {
+  display: flex;
+  align-items: center;
+}

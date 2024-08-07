@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Table</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      section {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        width: 100%;
+        height: 120px;
+        margin-bottom: 20px;
+      }
+      span.grid-item {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 1px solid #fff;
+        background-color: #dd5928;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+      }
+      [scope="row"] {
+        color: #dd5928;
+        font-weight: 600;
+        font-size: 1rem;
+        letter-spacing: -0.01rem;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <span class="grid-item"> 1 </span>
+      <span class="grid-item"> 2 </span>
+      <span class="grid-item"> 3 </span>
+      <span class="grid-item"> 4 </span>
+      <span class="grid-item"> 5 </span>
+      <span class="grid-item"> 6 </span>
+      <span class="grid-item"> 7 </span>
+      <span class="grid-item"> 8 </span>
+      <span class="grid-item"> 9 </span>
+      <span class="grid-item"> 10 </span>
+      <span class="grid-item"> 11 </span>
+      <span class="grid-item"> 12 </span>
+    </section>
+    <table style="margin: 30px 0">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">
+            xs<br />
+            <span>&lt;480px</span>
+          </th>
+          <th scope="col">
+            sm<br />
+            <span>≥480px;</span>
+          </th>
+          <th scope="col">
+            md<br />
+            <span>≥720px</span>
+          </th>
+          <th scope="col">
+            lg<br />
+            <span>≥960px</span>
+          </th>
+          <th scope="col">
+            xl<br />
+            <span>≥1280px</span>
+          </th>
+          <th scope="col">
+            xlg<br />
+            <span>≥1440px</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">
+            Container
+            <code>max-width</code>
+          </th>
+          <td>0 (auto)</td>
+          <td>480px</td>
+          <td>720px</td>
+          <td>960px</td>
+          <td>1280px</td>
+          <td>1440px</td>
+        </tr>
+        <tr>
+          <th scope="row">Class prefix</th>
+          <td><code>.col-</code></td>
+          <td><code>.col-sm-</code></td>
+          <td><code>.col-md-</code></td>
+          <td><code>.col-lg-</code></td>
+          <td><code>.col-xl-</code></td>
+          <td><code>.col-xxl-</code></td>
+        </tr>
+        <tr>
+          <th scope="row">Number of columns</th>
+          <td colspan="6">12</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 style="margin-top: 40px; margin-bottom: 10px">Grid gaps</h2>
+    <table>
+      <thead>
+        <th>Class</th>
+        <th>Value</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>grid-gap-0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>grid-gap-1</td>
+          <td>10px</td>
+        </tr>
+        <tr>
+          <td>grid-gap-2</td>
+          <td>20px</td>
+        </tr>
+        <tr>
+          <td>grid-gap-3</td>
+          <td>30px</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script></script>
+  </body>
+</html>

@@ -1,0 +1,334 @@
+import * as ButtonStories from './amalitech-button.stories.tsx';
+import { Meta, Title, Description, Story, Canvas } from '@storybook/blocks';
+
+<Meta of={ButtonStories} />
+
+# How to use `amalitech-button`
+
+The button component comes pre-styled with options for custom styling with props or css variables
+
+You could use it like this:
+
+## Default
+
+<Canvas of={ButtonStories.Default} />
+
+```html
+<amalitech-button>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <g clip-path="url(#clip0_1_2569)">
+          <path d="M14.4297 5.92969L20.4997 11.9997L14.4297 18.0697" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M3.5 12H20.33" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+        <defs>
+          <clipPath id="clip0_1_2569">
+            <rect width="24" height="24" fill="white" />
+          </clipPath>
+        </defs>
+    </svg>
+    Click Here
+</amalitech-button>
+```
+
+## Primary
+
+<Canvas of={ButtonStories.Primary} />
+
+```html
+<amalitech-button variant="primary">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <g clip-path="url(#clip0_1_2569)">
+          <path d="M14.4297 5.92969L20.4997 11.9997L14.4297 18.0697" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M3.5 12H20.33" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+        <defs>
+          <clipPath id="clip0_1_2569">
+            <rect width="24" height="24" fill="white" />
+          </clipPath>
+        </defs>
+    </svg>
+    Click Here
+</amalitech-button>
+```
+
+## Secondary
+
+<Canvas of={ButtonStories.Secondary} />
+
+```html
+<amalitech-button variant="secondary">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <g clip-path="url(#clip0_1_2569)">
+          <path d="M14.4297 5.92969L20.4997 11.9997L14.4297 18.0697" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M3.5 12H20.33" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+        <defs>
+          <clipPath id="clip0_1_2569">
+            <rect width="24" height="24" fill="white" />
+          </clipPath>
+        </defs>
+    </svg>
+    Click Here
+</amalitech-button>
+```
+
+## Tertiary
+
+<Canvas of={ButtonStories.Tertiary} />
+
+```html
+<amalitech-button variant="tertiary">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <g clip-path="url(#clip0_1_2569)">
+          <path d="M14.4297 5.92969L20.4997 11.9997L14.4297 18.0697" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M3.5 12H20.33" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+        <defs>
+          <clipPath id="clip0_1_2569">
+            <rect width="24" height="24" fill="white" />
+          </clipPath>
+        </defs>
+    </svg>
+    Click Here
+</amalitech-button>
+```
+
+## Disabled
+
+You can disable the button by simply adding a disabled attribute
+
+<Canvas of={ButtonStories.Disabled} />
+
+```html
+<amalitech-button disabled>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <g clip-path="url(#clip0_1_2569)">
+          <path d="M14.4297 5.92969L20.4997 11.9997L14.4297 18.0697" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M3.5 12H20.33" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+        <defs>
+          <clipPath id="clip0_1_2569">
+            <rect width="24" height="24" fill="white" />
+          </clipPath>
+        </defs>
+    </svg>
+    Click Here
+</amalitech-button>
+```
+
+## With Icon Only
+
+Since the button component has one default slot, you can make it show an icon only by simply nesting
+it within the component selector.
+
+<Canvas of={ButtonStories.IconOnly} />
+
+```html
+<amalitech-button>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <g clip-path="url(#clip0_1_2569)">
+          <path d="M14.4297 5.92969L20.4997 11.9997L14.4297 18.0697" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M3.5 12H20.33" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+        <defs>
+          <clipPath id="clip0_1_2569">
+            <rect width="24" height="24" fill="white" />
+          </clipPath>
+        </defs>
+    </svg>
+</amalitech-button>
+```
+
+## With Text Only
+
+You can nest some text in the component selector to show the button without an icon
+
+<Canvas of={ButtonStories.TextOnly} />
+
+```html
+<amalitech-button>Click Here</amalitech-button>
+```
+
+## Icon Left
+
+Once the button has a nested icon within it, you can change the alignment by specifying the icon-position
+attribute. The values for this are left and right
+
+<Canvas of={ButtonStories.LeftIcon} />
+
+```html
+<amalitech-button icon-position="left">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <g clip-path="url(#clip0_1_2569)">
+          <path d="M14.4297 5.92969L20.4997 11.9997L14.4297 18.0697" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M3.5 12H20.33" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+        <defs>
+          <clipPath id="clip0_1_2569">
+            <rect width="24" height="24" fill="white" />
+          </clipPath>
+        </defs>
+    </svg>
+    Click Here
+</amalitech-button>
+```
+
+## Icon Right
+
+<Canvas of={ButtonStories.Primary} />
+
+```html
+<amalitech-button icon-position="right">
+    Click Here
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <g clip-path="url(#clip0_1_2569)">
+          <path d="M14.4297 5.92969L20.4997 11.9997L14.4297 18.0697" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M3.5 12H20.33" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+        <defs>
+          <clipPath id="clip0_1_2569">
+            <rect width="24" height="24" fill="white" />
+          </clipPath>
+        </defs>
+    </svg>
+</amalitech-button>
+```
+
+## Sizes 
+
+The button component comes in  3 main sizes: small medium and large. You can chose a size by
+setting the `size` attribute
+
+### Medium
+
+<Canvas of={ButtonStories.Default} />
+
+```html
+<amalitech-button size="medium">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <g clip-path="url(#clip0_1_2569)">
+          <path d="M14.4297 5.92969L20.4997 11.9997L14.4297 18.0697" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M3.5 12H20.33" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+        <defs>
+          <clipPath id="clip0_1_2569">
+            <rect width="24" height="24" fill="white" />
+          </clipPath>
+        </defs>
+    </svg>
+    Click Here
+</amalitech-button>
+```
+
+### Large
+
+<Canvas of={ButtonStories.Large} />
+
+```html
+<amalitech-button size="large">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <g clip-path="url(#clip0_1_2569)">
+          <path d="M14.4297 5.92969L20.4997 11.9997L14.4297 18.0697" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M3.5 12H20.33" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+        <defs>
+          <clipPath id="clip0_1_2569">
+            <rect width="24" height="24" fill="white" />
+          </clipPath>
+        </defs>
+    </svg>
+    Click Here
+</amalitech-button>
+```
+
+### Small
+
+<Canvas of={ButtonStories.Small} />
+
+```html
+<amalitech-button size="small">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <g clip-path="url(#clip0_1_2569)">
+          <path d="M14.4297 5.92969L20.4997 11.9997L14.4297 18.0697" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M3.5 12H20.33" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+        <defs>
+          <clipPath id="clip0_1_2569">
+            <rect width="24" height="24" fill="white" />
+          </clipPath>
+        </defs>
+    </svg>
+    Click Here
+</amalitech-button>
+```
+
+## Attributes
+
+### `type`
+
+Attaching a type attribute to the `amalitech-button` element is similar to the native html button `type` attribute
+
+```html
+<form>
+    <input type="text">
+    <amalitech-button type="submit">Submit<amalitech-button>
+</form>
+```
+
+### `disabled`
+
+The `disabled` attribute is used to disable the button
+
+```html
+<amalitech-button disabled>Click Here</amalitech-button>
+```
+
+## Listening for events
+
+You can listen for a click event on the `amalitech-button` element
+
+```html
+<body>
+  <amalitech-button>Click Me</amalitech-button>
+</body>
+<script>
+  const button = document.querySelector('amalitech-button');
+  button.addEventListener('click', e => {
+    console.log(e, 'clicked');
+  });
+</script>
+```
+
+## Styling with CSS
+
+Custom styling can be applied with exposed CSS variables
+
+```html
+<head>
+    amalitech-button {
+        --amalitech-button-color: violet;
+        --amalitech-button-bg: #000;
+        --amalitech-button-font-size: 2rem;
+        --amalitech-button-radius: 8px;
+        --amalitech-button-ptb: 10px;
+        --amalitech-button-plr: 20px;
+    }
+</head>
+<body>
+    <amalitech-button>Click Me</amalitech-button>
+</body>
+```
+
+## All CSS Variables
+
+```css
+amalitech-button {
+    --amalitech-button-color: #fff;
+    --amalitech-button-bg: #000;
+    --amalitech-button-font-size: 1rem;
+    --amalitech-button-radius: 4px;
+    --amalitech-button-ptb: 8px;
+    --amalitech-button-plr: 16px;
+    --amalitech-button-focus-color: orange;
+}
+```

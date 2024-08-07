@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AmalitechTree renders empty state when empty prop is true 1`] = `
+<amalitech-tree empty="">
+  <mock:shadow-root>
+    <div class="tree-view">
+      <slot></slot>
+    </div>
+  </mock:shadow-root>
+</amalitech-tree>
+`;
+
+exports[`AmalitechTree renders tree nodes when empty prop is false 1`] = `
+<amalitech-tree>
+  <mock:shadow-root>
+    <div class="tree-view">
+      <slot></slot>
+    </div>
+  </mock:shadow-root>
+  <amalitech-tree-node>
+    Node 1
+  </amalitech-tree-node>
+</amalitech-tree>
+`;

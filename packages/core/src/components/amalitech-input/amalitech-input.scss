@@ -1,0 +1,206 @@
+:host {
+  font-family: 'Work Sans';
+
+  /**
+ * CSS variables for input field component
+ * @prop --inputComponentWidth: The width of the whole input component.
+ * @prop --inputPadding: The padding of the input field.
+ * @prop --inputBgColor: The background color of the input field.
+ * @prop --inputWidth: The width of the input field.
+ * @prop --inputBorder: The border of the input field.
+ * @prop --inputTextColor: The text color of the input field
+ * @prop --inputHoverBorderColor: The border color of the input field on hover
+ * @prop --inputFocusBorderColor: The border color of the input field on focus
+ * @prop --inputErrorBorder: The border of the input field in case of an error.
+ * @prop --inputPlaceholderTextColor: The text color of the input field placeholder.
+ * @prop --inputTransition: The transition effect for the input field, involving border color and box shadow, using the --transitionDuration variable.
+ * @prop --inputFilledBg: The background color of the input field when filled.
+ * @prop --inputFilledFocusBg: The background color of the input field when filled and focused.
+ * @prop --inputFilledHoverBg: The background color of the input field when filled and hovered.
+ * @prop --inputIconColor: The color of icons within the input field
+ * @prop --inputHelperTextSize: The font size of the helper text within the input field
+ * @prop --inputHelperTextColor: The color of the helper text within the input field
+ * @prop --inputLabelFontSize: The font size of the label within the input field
+ * @prop --inputLabelFontWeight: The font weight of the label within the input field
+ * @prop --inputLabelColor: The color of label within the input field
+ * @prop --input-BorderRadius: The border radius of the input field
+ */
+
+  display: block;
+
+  .element {
+    width: var(--inputComponentWidth, 30%);
+  }
+
+  .input-field {
+    font-size: var(--fontSize, $size-2);
+    color: var(--textColor, $neutral-600);
+    font-family: 'Work Sans';
+    background: var(--inputBgColor, $light);
+    width: var(--inputWidth, 100%);
+    padding: var(--inputPadding, $size-half $size-1);
+    border: var(--inputBorder, 0.0625rem solid $neutral-200);
+    border-radius: var(--input-BorderRadius, 0.4rem);
+    -moz-transition: var(--inputTransition);
+    -o-transition: var(--inputTransition);
+    -webkit-transition: var(--inputTransition);
+    transition: var(--inputTransition, box-shadow 0.15s ease);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+    outline: medium none;
+
+    &::placeholder {
+      color: var(--inputPlaceholderTextColor, $neutral-400);
+    }
+
+    &.filled {
+      background: var(--inputFilledBg, $filled);
+    }
+
+    &:not([disabled]) {
+      &:hover {
+        border-color: var(--inputHoverBorderColor, $neutral-400);
+      }
+
+      &:focus {
+        outline: 0 none;
+        outline-offset: 0;
+        -webkit-box-shadow: var(--focusShadow, 0 0 0.08125rem 0.08125rem $orange-200);
+        -moz-box-shadow: var(--focusShadow, 0 0 0.08125rem 0.08125rem $orange-200);
+        box-shadow: var(--focusShadow, 0 0 0.075rem 0.08125rem $orange-200);
+        border-color: var(--focusOutlineColor, $orange-200);
+      }
+    }
+
+    &:disabled {
+      background: $neutral-100;
+      cursor: not-allowed;
+    }
+  }
+
+  .input-field.error {
+    border-color: var(--inputErrorBorder, $red-500);
+  }
+
+  /* Floating Label */
+  .float-label {
+    display: block;
+    position: relative;
+
+    label {
+      position: absolute;
+      pointer-events: none;
+      top: 50%;
+      margin-top: -0.5rem;
+      transition-property: all;
+      transition-timing-function: ease;
+      line-height: 1;
+    }
+
+    textarea ~ label {
+      top: 1rem;
+    }
+
+    input:focus ~ label,
+    input.filled ~ label,
+    textarea:focus ~ label,
+    textarea.filled ~ label,
+    .inputwrapper-focus ~ label,
+    .inputwrapper-filled ~ label {
+      top: -0.5rem;
+      font-size: 12px;
+    }
+
+    .input:-webkit-autofill ~ label {
+      top: -20px;
+      font-size: 12px;
+    }
+
+    > label {
+      left: 0.75rem;
+      color: var(--inputPlaceholderTextColor, $neutral-600);
+      transition-duration: var(--transitionDuration, 0.5s);
+    }
+  }
+
+  .input-icon-left {
+    position: relative;
+    display: inline-block;
+  }
+
+  .input-icon-left > i {
+    position: absolute;
+    top: 50%;
+    margin-top: -0.5rem;
+  }
+
+  .fluid .input-icon-left {
+    display: block;
+    width: 100%;
+  }
+
+  .input-icon-left > span .input-field {
+    padding-left: 2rem;
+  }
+
+  .input-icon-left > i:first-of-type {
+    left: 0.5rem;
+  }
+
+  .iconify {
+    color: $neutral-400;
+    position: absolute;
+    margin-top: 0.65rem;
+    margin-left: 0.7rem;
+  }
+
+  .input-with-icon {
+    text-indent: 1.4rem;
+    &::placeholder {
+      text-indent: 1.4rem;
+    }
+  }
+
+  .input-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.2rem;
+  }
+
+  .required-text {
+    margin: 0.2rem;
+    font-size: 0.8rem;
+    background: $red-200;
+    padding: 0.1rem 0.2rem;
+    border-radius: 0.25rem;
+    color: $red-500;
+  }
+
+  .label-text {
+    font-size: var(--inputLabelFontSize, 0.9rem);
+    font-weight: var(--inputLabelFontWeight, bold);
+    color: var(--inputLabelColor, $neutral-600);
+  }
+
+  .counter {
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+    color: $neutral-500;
+  }
+
+  .helper-text {
+    color: var(--inputHelperTextColor, $orange-500);
+    font-size: var(--inputHelperTextSize, 0.8rem);
+  }
+
+  .input-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.2rem;
+  }
+}

@@ -1,0 +1,156 @@
+import * as NavStories from './amalitech-navbar.stories';
+import { Meta, Title, Description, Story, Canvas } from '@storybook/blocks';
+
+<Meta of={NavStories} />
+
+# How to use `amalitech-navbar`
+
+The navbar component is a navigation panel that comes pre-styled and responsive on various screen sizes
+
+You could use it like this:
+
+## Default
+
+<Canvas of={NavStories.Default} />
+
+```html
+<amalitech-navbar>
+    <a href="https://amalitech.com/" slot="logo">AMALIT<span>E</span>CH</a>
+    <amalitech-nav-item><a href="/">Home</a></amalitech-nav-item>
+    <amalitech-nav-item><a href="/about">About</a></amalitech-nav-item>
+    <amalitech-nav-item><a href="/contact">Contact</a></amalitech-nav-item>
+    <input  slot="search"  type="search" placeholder="search...">
+</amalitech-navbar>
+```
+
+## Layouts
+
+The navbar has 3 main layouts for positioning the nav items, a search bar and a logo. The default is `nav-items-center`, which looks like `logo | navitems | search`.
+
+### `nav-items-center`
+
+<Canvas of={NavStories.Default} />
+
+```html
+<amalitech-navbar layout="nav-items-center">
+    <a href="https://amalitech.com/" slot="logo">AMALIT<span>E</span>CH</a>
+    <amalitech-nav-item><a href="/">Home</a></amalitech-nav-item>
+    <amalitech-nav-item><a href="/about">About</a></amalitech-nav-item>
+    <amalitech-nav-item><a href="/contact">Contact</a></amalitech-nav-item>
+    <input  slot="search"  type="search" placeholder="search...">
+</amalitech-navbar>
+```
+
+### `nav-items-right`
+
+<Canvas of={NavStories.LayoutNavItemsRight} />
+
+```html
+<amalitech-navbar layout="nav-items-right">
+    <a href="https://amalitech.com/" slot="logo">AMALIT<span>E</span>CH</a>
+    <amalitech-nav-item><a href="/">Home</a></amalitech-nav-item>
+    <amalitech-nav-item><a href="/about">About</a></amalitech-nav-item>
+    <amalitech-nav-item><a href="/contact">Contact</a></amalitech-nav-item>
+    <input  slot="search"  type="search" placeholder="search...">
+</amalitech-navbar>
+```
+
+### `nav-items-left`
+
+<Canvas of={NavStories.LayoutNavItemsLeft} />
+
+```html
+<amalitech-navbar layout="nav-items-left">
+    <a href="https://amalitech.com/" slot="logo">AMALIT<span>E</span>CH</a>
+    <amalitech-nav-item><a href="/">Home</a></amalitech-nav-item>
+    <amalitech-nav-item><a href="/about">About</a></amalitech-nav-item>
+    <amalitech-nav-item><a href="/contact">Contact</a></amalitech-nav-item>
+    <input  slot="search"  type="search" placeholder="search...">
+</amalitech-navbar>
+```
+
+## Slots
+
+The `amalitech-navbar` has 3 slots. A default slot for `amalitech-nav-item`'s, a `"logo"` slot and a `"search"` slot, best used with input type search/text
+
+```html
+<amalitech-navbar>
+    <amalitech-nav-item><a href="/">Home</a></amalitech-nav-item>
+    <amalitech-nav-item><a href="/about">About</a></amalitech-nav-item>
+    <amalitech-nav-item><a href="/contact">Contact</a></amalitech-nav-item>
+    <a href="https://amalitech.com/" slot="logo">AMALIT<span>E</span>CH</a>
+    <input  slot="search"  type="search" placeholder="search...">
+</amalitech-navbar>
+```
+
+## Attributes
+
+### `active`
+
+The individual nav items when nested in an `amalitech-navbar` get the attribute `active` when clicked on. This attribute can be set programatically to have a default route activated
+
+```html
+<amalitech-navbar>
+    <amalitech-nav-item active><a href="/">Home</a></amalitech-nav-item>
+    <amalitech-nav-item><a href="/about">About</a></amalitech-nav-item>
+    <amalitech-nav-item><a href="/contact">Contact</a></amalitech-nav-item>
+</amalitech-navbar>
+```
+
+### `disabled`
+
+The individual nav items can be disabled to prevent activation.
+
+```html
+<amalitech-navbar>
+    <amalitech-nav-item><a href="/">Home</a></amalitech-nav-item>
+    <amalitech-nav-item><a href="/about">About</a></amalitech-nav-item>
+    <amalitech-nav-item disabled><a href="/contact">Contact</a></amalitech-nav-item>
+</amalitech-navbar>
+```
+
+## Styling with CSS
+
+Custom styling can be applied with exposed CSS variables
+
+```html
+<head>
+    amalitech-navbar {
+        --nav-bg-color: violet;
+        --nav-item-active-font-size: 1rem;
+        --nav-item-active-color: red;
+        --nav-menu-icon-color: blue;
+        --nav-font-family: "Work Sans";
+    }
+</head>
+<body>
+    <amalitech-navbar>
+        <amalitech-nav-item><a href="/">Home</a></amalitech-nav-item>
+        <amalitech-nav-item><a href="/about">About</a></amalitech-nav-item>
+        <amalitech-nav-item><a href="/contact">Contact</a></amalitech-nav-item>
+    </amalitech-navbar>
+</body>
+```
+
+## All CSS Variables
+
+```css
+amalitech-navbar {
+    /* Colors */
+    --nav-bg-color: #fff;
+    --nav-item-active-color: #dd5928;
+    /** mobile **/
+    --nav-menu-icon-color: #dd5928;
+    --nav-dropdown-bg-color: #fff;
+    --nav-menu-close-color: #dd5928;
+
+    /* Fonts */
+    --nav-font-family: "Work Sans", sans-serif;
+    --nav-item-font-size: 1.25rem;
+    --nav-item-active-font-size: 1.25rem;
+
+    /* Spacing */
+    --nav-item-gap: 1.5rem;
+
+    }
+```

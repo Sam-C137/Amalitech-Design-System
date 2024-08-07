@@ -1,0 +1,65 @@
+/**
+* Exposed CSS Variables
+* @prop --accordionFocusColor: Color of the accordion outline when focused, default is `#eb9c7f`
+* @prop --accordionBackground: Background color of the accordion, default is `#f6f6f8`
+* @prop --accordionLabelPadding: Padding between the icon and the accordion label, default is `1rem`
+* @prop --accordionFontSize: Font size of the accordion, default is `1rem`
+* @prop --accordionFontWeight: Font weight of the accordion label, default is `#d3d3d3`
+* @prop --openedAccordionPadding: Padding around the opened accordion, default is `0.5rem 1rem`
+* @prop --openedAccordionBorder: Border of the opened accordion, default is `0.063rem solid #f6f6f8`
+* @prop --accordionFontFamily: Font family of the accordion label, default is `$base-font-family`
+*/
+
+:host {
+  display: block;
+  position: relative;
+
+  .accordion {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    background: var(--accordionBackground, $lightest);
+    text-decoration: none;
+    padding: var(--accordionLabelPadding, 1rem);
+    text-align: left;
+    font-size: var(--accordionFontSize, 1rem);
+    font-weight: var(--accordionFontWeight, 400);
+    font-family: var(--accordionFontFamily, $base-font-family);
+    outline: none;
+
+    &:focus-visible {
+      box-shadow: 0 0 0 $base-outline-thickness $focus-color;
+      border-radius: 0.125rem;
+      margin-bottom: calc($base-outline-thickness + $base-outline-offset);
+    }
+
+    span {
+      float: left;
+      margin-top: 0.15rem;
+      margin-right: 0.5rem;
+      font-weight: normal;
+
+      &.icon-expand {
+        transform: rotate(0deg);
+        transition: transform 0.3s ease;
+      }
+      &.icon-collapse {
+        transform: rotate(180deg) translateY(20%);
+        transition: transform 0.3s ease;
+      }
+    }
+  }
+
+  .content-box {
+    &.open {
+      display: block;
+      height: auto;
+      padding: var(--openedAccordionPadding, 0.5rem 1rem);
+      border: var(--openedAccordionBorder, 0.063rem solid $lightest);
+    }
+
+    &.close {
+      display: none;
+    }
+  }
+}

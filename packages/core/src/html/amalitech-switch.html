@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>amalitech-switch Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+    rel="stylesheet">
+  <script type="module" src="/build/amalitech-design-system.esm.js"></script>
+  <script nomodule src="/build/build/amalitech-design-system.js"></script>
+  <link rel="stylesheet" href="/build/amalitech-design-system.css" />
+</head>
+
+<body>
+  <style>
+    * {
+      font-family: 'Work Sans';
+    }
+
+    .input-window {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .title {
+      font-size: 1.1rem;
+      font-weight: 500;
+      font-family: 'Work Sans';
+      margin-bottom: 1rem;
+      border-bottom: 0.062rem solid rgba(0, 0, 0, 0.05);
+      padding-bottom: 0.2rem;
+    }
+  </style>
+
+  <div class="input-window">
+    <div>
+      <p class="title">Simple Switch</p>
+      <amalitech-switch></amalitech-switch>
+    </div>
+
+    <div>
+      <p class="title">Checked Switch</p>
+      <amalitech-switch checked></amalitech-switch>
+    </div>
+
+    <div>
+      <p class="title">Disabled Switch</p>
+      <amalitech-switch disabled></amalitech-switch>
+    </div>
+
+    <div>
+      <p class="title">Small Switch</p>
+      <amalitech-switch size="small"></amalitech-switch>
+    </div>
+
+    <div>
+      <p class="title">Large Switch</p>
+      <amalitech-switch size="large" disabled></amalitech-switch>
+    </div>
+  </div>
+
+  <script>
+    const switchElements = document.querySelectorAll('amalitech-switch');
+    switchElements.forEach((switchElement) => {
+      switchElement.addEventListener('amalitechSwitchChange', (event) => {
+        console.log(event.detail);
+      });
+    });
+  </script>
+</body>
+
+</html>

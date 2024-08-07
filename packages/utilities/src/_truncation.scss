@@ -1,0 +1,62 @@
+/**
+ * The truncation class can be used on an element, or the truncation
+ * include can be added to an existing class.
+ *
+ * @summary Creates truncated text
+ *
+ * @selector .truncate
+ * @modifier
+ */
+.truncate {
+  @include truncate;
+}
+
+/**
+ * @summary Truncates text at 25% of its parent container
+ *
+ * @selector .truncate-25
+ * @modifier
+ */
+.truncate-25 {
+  max-width: 25%;
+}
+
+/**
+ * @summary Truncates text at 50% of its parent container
+ *
+ * @selector .truncate-50
+ * @modifier
+ */
+.truncate-50 {
+  max-width: 50%;
+}
+
+/**
+ * @summary Truncates text at 75% of its parent container
+ *
+ * @selector .truncate-75
+ * @modifier
+ */
+.truncate-75 {
+  max-width: 75%;
+}
+
+/**
+ * @summary Truncates text at 33% of its parent container
+ *
+ * @selector .truncate-33
+ * @modifier
+ */
+.truncate-33 {
+  max-width: 33%;
+}
+
+/**
+ * @summary Truncates text at 66% of its parent container
+ *
+ * @selector .truncate-66
+ * @modifier
+ */
+.truncate-66 {
+  max-width: 66%;
+}

@@ -1,0 +1,25 @@
+{
+  "name": "@amalitech-design-system/icons",
+  "version": "0.8.0",
+  "homepage": "https://github.com/Amali-Tech/Amalitech-Design-System#readme",
+  "license": "MIT",
+  "directories": {
+    "src": "src",
+    "dist": "dist"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amali-Tech/Amalitech-Design-System.git"
+  },
+  "scripts": {},
+  "bugs": {
+    "url": "https://github.com/Amali-Tech/Amalitech-Design-System/issues"
+  }
+}

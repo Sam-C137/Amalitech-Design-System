@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import '../../../design-tokens/dist/design-tokens-amalitech.css';
+
+:host {
+  /* ----------  Main Colors -------------- */
+  --primary: var(--amalitech-color-primary);
+  --secondary: var(--amalitech-color-secondary);
+  --dark: var(--amalitech-color-dark);
+  --light: var(--amalitech-color-light);
+}
+
+:root {
+  /* ----------  Main Font -------------- */
+  font-family: var(--amalitech-font-family-sans);
+}

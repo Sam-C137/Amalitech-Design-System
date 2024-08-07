@@ -1,0 +1,33 @@
+@import '../../../global/variables.scss';
+
+/** Exposed CSS variables
+* @prop --docked-utility-item-padding - Padding for the docked utility item defaultis `1.75rem`
+* @prop --docked-utility-item-border-bottom-width - Border bottom width for the docked utility item default is `0.3125rem`
+* @prop --docked-utility-item-active-bg - Background color for the docked utility item when active default is `$orange-100`
+* @prop --docked-utility-item-active-border-bottom-color - Border bottom color for the docked utility item when active default is `$orange-500`
+* @prop --docked-utility-item-active-border-bottom-width - Border bottom width for the docked utility item when active default is `0.3125rem`
+*/
+
+:host {
+  cursor: pointer;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  padding: var(--docked-utility-item-padding, 1.75rem);
+  padding-bottom: calc(var(--docked-utility-item-padding, 1.75rem) - 0.3125rem);
+  border-bottom: 0.3125rem solid transparent;
+  border-bottom-width: var(--docked-utility-item-border-bottom-width, 0.3125rem);
+  font-size: $size-2;
+}
+
+:host(.active) {
+  border-bottom: 0.3125rem solid $orange-500;
+  border-bottom-color: var(--docked-utility-item-active-border-bottom-color, $orange-500);
+  border-bottom-width: var(--docked-utility-item-active-border-bottom-width, 0.3125rem);
+  background: var(--docked-utility-item-active-bg, $orange-100);
+}
+
+:host(:focus-visible) {
+  @include focus;
+  border-radius: 0.125rem;
+}

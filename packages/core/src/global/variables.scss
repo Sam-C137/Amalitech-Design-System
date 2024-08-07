@@ -1,0 +1,277 @@
+/**
+ * Colors
+ */
+/* Orange */
+$orange-100: var(--amalitech-color-orange-100, #f9e0d7) !default;
+$orange-200: var(--amalitech-color-orange-200, #f2beab) !default;
+$orange-300: var(--amalitech-color-orange-300, #eb9c7f) !default;
+$orange-400: var(--amalitech-color-orange-400, #e47453) !default;
+$orange-500: var(--amalitech-color-primary, --amalitech-color-orange-500, #dd5928) !default;
+$orange-600: var(--amalitech-color-orange-600, #b5461d) !default;
+$orange-700: var(--amalitech-color-orange-700, #893516) !default;
+
+/* Neutral */
+$neutral-100: var(--amalitech-color-neutral-100, #e6e8f0) !default;
+$neutral-200: var(--amalitech-color-neutral-200, #d8dae5) !default;
+$neutral-300: var(--amalitech-color-neutral-300, #c1c4d6) !default;
+$neutral-400: var(--amalitech-color-neutral-400, #8f95b2) !default;
+$neutral-500: var(--amalitech-color-neutral-500, #696f8c) !default;
+$neutral-600: var(--amalitech-color-secondary, --amalitech-color-neutral-600, #474d66) !default;
+$neutral-700: var(--amalitech-color-neutral-700, #101840) !default;
+
+/* Light */
+$light-100: var(--amalitech-color-light, #ffffff) !default;
+$light-200: var(--amalitech-color-light, #ffffff) !default;
+$light-300: var(--amalitech-color-light, #ffffff) !default;
+$light-400: #fafbff !default;
+$light-500: #f9fafc !default;
+$light-600: #f4f6fa !default;
+$light-700: #edeff5 !default;
+
+/* Green */
+$green-100: var(--amalitech-color-green-100, #f5fbf8) !default;
+$green-200: var(--amalitech-color-green-200, #eef8f4) !default;
+$green-300: var(--amalitech-color-green-300, #dcf2ea) !default;
+$green-400: var(--amalitech-color-green-400, #a3e6cd) !default;
+$green-500: var(--amalitech-color-green-500, #52bd94) !default;
+$green-600: var(--amalitech-color-green-600, #428777) !default;
+$green-700: var(--amalitech-color-green-700, #317159) !default;
+// extras
+$green-800: #149f7e !default;
+
+/* Yellow */
+$yellow-100: var(--amalitech-color-yellow-100, #fffaf1) !default;
+$yellow-200: var(--amalitech-color-yellow-200, #ffefd2) !default;
+$yellow-300: var(--amalitech-color-yellow-300, #ffdfa6) !default;
+$yellow-400: var(--amalitech-color-yellow-400, #ffd079) !default;
+$yellow-500: var(--amalitech-color-yellow-500, #ffb020) !default;
+$yellow-600: var(--amalitech-color-yellow-600, #996a13) !default;
+$yellow-700: var(--amalitech-color-yellow-700, #66460d) !default;
+
+/* Red */
+$red-100: var(--amalitech-color-red-100, #fdf4f4) !default;
+$red-200: var(--amalitech-color-red-200, #f9dada) !default;
+$red-300: var(--amalitech-color-red-300, #f4b6b6) !default;
+$red-400: var(--amalitech-color-red-400, #ee9191) !default;
+$red-500: var(--amalitech-color-red-500, #d14343) !default;
+$red-600: var(--amalitech-color-red-600, #a73636) !default;
+$red-700: var(--amalitech-color-red-700, #7d2828) !default;
+// extras
+$red-800: #d0021b !default;
+
+/* Blue */
+$blue-100: var(--amalitech-color-blue-100, #f3f6ff) !default;
+$blue-200: var(--amalitech-color-blue-200, #ebf0ff) !default;
+$blue-300: var(--amalitech-color-blue-300, #d6e0ff) !default;
+$blue-400: var(--amalitech-color-blue-400, #9db5ff) !default;
+$blue-500: var(--amalitech-color-blue-500, #3366ff) !default;
+$blue-600: var(--amalitech-color-blue-600, #2952cc) !default;
+$blue-700: var(--amalitech-color-blue-700, #1f3d99) !default;
+//extras
+$blue-800: #327bb7 !default;
+
+/* Violet */
+$violet-100: var(--amalitech-color-violet-100, #f8f7fd) !default;
+$violet-200: var(--amalitech-color-violet-200, #e7e4f9) !default;
+$violet-300: var(--amalitech-color-violet-300, #d0caf4) !default;
+$violet-400: var(--amalitech-color-violet-400, #b8afee) !default;
+$violet-500: var(--amalitech-color-violet-500, #897ae3) !default;
+$violet-600: var(--amalitech-color-violet-600, #6e62b6) !default;
+$violet-700: var(--amalitech-color-violet-700, #524988) !default;
+
+/* Teal */
+$teal-100: var(--amalitech-color-teal-100, #f2fcfd) !default;
+$teal-200: var(--amalitech-color-teal-200, #d3f5f7) !default;
+$teal-300: var(--amalitech-color-teal-300, #a8eaef) !default;
+$teal-400: var(--amalitech-color-teal-400, #7ce0e6) !default;
+$teal-500: var(--amalitech-color-teal-500, #25cbd6) !default;
+$teal-600: var(--amalitech-color-teal-600, #10899e) !default;
+$teal-700: var(--amalitech-color-teal-700, #0f5156) !default;
+
+/* Pink */
+$pink-100: var(--amalitech-color-pink-100, #fef5fb) !default;
+$pink-200: var(--amalitech-color-pink-200, #fbddf3) !default;
+$pink-300: var(--amalitech-color-pink-300, #f8bbe7) !default;
+$pink-400: var(--amalitech-color-pink-400, #f499da) !default;
+$pink-500: var(--amalitech-color-pink-500, #ed55c2) !default;
+$pink-600: var(--amalitech-color-pink-600, #be449b) !default;
+$pink-700: var(--amalitech-color-pink-700, #8e3374) !default;
+
+$dark: var(--amalitech-color-dark, #000000) !default;
+$dark-bg: var(--amalitech-color-dark, #000000) !default;
+$light: var(--amalitech-color-light, #ffffff) !default;
+$lightest: #f6f6f8 !default;
+$light-bg: var(--amalitech-color-dark, #000000) !default;
+$filled: #e8f0fe !default;
+$focus-color: $orange-300 !default;
+
+// sizes
+$size-7: var(--amalitech-spacing-48, 3rem) !default;
+$size-6: var(--amalitech-font-size-40, 2.5rem) !default;
+$size-5: var(--amalitech-font-size-32, 2rem) !default;
+$size-4: var(--amalitech-font-size-24, 1.5rem) !default;
+$size-3: var(--amalitech-font-size-20, 1.25rem) !default;
+$size-2: var(--amalitech-font-size-16, 1rem) !default;
+$size-1: var(--amalitech-font-size-12, 0.75rem) !default;
+$size-half: var(--amalitech-spacing-8, 0.5rem) !default;
+
+//weights
+$thin: var(--amalitech-font-weight-thin, 100) !default;
+$extra-light: var(--amalitech-font-weight-extra-light, 200) !default;
+$light: var(--amalitech-font-weight-light, 300) !default;
+$regular: var(--amalitech-font-weight-regular, 400) !default;
+$medium: var(--amalitech-font-weight-medium, 500) !default;
+$semi-bold: var(--amalitech-font-weight-semi-bold, 600) !default;
+$bold: var(--amalitech-font-weight-bold, 700) !default;
+$extra-bold: var(--amalitech-font-weight-extra-bold, 800) !default;
+$black: var(--amalitech-font-weight-black, 900) !default;
+
+//spacing
+$base-padding: var(--amalitech-spacing-8) !default;
+$base-margin: var(--amalitech-spacing-8) !default;
+
+//borders
+$base-border-thickness: var(--amalitech-spacing-1) !default;
+$base-border-radius: 0.313rem !default;
+
+//outlines
+$base-outline-thickness: var(--amalitech-spacing-2) !default;
+$base-outline-offset: var(--amalitech-spacing-1) !default;
+
+//font family
+$base-font-family: var(--amalitech-font-family-sans) !default;
+
+/**
+ * Functions
+ */
+@function set-text-color($color) {
+  @if (lightness($color) > 60) {
+    @return $dark; // Lighter background, return dark color
+  } @else {
+    @return $light; // Darker background, return light color
+  }
+}
+
+/**
+ * Delivered variables
+ */
+
+$primary: $orange-500 !default;
+$primary-bg: $orange-500 !default;
+$success-bg: $green-400 !default;
+$warning-bg: $yellow-400 !default;
+$error-bg: $red-400 !default;
+$info-bg: #53ff5c;
+
+$disabled: $neutral-500 !default;
+$secondary: $neutral-600 !default;
+$secondary-bg: $neutral-600 !default;
+
+$colors: (
+  'primary': $primary-bg,
+  'secondary': $secondary-bg,
+  'success': $success-bg,
+  'warning': $warning-bg,
+  'error': $error-bg,
+  'info': $info-bg,
+  'dark': $dark-bg,
+  'black': $dark-bg,
+  'white': $light-bg,
+  'default': $light-bg,
+);
+
+// Alerts
+$alert-success-bg: #f5fbf8 !default;
+$alert-success-color: #52bd94 !default;
+$alert-info-bg: #f4f6fa !default;
+$alert-info-color: #474d66 !default;
+$alert-warning-bg: #fffaf1 !default;
+$alert-warning-color: #ffb020 !default;
+$alert-error-bg: #fdf4f4 !default;
+$alert-error-color: #d14343 !default;
+
+/**
+ * Breakpoints
+ */
+$breakpoints: (
+  'xs': 0px,
+  'sm': 480px,
+  'md': 720px,
+  'lg': 960px,
+  'xl': 1280px,
+  'xlg': 1440px,
+);
+
+@mixin xs {
+  @media (max-width: map-get($breakpoints, 'xs')) {
+    @content;
+  }
+}
+@mixin sm {
+  @media (max-width: map-get($breakpoints, 'sm')) {
+    @content;
+  }
+}
+@mixin md {
+  @media (max-width: map-get($breakpoints, 'md')) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (max-width: map-get($breakpoints, 'lg')) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (max-width: map-get($breakpoints, 'xl')) {
+    @content;
+  }
+}
+@mixin xlg {
+  @media (max-width: map-get($breakpoints, 'xlg')) {
+    @content;
+  }
+}
+@mixin breakpoint-max($bp: 0) {
+  @media (max-width: $bp) {
+    @content;
+  }
+}
+@mixin breakpoint-min($bp: 0) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}
+
+// Progress Bar
+$amalitech-progress-bar-col: #dd5928 !default;
+$amalitech-progress-bar-col-overflow: #e61e50 !default;
+$amalitech-progress-bg-col: #e1e1ea !default;
+$amalitech-col-wht-alpha-high: #ffffffb3 !default;
+$amalitech-col-wht-alpha-lowest: #ffffff1a !default;
+$amalitech-progress-bg-col-overflow: #e61e50 !default;
+$amalitech-progress-pending-gap-col: #fff !default;
+$amalitech-progress-pending-gap-col-overflow: #fa6178 !default;
+$amalitech-progress-steps-col: #c7c7d1 !default;
+
+// CSS resets
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/**
+ * Mixins
+ */
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin focus {
+  outline-offset: $base-outline-offset;
+  outline: $base-outline-thickness solid $focus-color;
+  transition: none;
+}

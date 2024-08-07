@@ -1,0 +1,109 @@
+:host {
+  display: block;
+  font-family: 'Work Sans';
+
+  .amalitech-radiobutton {
+    display: inline-flex;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    vertical-align: bottom;
+    position: relative;
+  }
+
+  .amalitech-hidden-accessible {
+    opacity: 0;
+    display: none;
+  }
+
+  .amalitech-radiobutton-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .amalitech-radiobutton-icon {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0) scale(0.1);
+    border-radius: 50%;
+    visibility: hidden;
+  }
+
+  .amalitech-radiobutton-box.amalitech-highlight .amalitech-radiobutton-icon {
+    transform: translateZ(0) scale(1, 1);
+    visibility: visible;
+  }
+
+  .amalitech-disabled {
+    color: $disabled;
+  }
+
+  .amalitech-disabled:hover {
+    cursor: not-allowed;
+  }
+
+  p-radiobutton {
+    display: inline-flex;
+    vertical-align: bottom;
+    align-items: center;
+  }
+
+  .amalitech-radiobutton-label {
+    line-height: 1;
+  }
+
+  .amalitech-radiobutton .amalitech-radiobutton-box {
+    border: var(--radiobuttonBorder, 0.125rem solid $neutral-100);
+    background: var(--inputBgColor, $neutral-200);
+    width: var(--radiobuttonWidth, 0.625rem);
+    height: var(--radiobuttonHeight, 0.625rem);
+    color: var(--textColor, $secondary);
+    border-radius: 50%;
+    transition: var(--formElementTransition, background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s);
+  }
+
+  span.visible {
+    border-radius: 50vw;
+    border: var(--doubleBorderWidth, 0.15rem) solid var(--primaryColor, $primary);
+  }
+
+  .amalitech-radiobutton .amalitech-radiobutton-box:not(.amalitech-disabled):not(.amalitech-highlight):hover {
+    border-color: var(--primaryColor, $neutral-300);
+  }
+
+  .amalitech-radiobutton .amalitech-radiobutton-box:not(.amalitech-highlight).amalitech-disabled:hover {
+    cursor: not-allowed;
+  }
+
+  .amalitech-radiobutton .amalitech-radiobutton-box:not(.amalitech-disabled).amalitech-highlight {
+    border: var(--radiobuttonBorder, 0.125rem solid $neutral-100);
+  }
+
+  .amalitech-radiobutton .amalitech-radiobutton-box:not(.amalitech-disabled).amalitech-focus {
+    outline: var(--focusOutline, 0 none);
+    outline-offset: var(--focusOutlineOffset, 0);
+    box-shadow: var(--focusShadow, 0 0 0 0.2rem var(--focusOutlineColor, $orange-300));
+    border-color: var(--primaryColor, $primary);
+  }
+
+  .amalitech-radiobutton .amalitech-radiobutton-box.amalitech-highlight {
+    border-color: var(--primaryColor, $primary);
+    background: var(--primaryColor, $primary);
+  }
+
+  .amalitech-radiobutton .amalitech-radiobutton-box.amalitech-highlight:not(.amalitech-disabled):hover {
+    background: var(--radiobuttonActiveHoverBg, $primary);
+    color: var(--radiobuttonIconActiveHoverColor, $primary);
+  }
+
+  .amalitech-radiobutton-label {
+    margin-left: 0.3rem;
+  }
+}
+
+.amalitech-element {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,165 @@
+:host {
+  font-family: "Work Sans", sans-serif;
+  display: block;
+  margin-bottom: var(--spacing-03, 0.5rem);
+  --support-error: #da1e28;
+  --support-success: #198038;
+  --support-warning: #f1c21b;
+  --support-info: #0043ce;
+  --support-error-inverse: #fa4d56;
+  --support-success-inverse: #42be65;
+  --support-warning-inverse: #f1c21b;
+  --support-info-inverse: #4589ff;
+  --color-info-10: #edf5ff;
+  --color-info-20: #d0e2ff;
+  --color-info: #0f62fe;
+  --color-info-70: #0043ce;
+  --color-success-10: #defbe6;
+  --color-success-20: #a7f0ba;
+  --color-success: #198038;
+  --color-success-70: #0e6027;
+  --color-warning-10: #fcf4d6;
+  --color-warning-20: #fddc69;
+  --color-warning: #8e6a00;
+  --color-warning-70: #684e00;
+  --color-error-10: #fff1f1;
+  --color-error-20: #ffd7d9;
+  --color-error: #da1e28;
+  --color-error-70: #a2191f;
+}
+
+.alert-content {
+  border-style: solid;
+  border-radius: 0.5rem;
+  border-color: transparent;
+  display: flex;
+
+  .state-icon {
+    padding: var(--spacing-05, 1rem) var(--spacing-04, 0.75rem);
+    line-height: 0;
+  }
+
+  .content {
+    flex: 1;
+    padding: var(--spacing-04, 0.75rem) 0;
+
+    .title {
+      font-size: 1rem;
+      letter-spacing: 0;
+      line-height: 1.5rem;
+      font-weight: var(--font-weight-bold, 700);
+    }
+
+    .subtitle {
+      font-size: 0.875rem;
+      letter-spacing: 0;
+      line-height: 1.25rem;
+    }
+  }
+
+
+  .close-button {
+    margin: 0;
+    --button-padding: .5rem;
+    padding: var(--spacing-03, 0.5rem);
+  }
+}
+
+:host(:not([dismissible])) .content {
+  padding-inline-end: var(--spacing-04, 0.75rem);
+}
+
+
+@mixin alertState($color, $dark) {
+  @if $dark {
+    .alert {
+      background-color: var(--color-#{$color});
+
+      .content {
+        .message {
+          color: white;
+          --link-color: white;
+        }
+
+        .description {
+          color: var(--text-primary, $primary);
+        }
+      }
+    }
+  } @else {
+    .alert {
+      background-color: var(--color-#{$color}-20);
+
+      .content {
+        .message {
+          color: var(--color-#{$color}-70);
+          --link-color: #{var(--color-#{$color}-70)};
+        }
+
+        .description {
+          color: var(--text-secondary);
+        }
+      }
+    }
+  }
+}
+
+@each $state in [info, success, warning, error] {
+
+  .alert-content.state-#{$state} {
+
+    &.high-contrast {
+      border-left-color: var(--support-#{$state}-inverse);
+      color: var(--text-inverse, #fff);
+      background: var(--background-inverse, #393939);
+      border-width: 0 0 0 0;
+
+      .close-button {
+        border: none;
+        cursor: pointer;
+        background: transparent;
+        width: 2rem;
+
+        .icon {
+          font-size: 1.1rem;
+          color: $light;
+
+          &:hover {
+            color: $neutral-200;
+          }
+        }
+      }
+
+      .state-icon {
+        color: var(--support-#{$state}-inverse);
+      }
+    }
+
+    &:not(.high-contrast) {
+      color: var(--color-neutral-100, #161616);
+      border-color: var(--support-#{$state});
+      background: var(--color-#{$state}-10);
+      border-width: 0.063rem 0.063rem 0.063rem 0.063rem;
+
+      .close-button {
+        border: none;
+        cursor: pointer;
+        background: transparent;
+        width: 2rem;
+
+        .icon {
+          font-size: 1.1rem;
+          color: $neutral-400;
+
+          &:hover {
+            color: $neutral-600;
+          }
+        }
+      }
+
+      .state-icon {
+        color: var(--support-#{$state});
+      }
+    }
+  }
+}

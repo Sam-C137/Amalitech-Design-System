@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>amalitech-card Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="/build/amalitech-design-system.esm.js"></script>
+    <script nomodule src="/build/build/amalitech-design-system.js"></script>
+    <link rel="stylesheet" href="/build/amalitech-design-system.css" />
+    <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+      amalitech-card {
+        width: 33%;
+        color: rgb(17, 19, 18);
+        background-color: rgb(72, 158, 197);
+        padding: 0px;
+
+        & > div[slot='title'] {
+          margin-left: 20px;
+          margin-top: 10px;
+        }
+      }
+
+      div[slot='body'] > div:first-of-type {
+        margin: 20px 0px 0px 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <amalitech-card with-hover-animation href="/">
+      <div slot="header">This is the header</div>
+      <div slot="title">Title</div>
+      <div slot="body">
+        <div>Street Fighter</div>
+        <div>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium animi aut, beatae dolorum fuga ipsum iusto nemo, nostrum placeat quo reiciendis reprehenderit sed
+          similique soluta tenetur ut veniam veritatis, vitae?
+        </div>
+      </div>
+      <div slot="image">
+        <img src="https://th.bing.com/th/id/OIP.ITJm4XqvDqr2scT1DvvbswAAAA?rs=1&pid=ImgDetMain" alt="" />
+      </div>
+    </amalitech-card>
+  </body>
+</html>

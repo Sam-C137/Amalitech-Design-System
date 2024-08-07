@@ -1,0 +1,31 @@
+{
+  "name": "@amalitech-design-system/design-tokens",
+  "version": "0.8.0",
+  "description": "Amalitech Design Tokens",
+  "homepage": "https://amalitech-design-system.amalitech-dev.net/?path=/docs/design-tokens-index--documentation",
+  "license": "MIT",
+  "files": [
+    "src/",
+    "dist/"
+  ],
+  "type": "module",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "node ./scripts/build.js",
+    "postgenerate": "yarn format",
+    "format": "prettier --write \"package.json\" \"{src,scripts}/**/*.js\"",
+    "generate-tokens:css": "postcss src/tokens.css -o dist/tokens.css",
+    "watch": "postcss src/tokens.css -o dist/tokens.css --watch"
+  },
+  "devDependencies": {
+    "fs-extra": "^11.2.0",
+    "postcss": "^8.4.35"
+  },
+  "dependencies": {
+    "color": "^4.2.3"
+  },
+  "gitHead": "b1997629b45a7bce5f28117a33e4bc6e5ea68c7f"
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>amalitech-alert Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="/build/amalitech-design-system.esm.js"></script>
+    <script nomodule src="/build/build/amalitech-design-system.js"></script>
+    <link rel="stylesheet" href="/build/amalitech-design-system.css" />
+    <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+      amalitech-alert {
+        margin-bottom: 20px;
+
+        & > p {
+          font-weight: bold;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <amalitech-alert name="demo-notification-manager" position="top-right" class="hydrated">
+      <amalitech-alert-content state="success" class="hydrated">
+        <div slot="title">...</div>
+        <div slot="subtitle">...</div>
+      </amalitech-alert-content>
+    </amalitech-alert>
+    <amalitech-button variant="secondary" size="medium" type="button" id="notification-btn" icon-position="right" class="hydrated"> Show Alert</amalitech-button>
+
+    <amalitech-alert variant="success" closeable close-secs="100" auto-close>
+      <p>Some message</p>
+    </amalitech-alert>
+
+    <amalitech-alert variant="warning" closeable close-secs="100" auto-close>
+      <p>Some message</p>
+    </amalitech-alert>
+
+    <amalitech-alert variant="error" closeable close-secs="100" auto-close>
+      <p>Some message</p>
+    </amalitech-alert>
+
+    <amalitech-alert variant="info" closeable close-secs="100" auto-close>
+      <p>Some message</p>
+    </amalitech-alert>
+
+    <script>
+      document.getElementById('notification-btn').addEventListener('click', () => {
+        window.dispatchEvent(
+          new CustomEvent('alert:alert-notification', {
+            detail: {
+              target: 'demo-notification-manager',
+              title: 'Welcome',
+              state: 'info',
+              subtitle: 'This is boilerplate code for Vanilla JS + CDN.',
+            },
+          }),
+        );
+      });
+    </script>
+  </body>
+</html>

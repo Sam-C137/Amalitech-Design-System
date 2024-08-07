@@ -1,0 +1,255 @@
+import * as ValidationStories from './amalitech-validation.stories.tsx';
+import { Meta, Title, Description, Story, Canvas } from '@storybook/blocks';
+
+<Meta of={ValidationStories} />
+
+# How to use `amalitech-validation`
+
+The form validation feedback component is designed to be a wrapper for success and error messages during form validation. It has two named slots for `message` and `detail` where `message` would be your main message and `detail` would contain a description
+
+You could use it like this:
+
+## Default
+
+By default the `amalitech-validation` has an `error` variant. The `variant` attribute may also be explicitly set.
+
+<Canvas of={ValidationStories.Default} />
+
+```html
+<amalitech-validation>
+  <span slot="message">Login failed</span>
+  <span slot="detail">Credentials do not match</span>
+</amalitech-validation>
+```
+
+## Showing the component
+
+The best way to show the component is to conditionally render the component, and it will
+handle detaching itself from the DOM via the close button or the `auto-close` attribute.
+
+```html
+<body>
+  <amalitech-button>Show validation</amalitech-button>
+  <div></div>
+  <script>
+    const button = document.querySelector('amalitech-button');
+    const div = document.querySelector('div');
+    const validation = document.createElement('amalitech-validation');
+    validation.innerHTML = `
+      <span slot="message">Login failed</span>
+      <span slot="detail">Credentials do not match</span>
+    `;
+    button.addEventListener('click', () => {
+      div.appendChild(validation);
+    });
+  </script>
+</body>
+```
+
+## Positioning
+
+Positioning the alert component may be up to the user, as others prefer to show it
+beneath a form or absolutely positioned like a toast. The component is designed to be
+flexible and can be used in any way by directly applying any CSS styling.
+
+```css
+    amalitech-validation[auto-close]:not(:last-of-type) {
+      margin-top: 20px;
+      width: 60%;
+      position: absolute;
+      top: 0;
+    }
+```
+
+## Success
+
+Use the success variant by using a variant attribute set to `success`
+
+<Canvas of={ValidationStories.Success} />
+
+```html
+<amalitech-validation variant="success">
+  <span slot="message">Login successful</span>
+  <span slot="detail">Welcome back</span>
+</amalitech-validation>
+```
+
+## Warning
+
+Use the warning variant by using a variant attribute set to `warning`
+
+<Canvas of={ValidationStories.Warning}/>
+
+```html
+<amalitech-validation variant="warning" close-button-type="none">
+  <span slot="message">Do you want to continue?</span>
+  <span slot="detail">You are not a registered user</span>
+</amalitech-validation>
+```
+
+## Custom Close Buttons
+
+Use the `close-button-type` attribute to specify the type of close button to use. The default is `arms` which would use the default close button. You can also use `none` to hide the close button.
+
+### `arms`
+
+<Canvas of={ValidationStories.ArmsCloseButtonType}/>
+
+```html
+<amalitech-validation variant="error" close-button-type="arms">
+  <span slot="message">Login failed</span>
+  <span slot="detail">Credentials do not match</span>
+</amalitech-validation>
+```
+
+### `square`
+
+<Canvas of={ValidationStories.SquareCloseButtonType}/>
+
+```html
+<amalitech-validation variant="error" close-button-type="square">
+  <span slot="message">Login failed</span>
+  <span slot="detail">Credentials do not match</span>
+</amalitech-validation>
+```
+
+### `x-rounded`
+
+<Canvas of={ValidationStories.XRoundedCloseButtonType}/>
+
+```html
+<amalitech-validation variant="error" close-button-type="x-rounded">
+  <span slot="message">Login failed</span>
+  <span slot="detail">Credentials do not match</span>
+</amalitech-validation>
+```
+
+### `none`
+
+<Canvas of={ValidationStories.NoCloseButton}/>
+
+```html
+<amalitech-validation variant="error" close-button-type="none">
+  <span slot="message">Login failed</span>
+  <span slot="detail">Credentials do not match</span>
+</amalitech-validation>
+```
+
+## AutoClose
+
+Add the `auto-close` attribute to automatically close the component after `5s`. To modify this time, pass a `close-secs` attribute with the desired time period in seconds. `close-secs` attribute may be used without explicitly adding the `autoclose` attribute.
+
+<Canvas of={ValidationStories.AutoClose}/>
+
+```html
+<amalitech-validation variant="warning" autoclose>
+  <span slot="message">Login failed</span>
+  <span slot="detail">Credentials do not match</span>
+</amalitech-validation>
+```
+
+## `close-secs`
+
+Add a `close-secs` attribute with the desired time in seconds
+
+<Canvas of={ValidationStories.CustomSecondsToClose}/>
+
+```html
+<amalitech-validation variant="success" close-secs="10">
+  <span slot="message">Success</span>
+  <span slot="detail">Closing after 10 seconds</span>
+</amalitech-validation>
+```
+
+## Transition
+
+For various effects after opening and closing, you can attach a `transition` attribute and set it to `toast`, `opacity` or `none`. The default is `none`.
+
+### `toast`
+
+<Canvas of={ValidationStories.ToastTransition} />
+
+```html
+<amalitech-validation variant="error" auto-close transition="toast">
+  <span slot="message">Login failed</span>
+  <span slot="detail">Credentials do not match</span>
+</amalitech-validation>
+```
+
+### `opacity`
+
+<Canvas of={ValidationStories.OpacityTransition} />
+
+```html
+<amalitech-validation variant="error" auto-close transition="opacity">
+  <span slot="message">Login failed</span>
+  <span slot="detail">Credentials do not match</span>
+</amalitech-validation>
+```
+
+## Listening for events
+
+You can listen for an `amalitechClose` event on the component when the close button is clicked
+
+```html
+<body>
+  <amalitech-validation>
+    <span slot="message">Cannot log in</span>
+    <span slot="detail">Email is required</span>
+  </amalitech-validation>
+</body>
+<script>
+  const element = document.querySelector('amalitech-validation');
+  element.addEventListener('amalitechClose', e => {
+    console.log('closed', e.detail);
+  });
+</script>
+```
+
+## Styling with CSS
+
+Custom styling can be applied with exposed CSS variables
+
+```html
+<head>
+  amalitech-validation { 
+    --validation-msg-size: #000; 
+    --validation-success-bg: #000; 
+    --validation-radius: 5px; 
+  }
+</head>
+<body>
+  <amalitech-validation variant="success">
+    <span slot="message">Successful login</span>
+    <span slot="detail">Password is correct</span>
+  </amalitech-validation>
+</body>
+```
+
+## All CSS Variables
+
+```css
+    amalitech-validation {
+        /* Colors */
+        --validation-detail-color: #FDF4F4;
+        --validation-error-bg: #FDF4F4;
+        --validation-error-border-color: #FDF4F4;
+        --validation-error-msg-color: #FDF4F4;
+        --validation-error-icon-color: #FDF4F4;
+        --validation-success-bg: #FDF4F4;
+        --validation-success-border-color: #FDF4F4;
+        --validation-success-msg-color: #FDF4F4;
+        --validation-success-icon-color: #FDF4F4;
+        --validation-warning-bg: #FDF4F4;
+        --validation-warning-border-color: #FDF4F4;
+        --validation-warning-msg-color: #FDF4F4;
+        --validation-warning-icon-color: #FDF4F4;
+
+        /* Sizes */
+        --validation-msg-size: 1.15rem;
+        --validation-detail-size: 1rem;
+        --validation-padding: 1.5rem;
+        --validation-radius: 0.5rem;
+        --validation-border-size: 1px;
+    }
+```

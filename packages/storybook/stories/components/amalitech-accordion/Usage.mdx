@@ -1,0 +1,85 @@
+import * as AccordionStories from './amalitech-accordion.stories.tsx';
+import { Meta, Title, Description, Story, Canvas } from '@storybook/blocks';
+
+<Meta of={AccordionStories} />
+
+# How to use `amalitech-accordion`
+
+The accordion component is comprised of different sections that can be toggled to be open and closed
+
+You could use it like this:
+
+## Default
+
+<Canvas of={AccordionStories.Normal} />
+
+```html
+<amalitech-accordion
+    label="Item #1"
+    description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, aliquid."
+    animated
+></amalitech-accordion>
+<amalitech-accordion
+    label="Item #2"
+    description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, aliquid."
+    animated
+></amalitech-accordion>
+```
+
+## Attributes
+
+### `label`
+
+Attaching a `label` attribute to the element updates the title of the accordion
+
+```html
+<div>
+    <amalitech-accordion label="Item #1"></amalitech-accordion>
+</div>
+```
+
+### `description`
+
+The `description` attribute is used to add content inside the accordion
+
+```html
+<div>
+    <amalitech-accordion description="This is the content of the accordion"></amalitech-accordion>
+</div>
+```
+
+
+## Styling with CSS
+
+Custom styling can be applied with exposed CSS variables
+
+```html
+<head>
+    amalitech-accordion {
+        --accordionBackground: #f6f6f8;
+        --accordionLabelPadding: 1rem;
+        --accordionFontSize: 1rem;
+        --accordionFontWeight: #d3d3d3;
+        --openedAccordionPadding: 0.5rem 1rem;
+        --openedAccordionBorder: 0.063rem solid #f6f6f8;
+    }
+</head>
+<body>
+    <amalitech-accordion label="Item #1" description="This is the content of the accordion"></amalitech-accordion>
+</body>
+```
+
+
+## All CSS Variables
+
+```css
+amalitech-accordion {
+    --accordionBackground: #f6f6f8;
+    --accordionLabelPadding: 1rem;
+    --accordionFontSize: 1rem;
+    --accordionFontWeight: #d3d3d3;
+    --openedAccordionPadding: 0.5rem 1rem;
+    --openedAccordionBorder: 0.063rem solid #f6f6f8;
+    --accordionFocusColor: #eb9c7;
+}
+```

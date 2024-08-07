@@ -1,0 +1,241 @@
+import { Meta } from '@storybook/addon-docs';
+import { ColorPalette, ColorItem } from '@storybook/blocks';
+
+<Meta title="Utilities/Colors" />
+
+# Colors
+
+ADS Utilities includes an expertly-crafted default color palette out-of-the-box that is a great starting point if you don't have your own specific branding in mind.
+<hr />
+<div style={{marginTop: '25px'}}></div>
+
+
+<ColorPalette>
+  <ColorItem 
+    title="Primary" 
+    subtitle="This is the primary color" 
+    colors={{ Primary: '#dd5928' }} 
+  />
+
+  <ColorItem 
+    title="Secondary" 
+    subtitle="This is the secondary color" 
+    colors={{ Secondary: '#474d66' }} 
+  />
+
+  <ColorItem
+    title="Orange"
+    subtitle="Shades of orange"
+    colors={{ 
+      100: '#f9e0d7', 
+      200: '#f2beab', 
+      300: '#eb9c7f',
+      400: '#e47453',
+      500: '#dd5928',
+      600: '#b5461d',
+      700: '#893516',
+    }}
+  />
+
+  <ColorItem
+    title="Neutral"
+    subtitle="Shades of neutral"
+    colors={{ 
+      100: '#e6e8f0', 
+      200: '#d8dae5', 
+      300: '#c1c4d6',
+      400: '#8f95b2',
+      500: '#696f8c',
+      600: '#474d66',
+      700: '#101840',
+    }}
+  />
+
+  <ColorItem
+    title="Gray"
+    subtitle="Shades of gray"
+    colors={{ 
+      100: '#f9fafb', 
+      200: '#f3f4f6', 
+      300: '#e5e7eb',
+      400: '#d1d5db',
+      500: '#9ca3af',
+      600: '#6b7280',
+      700: '#4b5563',
+    }}
+  />
+
+  <ColorItem
+    title="Green"
+    subtitle="Shades of green"
+    colors={{ 
+      100: '#f5fbf8', 
+      200: '#eef8f4', 
+      300: '#dcf2ea',
+      400: '#a3e6cd',
+      500: '#52bd94',
+      600: '#428777',
+      700: '#317159',
+    }}
+  />
+
+  <ColorItem
+    title="Yellow"
+    subtitle="Shades of yellow"
+    colors={{ 
+      100: '#fffaf1', 
+      200: '#ffefd2', 
+      300: '#ffdfa6',
+      400: '#ffd079',
+      500: '#ffb020',
+      600: '#996a13',
+      700: '#66460d',
+    }}
+  />
+
+  <ColorItem
+    title="Red"
+    subtitle="Shades of red"
+    colors={{ 
+      100: '#fdf4f4', 
+      200: '#f9dada', 
+      300: '#f4b6b6',
+      400: '#ee9191',
+      500: '#d14343',
+      600: '#a73636',
+      700: '#7d2828',
+    }}
+  />
+
+  <ColorItem
+    title="Blue"
+    subtitle="Shades of blue"
+    colors={{ 
+      100: '#f3f6ff', 
+      200: '#ebf0ff', 
+      300: '#d6e0ff',
+      400: '#9db5ff',
+      500: '#3366ff',
+      600: '#2952cc',
+      700: '#1f3d99',
+    }}
+  />
+
+  <ColorItem
+    title="Violet"
+    subtitle="Shades of violet"
+    colors={{ 
+      100: '#f8f7fd', 
+      200: '#e7e4f9', 
+      300: '#d0caf4',
+      400: '#b8afee',
+      500: '#897ae3',
+      600: '#6e62b6',
+      700: '#524988',
+    }}
+  />
+
+  <ColorItem
+    title="Teal"
+    subtitle="Shades of teal"
+    colors={{ 
+      100: '#f2fcfd', 
+      200: '#d3f5f7', 
+      300: '#a8eaef',
+      400: '#7ce0e6',
+      500: '#25cbd6',
+      600: '#10899e',
+      700: '#0f5156',
+    }}
+  />
+
+  <ColorItem
+    title="Pink"
+    subtitle="Shades of pink"
+    colors={{ 
+      100: '#fef5fb', 
+      200: '#fbddf3', 
+      300: '#f8bbe7',
+      400: '#f499da',
+      500: '#ed55c2',
+      600: '#be449b',
+      700: '#8e3374',
+    }}
+  />
+
+  <ColorItem
+    title="Purple"
+    subtitle="Shades of purple"
+    colors={{ 
+      100: '#f3e8ff', 
+      200: '#e9d5ff', 
+      300: '#d8b4fe',
+      400: '#c084fc',
+      500: '#a855f7',
+      600: '#9333ea',
+      700: '#7e22ce',
+    }}
+  />
+</ColorPalette>
+
+
+## Using the Colors
+
+<br />
+
+#### Using colors with text 
+```html
+<div>
+  <p class="text-red-100">Some text here</p>
+</div>
+```
+
+#### Applying colors on text hover
+```html
+<div class="text-hover-green-200">
+  <p>Some text here</p>
+</div>
+```
+
+#### Using colors with backgrounds 
+```html
+<div class="bg-green-600">
+  <p>Some text here</p>
+</div>
+```
+
+#### Applying colors on background hover
+```html
+<div class="bg-hover-green-400">
+  <p>Some text here</p>
+</div>
+```
+
+#### Using colors with border
+```html
+<div class="border-green-400">
+  <p>Some text here</p>
+</div>
+```
+
+#### Applying colors on border hover
+```html
+<div class="border-hover-green-400">
+  <p>Some text here</p>
+</div>
+```
+
+#### Using colors with outline
+```html
+<div class="outline-green-400">
+  <p>Some text here</p>
+</div>
+```
+
+#### Applying colors on outline hover
+```html
+<div class="outline-hover-green-400">
+  <p>Some text here</p>
+</div>
+```
+

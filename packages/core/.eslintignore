@@ -1,0 +1,6 @@
+dist
+loader
+www
+**/*.e2e.ts
+**/*.spec.tsx
+**/*.spec.ts

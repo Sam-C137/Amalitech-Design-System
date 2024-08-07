@@ -1,0 +1,217 @@
+@import '../../global/variables.scss';
+
+/**
+ * Exposed CSS Variables
+ *
+ * @prop --amalitech-button-bg: Background color of the button, default is `#C1C4D6`
+ * @prop --amalitech-button-bg-hover: Background color of the button on hover, default is `#8F95B2`
+ * @prop --amalitech-button-color: Color of the button text, default is `#474D66`
+ * @prop --amalitech-button-font-size: Font size of the button text, default is `1rem`
+ * @prop --amalitech-button-radius: Border radius of the button, default is `0.313rem`
+ * @prop --amalitech-button-ptb: Padding top and bottom of the button, default is `0.75rem`
+ * @prop --amalitech-button-plr: Padding left and right of the button, default is `1.5rem`
+ * @prop --amalitech-button-focus-color: Color of the button outline when focused, default is `#eb9c7f`
+ */
+
+:host {
+  display: block;
+}
+
+button {
+  border-radius: $base-border-radius;
+  border: calc($base-border-thickness * 2) solid transparent;
+  font-family: $base-font-family;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  align-items: center;
+  gap: 8px;
+  animation: all ease-out 0.3s;
+  box-sizing: border-box;
+
+  &.icon-right {
+    flex-direction: row-reverse;
+  }
+
+  &:not(:disabled):focus-visible {
+    @include focus;
+  }
+
+  &.small {
+    padding: calc($base-padding * 0.5) calc($base-padding * 1.25);
+    font-size: $size-1;
+
+    svg {
+      height: 20px;
+      width: 20px;
+    }
+  }
+
+  &.medium {
+    padding: calc($base-padding * 0.75) calc($base-padding * 1.5);
+    font-size: $size-2;
+  }
+
+  &.large {
+    padding: $base-padding calc($base-padding * 2);
+    font-size: $size-3;
+  }
+
+  &.primary {
+    background: $orange-500;
+    color: $light;
+
+    &:hover {
+      background: $orange-600;
+    }
+
+    &:active {
+      background: $orange-600;
+      border-color: $orange-300;
+    }
+
+    &:disabled {
+      background: $orange-300;
+      border-color: $orange-300;
+      cursor: not-allowed;
+      touch-action: none;
+    }
+  }
+
+  &.secondary {
+    border-color: $neutral-200;
+    background: $light;
+    color: $neutral-500;
+
+    &:hover {
+      border-color: $neutral-400;
+      color: $neutral-600;
+    }
+
+    &:active {
+      background: $light-600;
+      border-color: $neutral-600;
+      color: $neutral-600;
+    }
+
+    &:disabled {
+      background: $light;
+      border-color: $neutral-100;
+      color: $neutral-300;
+      cursor: not-allowed;
+      touch-action: none;
+    }
+  }
+
+  &.tertiary {
+    background: $light;
+    color: $neutral-400;
+
+    &:hover:not(:disabled) {
+      background: $light-600;
+      color: $neutral-600;
+    }
+
+    &:active {
+      background: $neutral-500;
+      color: $neutral-600;
+    }
+
+    &:disabled {
+      color: $neutral-300;
+      cursor: not-allowed;
+      touch-action: none;
+    }
+  }
+
+  @mixin button-variant($color) {
+    background: $color;
+    color: $light;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      touch-action: none;
+    }
+  }
+
+  &.success {
+    @include button-variant($green-800);
+  }
+
+  &.danger {
+    @include button-variant($red-800);
+  }
+
+  &.warning {
+    @include button-variant($yellow-500);
+  }
+
+  &.info {
+    @include button-variant($blue-800);
+  }
+
+  &.light {
+    background: $light;
+    color: $dark;
+    border: calc($base-border-thickness * 2) solid $dark;
+
+    &:hover {
+      background: $dark;
+      color: $light;
+    }
+  }
+
+  &.dark {
+    background: $dark;
+    color: $light;
+
+    &:hover {
+      @include button-variant($dark);
+    }
+  }
+
+  &.success:hover,
+  &.danger:hover,
+  &.warning:hover,
+  &.info:hover {
+    opacity: 0.7;
+  }
+
+  &.light:hover {
+    background: $dark;
+    color: $light;
+  }
+
+  &.tertiary:disabled,
+  &.danger:disabled,
+  &.warning:disabled,
+  &.info:disabled,
+  &.light:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    touch-action: none;
+  }
+
+  &.default {
+    background: var(--amalitech-button-bg, $neutral-300);
+    color: var(--amalitech-button-color, $neutral-600);
+    font-size: var(--amalitech-button-font-size, $size-2);
+    border-radius: var(--amalitech-button-radius, $base-border-radius);
+    padding: var(--amalitech-button-ptb, calc($base-padding * 0.75)) var(--amalitech-button-plr, calc($base-padding * 1.5));
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+      touch-action: none;
+    }
+
+    &:hover:not(:disabled) {
+      background: var(--amalitech-button-bg-hover, $neutral-400);
+    }
+  }
+}

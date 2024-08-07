@@ -1,0 +1,16 @@
+{
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "extends": [
+    "plugin:@stencil-community/recommended"
+  ],
+  "ignorePatterns": [
+    "**/*.stories.tsx",
+    "**/*.spec.*",
+    "**/*.e2e.*"
+  ],
+  "rules": {
+    "react/jsx-no-bind": "off"
+  }
+}

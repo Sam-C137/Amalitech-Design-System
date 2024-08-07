@@ -1,0 +1,81 @@
+import * as RingStories from './amalitech-progress.stories.tsx';
+import { Meta, Title, Description, Story, Canvas } from '@storybook/blocks';
+
+<Meta of={RingStories}/>
+
+# How to use `amalitech-progress-ring`,
+
+The progress ring component is a simple component that can be used to show the progress of a task or a process. 
+It is a simple circle that fills up as the progress increases. You could use it like this:
+
+## Default
+
+<Canvas of={RingStories.Standard}/>
+
+```html
+<amalitech-progress-ring progress="getRandomProgress()"></amalitech-progress-ring>
+```
+
+## Indeterminate
+
+The progress ring can also be set to an indeterminate state. This is useful when the progress of a task is unknown.
+You can set the `indeterminate` property to set the progress ring to an indeterminate state.
+
+<Canvas of={RingStories.Indeterminate}/>
+
+```html
+<amalitech-progress-ring 
+    indeterminate progress="30" progress-text="Loading..." radius="65" stroke="6" 
+    style="--progress-text-size: 1rem"
+></amalitech-progress-ring>
+```
+
+## With Custom Colors
+
+You can change the colors of the progress ring by setting the `progress-color` and `ouline-color` properties.
+
+<Canvas of={RingStories.CustomColors}/>
+    
+```html
+<amalitech-progress-ring progress-color="gold" outline-color="#d8dae5"></amalitech-progress-ring>
+```
+
+## Sizes
+
+The `amalitech-progress-ring` component can be of varying sizes depending on the user's preference. 
+You can set the size of the progress ring by setting the `radius` property. The thickness of the progress
+indicator can also be set by setting the `stroke` property.
+
+<Canvas of={RingStories.CustomSize}/>
+
+```html
+<amalitech-progress-ring radius="100" stroke="20"></amalitech-progress-ring>
+```
+
+## Styling with CSS
+
+Custom styling can be applied with exposed CSS variables
+
+```html
+<head>
+    amalitech-progress-ring {
+        --progress-ring-text-color: #000;
+    }
+</head>
+<body>
+    <amalitech-progress-ring></amalitech-progress-ring>
+</body>
+```
+
+## All CSS Variables
+
+```css
+    amalitech-progress-ring{
+      --progress-ring-text-color: #101840;
+      --progress-text-size: 1.25rem;
+      --progress-ring-text-weight: 500;
+      --progress-ring-transition-duration: 0.35s;
+      --progress-ring-indeterminate-duration: `2s`;
+      --progress-ring-indeterminate-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
+    }
+```

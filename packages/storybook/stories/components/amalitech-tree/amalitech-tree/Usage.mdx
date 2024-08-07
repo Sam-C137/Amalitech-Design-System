@@ -1,0 +1,155 @@
+import * as TreeStories from './amalitech-tree.stories.tsx';
+import { Meta, Title, Description, Story, Canvas } from '@storybook/blocks';
+
+<Meta of={TreeStories} />
+
+# How to use `amalitech-tree`
+
+The `AmalitechTree` allows for the visualization of a hierarchy structure.
+
+You could use it like this:
+
+## Default
+
+<Canvas of={TreeStories.Standard} />
+
+```html
+<amalitech-tree id="tree" selected-node="Containers">
+  <amalitech-tree-node href="https://www.google.com" label="Artificial intelligence"></amalitech-tree-node>
+  <amalitech-tree-node disabled label="Blockchain"></amalitech-tree-node>
+  <amalitech-tree-node expanded label="Cloud computing">
+    <amalitech-tree-node label="Containers"></amalitech-tree-node>
+    <amalitech-tree-node label="Databases"></amalitech-tree-node>
+  </amalitech-tree-node>
+</amalitech-tree>
+```
+
+## Disabled Row
+
+You can disable a row by adding the `disabled` attribute to that particular `tree-node`
+
+```html
+<amalitech-tree id="tree">
+  <amalitech-tree-node label="Artificial intelligence"></amalitech-tree-node>
+  <amalitech-tree-node disabled label="Blockchain"></amalitech-tree-node>
+  <amalitech-tree-node label="Cloud computing">
+    <amalitech-tree-node label="Containers"></amalitech-tree-node>
+    <amalitech-tree-node label="Databases"></amalitech-tree-node>
+  </amalitech-tree-node>
+</amalitech-tree>
+```
+
+## Expanded Row
+
+You can expand a row by adding the `expanded` attribute to that particular `tree-node`
+
+```html
+<amalitech-tree id="tree">
+  <amalitech-tree-node label="Artificial intelligence"></amalitech-tree-node>
+  <amalitech-tree-node label="Blockchain"></amalitech-tree-node>
+  <amalitech-tree-node expanded label="Cloud computing">
+    <amalitech-tree-node label="Containers"></amalitech-tree-node>
+    <amalitech-tree-node label="Databases"></amalitech-tree-node>
+  </amalitech-tree-node>
+</amalitech-tree>
+```
+
+## Change Selected Node
+
+You can select a row by adding the `selected-node` attribute to the tree component specifying the
+label of the node which is to be selected as its value.
+
+```html
+<amalitech-tree id="tree" selected-node="Containers">
+  <amalitech-tree-node label="Artificial intelligence"></amalitech-tree-node>
+  <amalitech-tree-node label="Blockchain"></amalitech-tree-node>
+  <amalitech-tree-node label="Cloud computing">
+    <amalitech-tree-node label="Containers"></amalitech-tree-node>
+    <amalitech-tree-node label="Databases"></amalitech-tree-node>
+  </amalitech-tree-node>
+</amalitech-tree>
+```
+
+## With Link
+
+You can add a link to tree nodes by passing the `href` attribute
+
+```html
+<amalitech-tree id="tree">
+  <amalitech-tree-node href="https://www.google.com" label="Artificial intelligence"></amalitech-tree-node>
+  <amalitech-tree-node label="Blockchain"></amalitech-tree-node>
+  <amalitech-tree-node label="Cloud computing">
+    <amalitech-tree-node label="Containers"></amalitech-tree-node>
+    <amalitech-tree-node label="Databases"></amalitech-tree-node>
+  </amalitech-tree-node>
+</amalitech-tree>
+```
+
+## Listening for events
+
+You can listen for a `tree:tree-node-click` event on the `amalitech-tree` element
+
+```html
+<body>
+  <amalitech-tree>
+    <amalitech-tree-node></amalitech-tree-node>
+  </amalitech-tree>
+</body>
+<script>
+  const tree = document.querySelectorAll('amalitech-tree');
+  tree.forEach(treeView =>
+    treeView.addEventListener('tree:tree-node-click', function (evt) {
+      console.log(JSON.stringify(evt.detail.value, null, 4), 'tree:tree-node-click');
+    }),
+  );
+</script>
+```
+
+## Styling with CSS
+
+Custom styling can be applied with exposed CSS variables
+
+```html
+<head>
+  amalitech-tree {
+    --layer: #000;
+  }
+
+  amalitech-tree-node {
+    --text-secondary: #000;
+    --text-primary: #000;
+    --spacing-05: 1rem;
+    --layer-hover: #f2f4f7;
+    --layer-selected-hover: #f2f4f7;
+    --layer-selected: #f2f4f7;
+    --color-primary: #223344;
+    --font-weight-semi-bold: 600;
+    --text-disabled: #f4f4f4;
+  }
+</head>
+<body>
+  <amalitech-tree>
+    <amalitech-tree-node></amalitech-tree-node>
+  </amalitech-tree>
+</body>
+```
+
+## All CSS Variables
+
+```css
+amalitech-tree {
+  --layer: #000;
+}
+
+amalitech-tree-node {
+  --text-secondary: #000;
+  --text-primary: #000;
+  --spacing-05: 1rem;
+  --layer-hover: #f2f4f7;
+  --layer-selected-hover: #f2f4f7;
+  --layer-selected: #f2f4f7;
+  --color-primary: #223344;
+  --font-weight-semi-bold: 600;
+  --text-disabled: #f4f4f4;
+}
+```

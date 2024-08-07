@@ -1,0 +1,272 @@
+import * as DataTableStories from './amalitech-data-table.stories.tsx';
+import { Meta, Title, Description, Story, Canvas } from '@storybook/blocks';
+
+<Meta of={DataTableStories} />
+
+# How to use `amalitech-data-table`
+
+The data table component is used to render items in a tabular format. It provides additional opptions for viewing and manipulating the data.
+
+You could use it like this:
+
+## Default
+
+<Canvas of={DataTableStories.Standard} />
+
+```html
+<amalitech-data-table></amalitech-data-table>
+```
+
+## Sortable
+
+<Canvas of={DataTableStories.Sortable} />
+
+```html
+<amalitech-data-table sortable></amalitech-data-table>
+```
+
+## Paginate
+
+<Canvas of={DataTableStories.WithPagination} />
+
+```html
+<amalitech-data-table paginate></amalitech-data-table>
+```
+
+## Actions
+
+
+
+```html
+<amalitech-data-table actions="[{
+    'icon': '<svg></svg>',
+    'callback': () => {},
+  }]">
+</amalitech-data-table>
+```
+
+## SelectRows
+
+<Canvas of={DataTableStories.Selectable} />
+
+```html
+<amalitech-data-table selection-type="checkbox"></amalitech-data-table>
+```
+
+## Listening for events
+
+You can listen for the `table:table-cell-click` and `table:table-select-change` events on the `amalitech-data-table` element
+
+```html
+<amalitech-data-table
+  id="table"
+  emptyStateHeadline="No items found"
+  emptyStateDescription="Please add some items"
+  paginate
+  header-alignment="left"
+  key-field="_id"
+  selection-type="checkbox"
+  sortable="true"
+></amalitech-data-table>
+
+<br />
+<br />
+<div>
+  <b>Cell Data :</b>
+  <pre id="record"></pre>
+</div>
+<div><b>Column :</b> <span id="column"></span></div>
+<br />
+<div><b>Selected Rows :</b> <span id="selected-rows"></span></div>
+<br />
+
+<script>
+const $table = document.getElementById('table');
+
+// Columns
+$table.columns = [
+  {
+    name: 'name',
+    label: 'Name',
+    width: 16,
+    fixed: true,
+    template: ''
+  },
+  {
+    name: 'age',
+    label: 'Age',
+    width: 10,
+  },
+  {
+    name: 'color',
+    label: 'Color',
+  },
+  {
+    name: 'company',
+    label: 'Company',
+  },
+  {
+    name: 'address',
+    label: 'Address',
+    width: 20,
+  },
+];
+
+// Data
+$table.data = [
+  {
+    _id: '1',
+    index: 0,
+    age: 21,
+    color: 'blue',
+    name: 'Courtney Courtney',
+    company: 'XYQAG',
+    address: '326 Irving Street, Grimsley, Texas, 4048',
+  },
+  {
+    _id: '2',
+    index: 1,
+    age: 34,
+    color: 'red',
+    name: 'Wilcox',
+    company: 'STRALOY',
+    address: '624 Sullivan Street, Waterford, Mississippi, 5396',
+  },
+  {
+    _id: '3',
+    index: 2,
+    age: 22,
+    color: 'red',
+    name: 'Lucas',
+    company: 'LUNCHPOD',
+    address: '257 Colonial Road, Odessa, South Carolina, 9336',
+  },
+  {
+    _id: '4',
+    index: 3,
+    age: 23,
+    color: 'green',
+    name: 'David',
+    company: 'VELOS',
+    address: '330 Saratoga Avenue, Richford, Tennessee, 4924',
+  },
+  {
+    _id: '5',
+    index: 4,
+    age: 30,
+    color: 'blue',
+    name: 'Dorothea',
+    company: 'ZILLAN',
+    address: '472 Hutchinson Court, Gila, South Dakota, 2145',
+  },
+  {
+    _id: '6',
+    index: 5,
+    age: 25,
+    color: 'blue',
+    name: 'Guy',
+    company: 'ISOTERNIA',
+    address: '662 Battery Avenue, Trinway, Arizona, 1492',
+  },
+];
+
+$table.actions = [
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32" xml:space="preserve"><path fill="none" stroke="#474d66" stroke-width="2" stroke-miterlimit="10" d="M23 27H11c-1.1 0-2-.9-2-2V8h16v17c0 1.1-.9 2-2 2zm4-19H7m7 0V6c0-.6.4-1 1-1h4c.6 0 1 .4 1 1v2m-3 15V12m4 11V12m-8 11V12"/></svg>`,
+
+    callback: function (row) {
+      // Find the index of the row to delete
+      const indexToDelete = $table.data.findIndex(item => item._id === row._id);
+      if (indexToDelete !== -1) {
+        // Remove the row from the data array
+        $table.data.splice(indexToDelete, 1);
+
+        // Update the data in the table component
+        $table.data = [...$table.data];
+
+        // Emit event to update the table
+        $table.tableSelectChange.emit({ value: [], isSelectAll: false });
+      }
+    },
+  },
+];
+
+  $table.addEventListener('table:table-cell-click', function (evt) {
+    document.getElementById('record').innerText = JSON.stringify(evt.detail.record, null, 3);
+    document.getElementById('column').innerText = evt.detail.column.label;
+  });
+
+  $table.addEventListener('table:table-select-change', function (evt) {
+    document.getElementById('selected-rows').innerText = JSON.stringify(evt.detail.value, null, 4);
+  });
+</script>
+```
+
+## Styling with CSS
+
+Custom styling can be applied with exposed CSS variables
+
+```html
+<head>
+  amalitech-data-table {
+  --inputComponentWidth: 20px;
+  --table-border-color: red;
+  --border-subtle-selected-01: red;
+  --colorAccent: red;
+  --table-border: 1rem solid;
+  --table-border-divider: gray;
+  --table-col-content-padding: 0.75rem 1rem;
+  --layer: white;
+  --layer-accent: white;
+  --layer-hover: white;
+  --input-background-color: red;
+  --input-border-radius: none;
+  --input-border: none;
+  --input-border-inline-start: 0.063rem solid #fff;
+  --input-border-inline-end: 0.063rem solid #fff;
+  --spacing-03: 0.5rem;
+  --spacing-04: 0.75rem;
+  --border-radius: 0;
+  --button-height: calc(2.5rem - 0.13rem);
+  --button-border-radius: none;
+  --text-primary: #fff;
+  --z-index-table-header: 30;
+  --color-primary: #000;
+  --color-neutral-600: #000;
+}
+</head>
+<body>
+  <amalitech-data-table></amalitech-data-table>
+</body>
+```
+
+## All CSS Variables
+
+```css
+amalitech-data-table {
+  --inputComponentWidth: 20px;
+  --table-border-color: red;
+  --border-subtle-selected-01: red;
+  --colorAccent: red;
+  --table-border: 1rem solid;
+  --table-border-divider: gray;
+  --table-col-content-padding: 0.75rem 1rem;
+  --layer: white;
+  --layer-accent: white;
+  --layer-hover: white;
+  --input-background-color: red;
+  --input-border-radius: none;
+  --input-border: none;
+  --input-border-inline-start: 0.063rem solid #fff;
+  --input-border-inline-end: 0.063rem solid #fff;
+  --spacing-03: 0.5rem;
+  --spacing-04: 0.75rem;
+  --border-radius: 0;
+  --button-height: calc(2.5rem - 0.13rem);
+  --button-border-radius: none;
+  --text-primary: #fff;
+  --z-index-table-header: 30;
+  --color-primary: #000;
+  --color-neutral-600: #000;
+}
+```

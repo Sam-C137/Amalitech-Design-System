@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>amalitech-visual-picker Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="/build/amalitech-design-system.esm.js"></script>
+    <script nomodule src="/build/build/amalitech-design-system.js"></script>
+    <link rel="stylesheet" href="/build/amalitech-design-system.css" />
+    <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+      :root {
+        /* --visual-picker-checked-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M17.66 11.2c-.23-.3-.51-.56-.77-.82c-.67-.6-1.43-1.03-2.07-1.66C13.33 7.26 13 4.85 13.95 3c-.95.23-1.78.75-2.49 1.32c-2.59 2.08-3.61 5.75-2.39 8.9c.04.1.08.2.08.33c0 .22-.15.42-.35.5c-.23.1-.47.04-.66-.12a.6.6 0 0 1-.14-.17c-1.13-1.43-1.31-3.48-.55-5.12C5.78 10 4.87 12.3 5 14.47c.06.5.12 1 .29 1.5c.14.6.41 1.2.71 1.73c1.08 1.73 2.95 2.97 4.96 3.22c2.14.27 4.43-.12 6.07-1.6c1.83-1.66 2.47-4.32 1.53-6.6l-.13-.26c-.21-.46-.77-1.26-.77-1.26m-3.16 6.3c-.28.24-.74.5-1.1.6c-1.12.4-2.24-.16-2.9-.82c1.19-.28 1.9-1.16 2.11-2.05c.17-.8-.15-1.46-.28-2.23c-.12-.74-.1-1.37.17-2.06c.19.38.39.76.63 1.06c.77 1 1.98 1.44 2.24 2.8c.04.14.06.28.06.43c.03.82-.33 1.72-.93 2.27'/%3E%3C/svg%3E"); */
+      }
+      amalitech-visual-picker {
+        margin-bottom: 5rem;
+      }
+      p {
+        width: 5em;
+      }
+    </style>
+  </head>
+  <body>
+    <amalitech-visual-picker>
+      <amalitech-visual-picker-item value="a" label="Alpha">
+        <p>&alpha;</p>
+      </amalitech-visual-picker-item>
+    </amalitech-visual-picker>
+    <amalitech-visual-picker select-variant="radio">
+      <amalitech-visual-picker-item value="wrench" label="wrench" disabled>
+        <svg xmlns="http://www.w3.org/2000/svg" width="5em" height="5em" viewBox="0 0 32 32">
+          <path
+            fill="black"
+            d="M26.834 14.693a7.062 7.062 0 0 0 1.193-7.334l-3.646 4.25l-3.593-.698l-1.19-3.462l3.636-4.242a7.063 7.063 0 0 0-8.106 9.903L5.625 24.04a2.79 2.79 0 0 0 4.209 3.661l9.493-10.917a7.072 7.072 0 0 0 7.508-2.09z"
+          />
+        </svg>
+      </amalitech-visual-picker-item>
+      <amalitech-visual-picker-item value="lightning" label="Lightning">
+        <svg xmlns="http://www.w3.org/2000/svg" width="5em" height="5em" viewBox="0 0 512 512">
+          <path
+            fill="black"
+            d="m292.53 20.5l19 40.594L66.314 28.75L362.03 158.125l-18.967-40.594l149.218 15.282zm-252 23.375L318.314 413.97L312.906 348l184.97 146.5L294 186.656l5.406 65.97zM20.907 76.22l36.5 316.405L83.03 351.75l68.095 139.344l-9.594-241.125l-25.624 40.843l-95-214.594z"
+          />
+        </svg>
+      </amalitech-visual-picker-item>
+      <amalitech-visual-picker-item value="fire" label="Fire">
+        <svg xmlns="http://www.w3.org/2000/svg" width="5em" height="5em" viewBox="0 0 24 24">
+          <path
+            fill="black"
+            d="M17.66 11.2c-.23-.3-.51-.56-.77-.82c-.67-.6-1.43-1.03-2.07-1.66C13.33 7.26 13 4.85 13.95 3c-.95.23-1.78.75-2.49 1.32c-2.59 2.08-3.61 5.75-2.39 8.9c.04.1.08.2.08.33c0 .22-.15.42-.35.5c-.23.1-.47.04-.66-.12a.6.6 0 0 1-.14-.17c-1.13-1.43-1.31-3.48-.55-5.12C5.78 10 4.87 12.3 5 14.47c.06.5.12 1 .29 1.5c.14.6.41 1.2.71 1.73c1.08 1.73 2.95 2.97 4.96 3.22c2.14.27 4.43-.12 6.07-1.6c1.83-1.66 2.47-4.32 1.53-6.6l-.13-.26c-.21-.46-.77-1.26-.77-1.26m-3.16 6.3c-.28.24-.74.5-1.1.6c-1.12.4-2.24-.16-2.9-.82c1.19-.28 1.9-1.16 2.11-2.05c.17-.8-.15-1.46-.28-2.23c-.12-.74-.1-1.37.17-2.06c.19.38.39.76.63 1.06c.77 1 1.98 1.44 2.24 2.8c.04.14.06.28.06.43c.03.82-.33 1.72-.93 2.27"
+          />
+        </svg>
+      </amalitech-visual-picker-item>
+    </amalitech-visual-picker>
+    <amalitech-visual-picker uncoverable>
+      <amalitech-visual-picker-item value="a" label="Alpha">
+        <p>&alpha;</p>
+      </amalitech-visual-picker-item>
+      <amalitech-visual-picker-item value="b" label="Beta">
+        <p>&beta;</p>
+      </amalitech-visual-picker-item>
+      <amalitech-visual-picker-item value="c" label="Gamma">
+        <p>&gamma;</p>
+      </amalitech-visual-picker-item>
+      <amalitech-visual-picker-item value="d" label="Delta">
+        <p>&delta;</p>
+      </amalitech-visual-picker-item>
+    </amalitech-visual-picker>
+  </body>
+  <script>
+    pickers = document.querySelectorAll('amalitech-visual-picker');
+    pickers.forEach(picker => {
+      picker.addEventListener('pickerChange', e => {
+        console.log(e.detail);
+      });
+    });
+  </script>
+</html>

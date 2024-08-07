@@ -1,0 +1,132 @@
+import * as MapStories from './amalitech-map.stories';
+import { Meta, Title, Description, Story, Canvas } from '@storybook/blocks';
+
+<Meta of={MapStories} />
+
+# How to use `amalitech-map`
+
+The map component can be used to show any geographical location on a map. 
+It can be used to show a single location or multiple locations. 
+It can also be used to locate the current user with the help of a dedicated button.
+
+You could use it like this:
+
+## Default
+
+<Canvas of={MapStories.Default} />
+
+```html
+<amalitech-map></amalitech-map>
+```
+
+## With Custom Dimensions
+
+You can resize the map component by adding width and height attributes.
+
+<Canvas of={MapStories.WithCustomHeightAndWidth} />
+
+```html
+<amalitech-map width="50%" height="400px"></amalitech-map>
+```
+
+## With Custom Zoom Level
+
+You can set the zoom level of the map component by adding a zoom attribute.
+
+<Canvas of={MapStories.WithCustomZoomLevel} />
+
+```html
+<amalitech-map zoom="15"></amalitech-map>
+```
+
+## With Custom Latitude and Longitude
+
+You can set the latitude and longitude of the map component by adding `latitude` and `longitude` attributes.
+
+<Canvas of={MapStories.WithCustomCoordinates} />
+
+```html
+<amalitech-map latitude="4.894491592221901" longitude="-1.756363203403844"></amalitech-map>
+```
+
+## With Custom Popup Name
+
+You can customize the name of popups on the map component by adding a `name` attribute.
+
+<Canvas of={MapStories.WithCustomPopupName} />
+
+```html
+<amalitech-map latitude="5.6339642" longitude="-0.1514209" name="Amalitech Head Office Accra"></amalitech-map>
+```
+
+## Without Nearby Locations
+
+You can disable the nearby locations list feature by adding a `hide-near-by-list` attribute.
+
+<Canvas of={MapStories.WithoutNearByList} />
+
+```html
+<amalitech-map hide-near-by-list></amalitech-map>
+```
+
+## Markers
+
+You can add markers to the map component by calling the `addMarker` method.
+
+```javascript
+  document.addEventListener('DOMContentLoaded', () => {
+    const map = document.querySelector('amalitech-map') as any;
+    map.addMarker(4.894491592221901, -1.756363203403844, 'Amalitech Head Office Takoradi');
+  });
+```
+
+## Styling with CSS
+
+Custom styling can be applied with exposed CSS variables
+
+```html
+<head>
+    amalitech-map {
+        --map-border-radius: 0.5rem;
+        --map-coordinates-icon-color: #000;
+        --map-coordinates-list-text-primary-color: #eee;
+    }
+</head>
+<body>
+    <amalitech-map></amalitech-map>
+</body>
+```
+
+## All CSS Variables
+
+```css
+    amalitech-map {
+        /* Map */
+        --map-border-radius: 0.5rem; 
+
+        /* Popup */
+        --map-popup-font-weight: 600; 
+        --map-popup-font-size: 1rem; 
+
+        /* Coordinates List */
+        --map-coordinates-list-border-width: 0.063rem; 
+        --map-coordinates-list-border-radius: 0.4rem; 
+        --map-coordinates-list-border-color: #e6e8f0; 
+        --map-coordinates-list-padding-tb: 0.2rem; 
+        --map-coordinates-list-padding-lr: 1rem; 
+        --map-coordinates-list-margin-b: 0.4rem; 
+        --map-coordinates-list-hover-bg: #e6e8f0; 
+
+        /* Coordinates Icon */
+        --map-coordinates-icon-color: #dd5928; 
+
+        /* Landmark Text */
+        --map-landmark-text-font-size: 1.2rem; 
+
+        /* Coordinates List Text */
+        --map-coordinates-list-text-primary-size: 1rem; 
+        --map-coordinates-list-text-primary-color: #dd5928; 
+        --map-coordinates-list-text-secondary-color: #474d66; 
+        --map-coordinates-list-text-secondary-size: 1rem; 
+    }
+```

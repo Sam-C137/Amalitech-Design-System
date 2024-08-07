@@ -1,0 +1,27 @@
+@import '../../../global/variables.scss';
+
+/**
+* Exposed CSS variables
+*
+* @prop --docked-utility-bar-border-top-color: The color of the border at the top of the bar default is `#c1c4d6`
+* @prop --docked-utility-bg-color: The background color of the bar default is `#fff`
+*/
+
+:host {
+  font-family: $base-font-family;
+}
+
+footer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 1.5rem;
+  background-color: var(--docked-utility-bg-color, $light);
+  height: 4.5rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 400;
+  border-top: 0.125rem solid $neutral-200;
+  border-top-color: var(--docked-utility-bar-border-top-color, $neutral-200);
+}

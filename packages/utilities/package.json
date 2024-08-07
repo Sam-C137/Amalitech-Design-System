@@ -1,0 +1,35 @@
+{
+    "name": "@amalitech-design-system/utilities",
+    "version": "0.8.0",
+    "description": "Amalitech Design System Utilities",
+    "license": "MIT",
+    "files": [
+        "src/",
+        "dist/"
+    ],
+    "type": "module",
+    "private": false,
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "prebuild": "npm run sass:build",
+        "build": "npm run build:dev && npm run build:prod",
+        "sass:build": "sass ./src/main.scss ./lib/main.css",
+        "sass:watch": "sass ./src/main.scss ./lib/main.css --watch",
+        "build:dev": "cross-env NODE_ENV=development postcss ./lib/main.css -o ./dist/main.css",
+        "build:prod": "cross-env NODE_ENV=production postcss ./lib/main.css -o ./dist/main.min.css"
+    },
+    "dependencies": {
+        "@amalitech-design-system/design-tokens": "^0.8.0",
+        "postcss": "^8.4.38",
+        "sass": "^1.71.1"
+    },
+    "gitHead": "b1997629b45a7bce5f28117a33e4bc6e5ea68c7f",
+    "devDependencies": {
+        "cssnano": "^6.1.2",
+        "postcss-cli": "^11.0.0",
+        "postcss-import": "^16.1.0",
+        "postcss-preset-env": "^9.5.5"
+    }
+}

@@ -1,0 +1,58 @@
+@mixin clamp($lines) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre-line;
+}
+
+/**
+ * @summary Sets default line clamp of 3 lines for multi-line truncation, can be altered by a token
+ *
+ * @selector .line-clamp
+ * @modifier
+ */
+.line-clamp {
+  @include clamp(1);
+}
+
+/**
+ * @summary Sets line clamp for extra small multi-line truncation
+ *
+ * @selector .line-clamp-xs
+ * @modifier
+ */
+.line-clamp-xs {
+  @include clamp(2);
+}
+
+/**
+ * @summary Sets line clamp for small multi-line truncation
+ *
+ * @selector .line-clamp-sm
+ * @modifier
+ */
+.line-clamp-sm {
+  @include clamp(3);
+}
+
+/**
+ * @summary Sets line clamp for medium multi-line truncation
+ *
+ * @selector .line-clamp-md
+ * @modifier
+ */
+.line-clamp-md {
+  @include clamp(5);
+}
+
+/**
+ * @summary Sets line clamp for large multi-line truncation
+ *
+ * @selector .line-clamp-lg
+ * @modifier
+ */
+.line-clamp-lg {
+  @include clamp(7);
+}

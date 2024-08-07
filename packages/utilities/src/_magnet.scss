@@ -1,0 +1,30 @@
+/**
+ * @summary Assumes element below is connected
+ *
+ * @selector .has-bottom-magnet
+ * @modifier
+ */
+.has-bottom-magnet {
+  margin-bottom: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/**
+ * @summary Assumes element above is connected
+ *
+ * @selector .has-top-magnet
+ * @modifier
+ */
+.has-top-magnet {
+  margin-top: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+
+  &.has-buffer {
+    margin-bottom: 0;
+    border-radius: 0;
+    border-top: 0;
+    box-shadow: none;
+  }
+}

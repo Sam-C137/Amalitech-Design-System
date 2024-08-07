@@ -1,0 +1,90 @@
+import * as SnackbarStories from './amalitech-snackbar.stories.tsx';
+import { Meta, Title, Description, Story, Canvas } from '@storybook/blocks';
+
+<Meta of={SnackbarStories} />
+
+# How to use `amalitech-snackbar`
+
+The snackbar component is allows you to show messages to users. The `snackbar-text` attribute is used
+to set the main text content of the snackbar component. The `call-to-action-text` attribute is also used
+to set text but in the context of which text may be used to activate a link. Pass in the `target` attribute
+to reference the link a `call-to-action-text` may point to.
+
+You could use it like this:
+
+## Default
+
+<Canvas of={SnackbarStories.Normal} />
+
+```html
+<amalitech-snackbar snackbar-text="Setup your staff directory." call-to-action-text="Learn more"></amalitech-snackbar>
+```
+
+## Rounded
+
+Add the `rounded` attribute to show a variant with rounded corners
+
+<Canvas of={SnackbarStories.Rounded} />
+
+```html
+<amalitech-snackbar snackbar-text="Setup your staff directory." call-to-action-text="Learn more" rounded></amalitech-snackbar>
+```
+
+## Closeable
+
+Making you can make the component closeable or have a close button by attaching a `closeable` attribute.
+
+<Canvas of={SnackbarStories.Closeable} />
+
+```html
+<amalitech-snackbar snackbar-text="Setup your staff directory." call-to-action-text="Learn more" closeable></amalitech-snackbar>
+```
+
+## UnCloseable
+
+By default the component is uncloseable however you can still specify this by setting the `closeable` attribute to a value of false
+
+<Canvas of={SnackbarStories.UnCloseable} />
+
+```html
+<amalitech-snackbar snackbar-text="Setup your staff directory." call-to-action-text="Learn more" closeable="false"></amalitech-snackbar>
+```
+
+## Styling with CSS
+
+Custom styling can be applied with exposed CSS variables
+
+```html
+<head>
+  amalitech-snackbar {
+    --background-color: #f6f6f8; 
+    --color: #474d66; 
+    --padding-top: 0.5rem; 
+    --padding-right: 1rem; 
+    --padding-bottom: 0.5rem; 
+    --padding-left: 1rem; 
+    --font-size: 0.8125rem; 
+    --font-weight: normal; 
+    --font-family: "Work Sans"; 
+  }
+</head>
+<body>
+  <amalitech-snackbar closeable close-secs="5" snackbar-text="Setup your staff directory." call-to-action-text="Learn more" auto-close rounded></amalitech-snackbar>
+</body>
+```
+
+## All CSS Variables
+
+```css
+amalitech-snackbar {
+  --background-color: #f6f6f8;
+  --color: #474d66;
+  --padding-top: 0.5rem;
+  --padding-right: 1rem;
+  --padding-bottom: 0.5rem;
+  --padding-left: 1rem;
+  --font-size: 0.8125rem;
+  --font-weight: normal;
+  --font-family: 'Work Sans';
+}
+```

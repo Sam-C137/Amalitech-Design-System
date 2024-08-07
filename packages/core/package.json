@@ -1,0 +1,74 @@
+{
+  "name": "@amalitech-design-system/core",
+  "version": "0.8.3",
+  "description": "Stencil Component Starter",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "es2015": "dist/esm/index.js",
+  "es2017": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/amalitech-design-system/amalitech-design-system.esm.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amali-Tech/Amalitech-Design-System.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "scripts": {
+    "generate-html": "node generate-html.js",
+    "prebuild": "node pre-build.js",
+    "build": "npm run generate-html && stencil build --docs",
+    "prestart": "node pre-build.js",
+    "start": "stencil build --dev --watch --serve",
+    "dev": "npm run build -w@amalitech-design-system/core && lerna run storybook",
+    "pretest": "node pre-build.js",
+    "test": "stencil test --spec --e2e --headless",
+    "lint": "eslint src/**/*{.ts,.tsx}",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "generate": "stencil generate",
+    "generate-icons": "npm run generate-icons:linear & npm run generate-icons:bold & npm run generate-icons:two-tone & npm run generate-icons:bulk-two-tone",
+    "generate-icons:linear": "node icon-cli.js --src src/assets/icons/linear --dest src/components/amalitech-icons/linear/ --prefix amalitech-icon --remove-old --optimize",
+    "generate-icons:bold": "node icon-cli.js --src src/assets/icons/bold --dest src/components/amalitech-icons/bold/ --prefix amalitech-icon --remove-old --optimize",
+    "generate-icons:two-tone": "node icon-cli.js --src src/assets/icons/two-tone --dest src/components/amalitech-icons/two-tone/ --prefix amalitech-icon --remove-old --optimize",
+    "generate-icons:bulk-two-tone": "node icon-cli.js --src src/assets/icons/bulk-two-tone --dest src/components/amalitech-icons/bulk-two-tone/ --prefix amalitech-icon --remove-old --optimize",
+    "generate-icons:json": "node json-cli.js"
+  },
+  "dependencies": {
+    "@amalitech-design-system/design-tokens": "^0.8.0",
+    "@iconify/iconify": "^3.1.1",
+    "@stencil-community/eslint-plugin": "^0.7.1",
+    "@stencil/angular-output-target": "^0.8.4",
+    "@stencil/core": "^4.7.0",
+    "kleur": "^4.1.5",
+    "leaflet": "^1.9.4",
+    "leaflet.locatecontrol": "^0.79.0",
+    "leaflet.markercluster": "^1.5.3",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^3.0.0",
+    "svg-to-jsx": "^1.0.4",
+    "svgo": "^3.2.0",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@stencil/sass": "^3.0.7",
+    "@types/jest": "^29.5.6",
+    "@types/leaflet": "^1.9.8",
+    "@types/leaflet.locatecontrol": "^0.74.4",
+    "@types/leaflet.markercluster": "^1.5.4",
+    "@types/node": "^16.18.11",
+    "jest": "^29.7.0",
+    "jest-cli": "^29.7.0",
+    "puppeteer": "21.1.1"
+  },
+  "license": "MIT",
+  "homepage": "https://amalitech-design-system.amalitech-dev.net",
+  "author": "",
+  "gitHead": "b1997629b45a7bce5f28117a33e4bc6e5ea68c7f"
+}

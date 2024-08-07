@@ -1,0 +1,130 @@
+/**
+* Exposed CSS variabled 
+*
+* @prop --select-width: The width of the select default is `174px`
+* @prop --select-label-bg: The background of the select label default is `$light`
+* @prop --select-label-padding: The padding of the select label default is `0.5rem 0.75rem`
+* @prop --select-label-font-size: The font size of the select label default is `0.875rem`
+* @prop --select-label-weight: The font weight of the select label default is `500`
+* @prop --select-label-border-width: The border width of the select label default is `1px`
+* @prop --select-label-border-color: The border color of the select label default is `$neutral-500`
+* @prop --select-label-gap: The gap between the select label default is `1rem`
+* @prop --select-label-radius: The border radius of the select label default is `0.35rem`
+* @prop --select-dropdown-bg: The background of the select dropdown default is `$light`
+* @prop --select-dropdown-padding: The padding of the select dropdown default is `0.35rem`
+* @prop --select-dropdown-radius: The border radius of the select dropdown default is `0.35rem`
+* @prop --select-dropdown-height: The height of the select dropdown, useful when the select is scrollable default is `10rem`
+* @prop --select-dropdown-border-color: The border color of the select dropdown default is `$neutral-500`
+* @prop --select-dropdown-border-width: The border width of the select dropdown default is `1px`
+* @prop --select-font-family: The font family of the select default is `--amalitech-font-family-sans`
+* @prop --select-label-color: The color of the select label default is `--amalitech-color-dark`
+*/
+
+$neutral-500: #696f8c;
+
+:host {
+  width: var(--select-width, calc(0.75rem * 2 + 150px));
+  display: block;
+  font-weight: 500;
+  position: relative;
+
+  ::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #888888;
+    border-radius: 0.25rem;
+    display: block;
+  }
+}
+
+button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: var(--select-label-padding, 0.5rem 0.75rem);
+  font-family: var(--select-font-family, $base-font-family);
+  font-size: var(--select-label-font-size, 0.875rem);
+  font-weight: var(--select-label-weight, 500);
+  border-radius: var(--select-label-radius, 0.35rem);
+  border: var(--select-label-border-width, 1px) solid var(--select-label-border-color, $neutral-500);
+  background: var(--select-label-bg, $light);
+  gap: var(--select-label-gap, 1rem);
+  color: var(--select-label-color, $dark);
+  &:focus-visible {
+    @include focus;
+  }
+  width: 100%;
+  margin-bottom: 0.125rem;
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    color: adjust-color($color: $neutral-500, $alpha: 0.8);
+  }
+}
+
+section {
+  padding: var(--select-dropdown-padding, 0.35rem);
+  border-radius: var(--select-dropdown-radius, 0.35rem);
+  border: var(--select-dropdown-border-width, 1px) solid var(--select-dropdown-border-color, $neutral-500);
+  opacity: 0;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  background: var(--select-dropdown-bg, $light);
+  pointer-events: none;
+  &.scrollable {
+    max-height: var(--select-dropdown-height, 10rem);
+    overflow-y: auto;
+  }
+
+  &.open {
+    animation: moveDownOut 0.1s linear forwards;
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.arrow-down {
+  transform: rotate(0deg);
+  transition: transform 0.3s;
+}
+
+.arrow-up {
+  transform: rotate(-180deg);
+  transition: transform 0.3s;
+}
+
+.required {
+  margin: 0.2rem;
+  font-size: 0.8rem;
+  background: $red-200;
+  padding: 0.1rem 0.2rem;
+  border-radius: 0.25rem;
+  color: $red-500;
+  width: -moz-fit-content;
+  width: fit-content;
+  float: right;
+}
+
+@keyframes moveDownOut {
+  0% {
+    transform: translateY(-0.5rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+::slotted(*) {
+  font-family: $base-font-family;
+}

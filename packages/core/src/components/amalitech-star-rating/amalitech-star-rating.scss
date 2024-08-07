@@ -1,0 +1,47 @@
+@import '../../global/variables.scss';
+
+/**
+* Exposed CSS variables
+*
+* @prop --star-rating-transition-duration: The transition duration of the star rating default is 0.3s
+* @prop --star-rating-active: The color of the star when active default is #dd5928
+* @prop --star-rating-gap: The gap between the stars default is 0
+* @prop --star-rating-disabled: The color of the star when disabled default is #c1c4d6
+*/
+
+:host {
+  display: flex;
+  gap: var(--star-rating-gap, 0);
+}
+
+*,
+*::before,
+*::after {
+  transition: all var(--star-rating-transition-duration, 0.3s) ease;
+}
+
+svg {
+  cursor: pointer;
+  &.active path {
+    fill: var(--star-rating-active, $orange-500);
+    stroke: var(--star-rating-active, $orange-500);
+  }
+  &:focus {
+    outline: none;
+  }
+  &:focus-visible {
+    @include focus;
+    border-radius: 0.125rem;
+    border: none;
+  }
+}
+
+:host([disabled]) svg {
+  cursor: not-allowed;
+  path {
+    stroke: var(--star-rating-disabled, $neutral-300);
+  }
+  &.active path {
+    fill: var(--star-rating-disabled, $neutral-300);
+  }
+}
